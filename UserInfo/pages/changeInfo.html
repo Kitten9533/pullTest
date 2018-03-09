@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/mui.picker.min.css" />
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/weui.min.css" />
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/calRem.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.text-red {
+				color: red;
+			}
+			
+			.mui-input-row label {
+				font-size: 14px;
+			}
+			
+			.width-50 label,
+			div.width-50 input {
+				width: 50%;
+			}
+			
+			.width-40 label {
+				width: 40%;
+			}
+			
+			div.width-40 input {
+				width: 60%;
+			}
+			
+			input::-webkit-input-placeholder,
+			textarea::-webkit-input-placeholder {
+				font-size: 12px;
+			}
+			
+			.mui-content .mui-input-group {
+				margin-top: 10px;
+			}
+			
+			.mui-content .mui-input-group:first-child {
+				margin-top: 0;
+			}
+			
+			h5 {
+				color: #000;
+				padding-top: 5px;
+				padding-left: 15px;
+			}
+			
+			textarea {
+				border-radius: 0;
+			}
+			
+			.mui-input-group,
+			textarea {
+				border: none;
+			}
+			
+			textarea {
+				margin-bottom: 0;
+			}
+			
+			.mui-input-group:before,
+			.mui-input-group:after {
+				display: none;
+			}
+			
+			.mui-input-group .mui-input-row:last-child:after {
+				display: none;
+			}
+			
+			.submit {
+				width: 80%;
+				display: block;
+				margin: 30px auto;
+				background-color: #0FAEBD;
+				border-radius: 3px;
+				border: none;
+				color: #FFFFFF;
+			}
+			
+			.marTop-0 {
+				margin-top: 0;
+			}
+			.mui-content-padded{
+				margin:0;
+			}
+			.margin-b {
+				margin-bottom: 0.5rem
+			}
+			.mui-input-row label~input{
+				width:50%;
+				margin-right:0.5rem;
+			}
+			input{
+				text-align: right;
+			}
+			.footTip{
+				font-size: 0.3rem;
+    			padding-left: 0.28rem;
+			}
+			.tab1, .tab2{
+				display:none;
+			}
+			#isCPPCC,#isVip{
+				height:50px;
+			}
+			textarea{
+				resize: none;
+				border: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="mui-content">
+			<div class="mui-content-padded margin-b">
+				<div class="mui-input-group">
+					<div class="mui-input-row">
+						<label>姓名</label>
+						<input id="userName" type="text" class="mui-input-clear name" placeholder="请输入">
+					</div>
+					<div class="mui-input-row">
+						<label>昵称</label>
+						<input id="nickName" type="text" class="mui-input-clear nick" placeholder="请输入">
+					</div>
+					<div class="mui-input-row" id="sexBox">
+						<label>性别</label>
+						<input type="text" id="userGender" class="mui-input sex" placeholder="请选择">
+					</div>
+					<div class="mui-input-row" id="healthBox">
+						<label>健康类型</label>
+						<input type="text" id="healthType" class="mui-input healthType" placeholder="请选择">
+					</div>
+				</div>
+			</div>
+			<div class="mui-content-padded margin-b">
+				<div class="mui-input-group">
+					<div class="mui-input-row" id="">
+						<label>生日</label>
+						<input type="text" id="birth" data-options='{"type":"date"}' class="mui-input birth" placeholder="请选择">
+					</div>
+					<div class="mui-input-row">
+						<label>所在地</label>
+						<input id="nickName" type="text" class="mui-input-clear nick" placeholder="请输入">
+					</div>
+					<div class="mui-input-row" id="healthInsuranceTypeBox">
+						<label>医保类型</label>
+						<input type="text" id="healthInsuranceType" class="mui-input healthInsuranceType" placeholder="请选择">
+					</div>
+					<div class="mui-input-row" id="healthBox">
+						<label>健康类型</label>
+						<input type="text" id="healthType" class="mui-input healthType" placeholder="请选择">
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

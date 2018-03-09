@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+		<script src="./js/calRem.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="./css/reset.css?12344" />
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/weui.min.css" />
+		<link rel="stylesheet" type="text/css" href="./css/huizhen.css?342423" />
+		<style>
+			.weui-uploader {
+				background: #fff;
+			}
+			
+			.weui-uploader__input-box {
+				width: 50px;
+				height: 50px;
+				margin: 15px;
+			}
+			
+			.weui-uploader__bd {
+				margin: 0;
+			}
+			
+			.marTop-0 {
+				margin-top: 0;
+			}
+			
+			input {
+				font-size: 0.3rem;
+			}
+			
+			#ImgUp .weui-uploader__file img {
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+		<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+		<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: "./",
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+					"vue": "https://cdn.bootcss.com/vue/1.0.26/vue.min",
+					"yjyInit": "./js/yjyInit",
+					"ajaxFile": "js/ajaxfileupload"
+				},
+				shim: {
+					"zepto": {
+						exports: "$"
+					},
+					"vue": {
+						exports: "Vue"
+					}
+				}
+			});
+			require(['yjyInit']);
+		</script>
+		<script type="text/javascript">
+			function getRequest(strParame) { //用于取url中参数的值方法
+				var args = new Object();
+				var query = window.location.search.substring(1);
+				var pairs = query.split("&");
+				for(var i = 0; i < pairs.length; i++) {
+					var pos = pairs[i].indexOf('=');
+					if(pos == -1) continue;
+					var argname = pairs[i].substring(0, pos);
+					var value = pairs[i].substring(pos + 1);
+					value = decodeURIComponent(value);
+					args[argname] = value;
+				}
+				args[strParame] = args[strParame] || "";
+				return args[strParame];
+			};
+			if(getRequest("access") == "hzhen") {
+				document.title = "二诊";
+			} else if(getRequest("access") == "国内第二意见") {
+				document.title = "国内第二意见";
+			} else if(getRequest("access") == "名医点刀") {
+				document.title = "名医点刀";
+			} else {
+				document.title = "点刀";
+			}
+		</script>
+		<title></title>
+	</head>
+
+	<body>
+		<div id="app">
+			<div class="chosePage">
+				<div class="selfChose"><span class="self">自己选专家</span></div>
+				<div class="otherChose"><span class="other">请帮我推荐</span></div>
+			</div>
+			<div class="page_1" id="page1" isShow="1" style="display: none;">
+				<ul class="firstList firstList1">
+					<li lb="first">
+						<span class="zuo">首选专家</span>
+						<div class="rightArrow">
+
+						</div>
+						<span class="you" id="firstProfessor">请选择专家</span>
+					</li>
+					<li lb="second">
+						<span class="zuo">次选专家</span>
+						<div class="rightArrow">
+
+						</div>
+						<span class="you" id="secondProfessor">请选择专家</span>
+					</li>
+				</ul>
+				<div class="cf1">
+					<p>找不到专家？手写专家信息</p>
+				</div>
+				<ul class="firstList">
+					<li>
+						<span class="zuo">专家姓名</span>
+						<input class="youIn" id="doctorName" type="text" placeholder="请输入专家姓名"></input>
+					</li>
+					<li>
+						<span class="zuo">所属医院名称</span>
+						<input class="youIn" id="hospitalName" type="text" placeholder="请输入完整医院名称"></input>
+					</li>
+				</ul>
+				<div class="cf2"></div>
+				<div class="choseDetail choseDisease">
+					<span class="zuo">疾病</span>
+					<div class="rightArrow">
+
+					</div>
+					<span class="you" id="disease1">请选择</span>
+				</div>
+				<div class="cf2"></div>
+				<div class="choseDetail choseTime" lb="page1">
+					<span class="zuo">期望时间</span>
+					<div class="downArrow">
+
+					</div>
+					<span class="you" id="time1">请选择</span>
+				</div>
+				<div class="cf1">
+					<p>联系人信息</p>
+				</div>
+				<ul class="firstList">
+					<li>
+						<span class="zuo">联系人姓名</span>
+						<input class="youIn" id="contactName-1" type="text" placeholder="请输入联系人姓名"></input>
+					</li>
+					<li>
+						<span class="zuo">联系人电话</span>
+						<input class="youIn" id="contactMobile-1" type="text" placeholder="请输入联系人电话"></input>
+					</li>
+				</ul>
+			</div>
+			<div class="page_2" isShow="0" style="display: none;">
+				<ul class="firstList firstList2">
+					<li lb="city">
+						<span class="zuo">期望就医城市</span>
+						<div class="rightArrow">
+
+						</div>
+						<span class="you" id="city">请选择</span>
+					</li>
+					<li lb="expert">
+						<span class="zuo">所需要的专家级别</span>
+						<div class="rightArrow">
+
+						</div>
+						<span class="you expert" id="needExpertGrade">请选择</span>
+					</li>
+				</ul>
+				<div class="cf2"></div>
+				<ul class="firstList firstList3">
+					<li class="illness">
+						<span class="zuo">疾病</span>
+						<div class="rightArrow">
+
+						</div>
+						<span class="you" id="disease2">请选择</span>
+					</li>
+					<li class="budget">
+						<span class="zuo">预算费用</span>
+						<div class="downArrow">
+
+						</div>
+						<span class="you money">请选择</span>
+					</li>
+				</ul>
+				<div class="cf2"></div>
+				<div class="choseDetail choseTime" lb="page2">
+					<span class="zuo">期望时间</span>
+					<div class="downArrow">
+
+					</div>
+					<span class="you" id="time2">请选择</span>
+				</div>
+				<div class="cf1">
+					<p>联系人信息</p>
+				</div>
+				<ul class="firstList">
+					<li>
+						<span class="zuo">联系人姓名</span>
+						<input class="youIn" id="contactName-2" type="text" placeholder="请输入联系人姓名"></input>
+					</li>
+					<li>
+						<span class="zuo">联系人电话</span>
+						<input class="youIn" id="contactMobile-2" type="text" placeholder="请输入联系人电话"></input>
+					</li>
+				</ul>
+			</div>
+			<div class="cf2"></div>
+			<div class="description">
+				<span class="miaoshu">病情描述：</span>
+				<textarea id="illnessDescribe" placeholder="（例：直肠癌中期分腺化癌，女66岁，化疗放疗一个疗程，未手术，一天大便十几次，有时拉不出大便，大便带桃花胧时有血，每天肿胀疼痛）"></textarea>
+			</div>
+			<div class="cf2"></div>
+			<div class="description">
+				<span class="miaoshu">需要的帮助和其它要求：</span>
+				<textarea id="need" placeholder="（例：直肠癌中期分腺化癌，我妈妈身体比较虚弱。放疗化疗之后没有明显好转，现在停止了放疗和化疗，可以直接手术嘛？）"></textarea>
+			</div>
+			<div class="cf2"></div>
+			<div class="uploadPic">
+
+				<!--<div class="thePictures">
+					<div class="clear"></div>
+					<div id="fileList" class="lookimg">
+						<div class="opacity"></div>
+						<div id="bigimg"></div>
+					</div>
+					<div class="clear"></div>
+					<div class="picture" id="picture">
+						<div class="xian1"></div>
+						<div class="xian2"></div>
+						<input type="file" multiple accept="image/*" id="fileElem0" name="fileElem">
+					</div>
+				</div>
+			</div>-->
+
+				<div class="weui-uploader">
+					<p>给专家提供参考图片</p>
+					<div class="weui-uploader__bd" id="upLoaderWrap">
+						<div class="weui-uploader__input-box upLoad">
+						</div>
+						<ul class="weui-uploader__files" id="ImgUp">
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="foot_button" id="toSubmit">
+				提交
+			</div>
+			<div class="blank">
+
+			</div>
+			<div class="chooseList">
+				<div class="top">
+					<p dj="true" class="miss">取消</p>
+				</div>
+				<div class="choose on" id="chooseList">
+
+				</div>
+			</div>
+			<div class="mod"></div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		function viewDidAppear() {
+			require(['./js/huizhen.js?v=1.0.0'], function(huizhen) {
+				huizhen.getDisease();
+			});
+		};
+
+		function selectDiseaseForIOS(arr1, arr2) {
+			localStorage.inf1 = arr1;
+			localStorage.inf2 = arr2;
+			require(['./js/huizhen.js?v=1.0.0'], function(huizhen) {
+				huizhen.getDisease();
+			});
+		}
+
+		function selectCityForIOS(arr) {
+			localStorage.inf2 = arr;
+			require(['./js/huizhen.js?v=1.0.0'], function(huizhen) {
+				huizhen.getDisease();
+			});
+		}
+
+		function selectDoctorForIOS(arr) {
+			localStorage.selectDoctorBean = arr;
+			require(['./js/huizhen.js?v=1.0.0'], function(huizhen) {
+				huizhen.getDisease();
+			});
+		}
+	</script>
+	<script>
+		require(['./js/huizhen.js?v=1.0.0'], function(huizhen) {
+			huizhen.getDisease();
+		});
+		//		if(!!getRequest('doFun') && getRequest('doFun')=='selectDoctorForIOS'){
+		//			selectDoctorForIOS(getRequest('funVal'));
+		//		}else{
+		//			require(['./js/huizhen.js?v=050807']);
+		//		}
+	</script>
+
+</html>

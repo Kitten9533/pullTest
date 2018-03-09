@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/mui.picker.min.css" />
+		<style>
+			html,
+			body {
+				height: 100%;
+				position: relative;
+			}
+			
+			::-webkit-scrollbar{
+				display: none;
+				width: 0;
+			}
+			.headers{
+				width: 7.5rem;
+				height: 3.72rem;
+				background: #1D6BF4;
+				background:-webkit-gradient(linear, 0 0, 0 100%, from(#1D6BF4), to(#43DAFF));
+				position: relative;
+			}
+			.header-title{
+				display: block;
+				position: absolute;
+				width: 3.66rem;
+				height: 0.74rem;
+				top: 0.80rem;
+				left: 1.92rem;
+			}
+			.box{
+				width: 100%;
+				position: absolute;
+				top: 2.34rem;
+			}
+			.list{
+				width: 7.5rem;
+				text-align: center;
+				margin: 0 auto;
+			}
+			.list li{
+				display: inline-block;
+				width: 2.5rem;
+				box-sizing: border-box;
+				float: left;
+			}
+			li p{
+				color: #fff;
+				margin-bottom: 0.16rem;
+			}
+			.desc{
+				font-family: PingFangSC-Regular;
+				font-size: 0.28rem;
+				color: #FFFFFF;
+				letter-spacing: 0;
+				line-height: 0.32rem;
+			}
+			.value{
+				font-family: PingFangSC-Medium;
+				font-size: 0.44rem;
+				color: #FFFFFF;
+				letter-spacing: 0;
+				line-height: 0.32rem;
+			}
+			.btns{
+				width: 100%;
+				height: 1.48rem;
+			}
+			.btns .btn{
+				display: inline-block;
+				box-sizing: border-box;
+				width: 50%;
+				float: left;
+				height: 1.48rem;
+				background: #fff;
+				text-align: center;
+				line-height: 1.48rem;
+				border-right: 1px solid #e0e0e0;
+			}
+			.btns .btn:last-child{
+				border: none;
+			}
+			.btn img{
+				display: inline-block;
+				margin-right: 0.20rem;
+				width: 0.68rem;
+				height: 0.68rem;
+			}
+		</style>
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/calRem.js" type="text/javascript" charset="utf-8"></script>
+		<title>我的业绩</title>
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: "./",
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+					"medtapCore": "https://review-formal.iplusmed.com/Common/javaScript/medtap-core-1.0.2",
+					"md5": "https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min",
+					"mui": "https://review-formal.iplusmed.com/Common/javaScript/mui.min",
+					"mui.picker": "https://review-formal.iplusmed.com/Common/javaScript/mui.picker.min"
+				},
+				shim: {
+					"zepto": {
+						exports: "$"
+					},
+					"mui.picker": ["mui"]
+				}
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="headers">
+			<img class="header-title" src="../images/my_results_overview@2x.png" />
+			<div class="box">
+							<ul class="list">
+				<li>
+					<p class="value valid">···</p>
+					<p class="desc">注册:</p>
+				</li>
+				<li>
+					<p class="value amount">···</p>
+					<p class="desc">订单数量:</p>
+				</li>
+				<li>
+					<p class="value allFee">···</p>
+					<p class="desc">订单金额:</p>
+				</li>
+			</ul>
+			</div>
+
+		</div>
+		<div class="btns">
+			<div class="btn tabOne"><img src="../images/my_results_registered@2x.png">注册明细</div>
+			<div class="btn tabTwo"><img src="../images/my_results_order@2x.png">订单明细</div>
+		</div>
+	</body>
+	<script>
+		require(['../javaScript/myAchievement.js?v=1.0.2&a=2']);
+	</script>
+
+</html>

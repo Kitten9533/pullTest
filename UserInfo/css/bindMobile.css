@@ -1,0 +1,130 @@
+html,
+body {
+	background: #fff;
+	margin: 0 auto;
+	position: relative;
+}
+
+.header {
+	padding-top: 1.22rem;
+}
+
+.avatar {
+	display: block;
+	width: 1.58rem;
+	height: 2.10rem;
+	margin: 0 auto 0.90rem auto;
+}
+
+.box-cell {
+	width: 6.42rem;
+	height: 0.90rem;
+	margin: 0.30rem auto;
+	position: relative;
+	border-radius: 0.10rem;
+	background: #f7f7f7;
+}
+
+.box-cell:before {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 0.32rem;
+	height: 0.40rem;
+	top: 0.26rem;
+	left: 0.40rem;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+.icon-mobile:before {
+	background-image: url('../images/login_icon_phone@2x.png');
+}
+
+.icon-smsCode:before {
+	background-image: url('../images/login_icon_validation@2x.png');
+}
+
+.box-cell input {
+	padding: 0.26rem 0.40rem 0.24rem 1.02rem;
+	height: 0.90rem;
+	background: #f7f7f7;
+	color: #222;
+	border: none;
+	font-size: 0.28rem;
+	font-family: PingFangSC-Regular;
+	line-height: 0.32rem;
+}
+
+.box-cell input.mobile {
+	padding-right: 2.60rem;
+}
+
+.box-cell input::-webkit-input-placeholder {
+	color: #bbb;
+}
+
+.getSms {
+	position: absolute;
+	top: 0.22rem;
+	right: 0.40rem;
+	width: 1.80rem;
+	height: 0.48rem;
+	border-radius: 1.18rem;
+	font-size: 0.28rem;
+	color: #0FAEBD;
+	letter-spacing: 0;
+	line-height: 0.48rem;
+	padding: 0;
+	border: none;
+}
+
+.scale:active:after {
+	border: none;
+}
+
+.scale:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	border: 1px solid #51C6D0;
+	border-radius: 1.18rem;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 200%;
+	height: 200%;
+	-webkit-transform: scale(0.5);
+	transform: scale(0.5);
+	-webkit-transform-origin: left top;
+	transform-origin: left top;
+}
+
+.login {
+	display: block;
+	width: 6.42rem;
+	height: 0.80rem;
+	margin: 0.70rem auto 0 auto;
+	background: #51C6D0;
+	border-radius: 0.10rem;
+	color: #fff;
+	border: none;
+}
+
+.text-51c6d0 {
+	color: #51c6d0;
+}
+
+.footer {
+	width: 100%;
+	margin-top: 2.36rem;
+	margin-bottom: 1rem； text-align: center;
+}
+
+.footer p {
+	width: 6.42rem;
+	margin: 0 auto;
+	font-size: 0.24rem;
+	line-height: 0.28rem;
+	text-align: center;
+}

@@ -1,0 +1,361 @@
+.firstList {
+	border-bottom: 1px solid #E0E0E0;
+}
+
+.firstList li {
+	margin-left: 0.32rem;
+	height: 0.88rem;
+	font-size: 0.3rem;
+	color: #000000;
+	line-height: 0.88rem;
+	border-bottom: 1px solid #E0E0E0;
+}
+
+.firstList li:last-child {
+	border-bottom: 0px;
+}
+.firstList .timeList{
+	border-bottom: 0px;
+}
+
+.firstList li .zuo {
+	float: left;
+}
+
+.firstList li .you {
+	float: right;
+	margin-right: 0.32rem;
+}
+
+.firstList li .you::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.secondList li {
+	height: 1.52rem;
+	border-bottom: 1px solid #E0E0E0;
+	border-top: 1px solid #E0E0E0;
+}
+
+.secondList .zuo {
+	margin-left: 0.32rem;
+	margin-top: 0.24rem;
+	margin-bottom: 0.24rem;
+}
+
+.secondList .zuoShang span {
+	display: inline-block;
+	font-size: 0.28rem;
+	color: #333333;
+	line-height: 0.28rem;
+	margin-right: 0.1rem;
+	float: left;
+}
+
+.secondList .zuoShang .xingming {
+	font-size: 0.34rem;
+	color: #000000;
+	line-height: 0.34rem;
+	font-weight: bold;
+}
+
+.secondList .zuoShang .jibie {
+	height: 0.32rem;
+	width: 1.4rem;
+	font-size: 0.24rem;
+	color: #FA772F;
+	text-align: center;
+	border: 1px dashed #FA772F;
+}
+
+.secondList .zuoShang::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.secondList .zuoXia {
+	margin-top: 0.24rem;
+	float: left;
+	font-size: 0.28rem;
+	color: #333333;
+	line-height: 0.28rem;
+	width: 5.0rem;
+}
+
+.secondList .zuoXia::after{
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.secondList .keshi{
+	font-size: 0.28rem;
+	color: #333333;
+	line-height: 0.28rem;
+	float: left;
+	margin-top: 0.15rem;
+	width: 5.0rem;
+}
+
+.choseDetail {
+	height: 0.88rem;
+	font-size: 0.3rem;
+	border-bottom: 1px solid #E0E0E0;
+	border-top: 1px solid #E0E0E0;
+}
+
+.choseDetail .zuo {
+	margin-left: 0.32rem;
+	color: #000000;
+	line-height: 0.88rem;
+	float: left;
+}
+
+.choseDetail .you {
+	color: #000000;
+	float: right;
+	line-height: 0.88rem;
+	margin-right: 0.32rem;
+}
+
+.thirdList{
+	border-top: 1px solid #E0E0E0;
+	border-bottom: 1px solid #E0E0E0;
+	font-size: 0.3rem;
+	overflow: hidden;
+
+}
+.thirdList li{
+	margin: 0.24rem;
+	color: #000000;
+	border-bottom: 1px solid #E0E0E0;
+}
+.neirong{
+	line-height: 0.5rem;
+	margin-bottom: 0.24rem;
+}
+.thirdList .buchong,.buchongneirong{
+     color: #777777;
+}
+.miaoshu {
+	margin-bottom: 0.24rem;
+	font-weight: bold;
+	display: inline-block;
+}
+.supplement{
+	float: right;
+	font-size: 0.26rem;
+	color: #0a72cb;
+}
+.thirdList li:last-child {
+	border-bottom: 0px;
+}
+
+.description{
+	border-top: 1px solid #E0E0E0;
+	border-bottom: 1px solid #E0E0E0;
+	font-size: 0.3rem;
+	padding: 0.24rem 0.24rem 0 0.24rem;
+	overflow: hidden
+}
+.time{
+	font-size: 0.28rem;
+	color: #999999;
+	background-color: #F0F1F4;
+	padding: 0.24rem 0 0.32rem 0.24rem;
+}
+.foot{
+	font-size: 0.34rem;
+	color: #51C6D0;
+	border-top: 1px solid #E0E0E0;
+	padding: 0.2rem 0.22rem;
+	
+}
+.foot:after{
+	display: block;
+	content: "";
+	clear: both;
+}
+.foot .btn{
+	display: inline-block;
+	height: 0.88rem;
+	width: 3.38rem;
+	border: 1px solid #51C6D0;
+	border-radius: 0.1rem;
+	text-align: center;
+	line-height: 0.88rem;
+	margin-left: 0.1rem;
+}
+
+.foot .kefu{
+	float: right;
+	/*margin-bottom: 0.2rem;*/
+}
+/*灰色带*/
+
+.cf1 {
+	background-color: #F0F1F4;
+	font-size: 0.26rem;
+	color: #777777;
+	line-height: 0.26rem;
+	padding-left: 0.18rem;
+	padding-top: 0.3rem;
+	padding-bottom: 0.2rem;
+	border-bottom: 1px solid #E0E0E0;
+}
+
+.cf2 {
+	width: 100%;
+	height: 0.2rem;
+	background-color: #F0F1F4;
+	/*border-bottom: 1px solid #E0E0E0;*/
+}
+/*上传照片处加号图形*/
+
+.uploadPic {
+	padding: 0.24rem 0.32rem;
+	font-size: 0.3rem;
+	color: #000000;
+	border-bottom: 1px solid #E0E0E0;
+}
+
+.uploadPic .picture {
+	display: inline-block;
+	height: 1.58rem;
+	width: 1.58rem;
+	border: 1px solid #EBEBEB;
+	margin-top: 0.22rem;
+	margin-right: 0.2rem;
+}
+
+.uploadPic .picture img {
+	height: 1.58rem;
+	width: 1.58rem;
+}
+
+.uploadPic .picture .xian1 {
+	margin-top: 0.76rem;
+	margin-left: 0.3rem;
+	height: 1px;
+	width: 1rem;
+	background-color: #EBEBEB;
+}
+
+.uploadPic .picture .xian2 {
+	height: 1px;
+	width: 1rem;
+	margin-left: 0.3rem;
+	background-color: #EBEBEB;
+	transform: rotate(90deg);
+	-webkit-transform: rotate(90deg);
+}
+/*箭头*/
+
+.rightArrow {
+	display: inline-block;
+	margin-left: 0.2rem;
+	height: 0.22rem;
+	width: 0.22rem;
+	border-width: 2px;
+	border-style: solid;
+	border-color: rgb(193, 193, 198) rgb(193, 193, 198) transparent transparent;
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	float: right;
+	margin-right: 0.32rem;
+	margin-top: -0.28rem;
+	margin-left: 0.3rem;
+}
+
+/*弹窗*/
+.theAlter {
+	display: none;
+	z-index: 555;
+	position: fixed;
+	left: 1.05rem;
+	top: 30%;
+	font-size: 0.26rem;
+	width: 5.4rem;
+	height: 2.6rem;
+	background-color: #FFFFFF;
+	border-radius: 0.2rem;
+	text-align: center;
+}
+.theAlter .callContent{
+	height: 1.64rem;
+	padding-top: 0.4rem;
+	border-bottom: 1px solid #B2B2B2;
+	font-size: 0.36rem;
+}
+.theAlter .content {
+	height: 1.64rem;
+	line-height: 1.64rem;
+	border-bottom: 1px solid #B2B2B2;
+	font-size: 0.36rem;
+}
+
+.theAlter .forChoose {
+	height: 0.94rem;
+	width: 5.4rem;
+	font-size: 0.36rem;
+	color: #007AFF;
+	line-height: 0.94rem;
+}
+
+.theAlter .forChoose .no {
+	width: 2.7rem;
+	border-right: 1px solid #B2B2B2;
+	float: left;
+}
+.theAlter .forChoose .forCall{
+	float: right;
+	margin-right: 0.95rem;
+}
+.theAlter .forChoose .yes {
+	float: right;
+	margin-right: 0.6rem;
+}
+
+.theAlter .forChoose .forCall{
+	color: #007AFF;
+}
+.mod {
+	visibility: hidden;
+	width: 100%;
+	height: 100%;
+	background: #000000;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 222;
+	opacity: 0;
+	-webkit-transition: opacity 0.4s linear 0s;				
+	transition: opacity 0.4s linear 0s;
+}
+.mod.on{
+	visibility: visible;
+	opacity: 0.6;
+}
+.bianjiBtn{
+	font-size: 0.26rem;
+    color: #0a72cb;
+    line-height: 0.34rem;
+    height: 0.4rem;
+}
+.bianjiBtn span:nth-child(2){
+	float: right;
+}
+.bianjiarea{
+	display: block;
+	width:100%;
+	height: 2rem;
+	outline: none;
+	resize: none;
+	padding: 0.1rem;
+	margin-bottom: 0.2rem;
+	font-size: 0.3rem;
+	overflow: hidden;
+}

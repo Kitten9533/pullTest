@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/mui.picker.min.css">
+		<link rel="stylesheet" type="text/css" href="css/weui.min.css" />
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/calRem.js"></script>
+		<style>
+			.text-red {
+				color: red;
+			}
+			
+			.mui-input-row label {
+				font-size: 14px;
+			}
+			
+			.width-50 label,
+			div.width-50 input {
+				width: 50%;
+			}
+			
+			.width-40 label {
+				width: 40%;
+			}
+			
+			div.width-40 input {
+				width: 60%;
+			}
+			
+			input::-webkit-input-placeholder,
+			textarea::-webkit-input-placeholder {
+				font-size: 12px;
+			}
+			
+			.mui-content .mui-input-group {
+				margin-top: 10px;
+			}
+			
+			.mui-content .mui-input-group:first-child {
+				margin-top: 0;
+			}
+			
+			h5 {
+				color: #000;
+				padding-top: 5px;
+				padding-left: 15px;
+			}
+			
+			textarea {
+				border-radius: 0;
+			}
+			
+			.mui-input-group,
+			textarea {
+				border: none;
+			}
+			
+			textarea {
+				margin-bottom: 0;
+			}
+			
+			.mui-input-group:before,
+			.mui-input-group:after {
+				display: none;
+			}
+			
+			.mui-input-group .mui-input-row:last-child:after {
+				display: none;
+			}
+			
+			.submit {
+				width: 80%;
+			    display: block;
+			    margin: 30px auto;
+			    background-color: #0FAEBD;
+			    border-radius: 3px;
+			    border: none;
+			    color: #FFFFFF;
+			}
+			.marTop-0{
+				margin-top: 0;
+			}
+		</style> 
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: "./",
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+					"medtapCore": "https://review-formal.iplusmed.com/Common/javaScript/medtap-core-1.0.2",
+					"md5": "https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min"
+				},
+				shim: {
+					"zepto": {
+						exports: "$"
+					}
+				}
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-content-padded" style="margin: 0px;">
+				<div class="mui-input-group">
+					<div class="mui-input-row">
+						<label>联系人姓名<span class="text-red">*</span></label>
+						<input id="userName" type="text" class="mui-input-clear required" placeholder="请输入姓名">
+					</div>
+					<div id="formBox" class="mui-input-row">
+						<label>手机号码<span class="text-red">*</span></label>
+						<input id="mobile" type="text" class="mui-input required" placeholder="请输入">
+					</div>
+				</div>
+			</div>
+			<button class="mui-btn submit">提交</button>
+		</div>
+	</body>
+	<script>
+		function getRequest(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+			var r = encodeURI(window.location.search).substr(1).match(reg);
+			if(r != null) return decodeURI(unescape(r[2]));
+			return null;
+		}
+		document.title = !!getRequest('preTitle') ? getRequest('preTitle') : getRequest('title');
+	</script>
+	<script>
+		require(['javaScript/submit.js?v=1.0.0']);
+	</script>
+</html>

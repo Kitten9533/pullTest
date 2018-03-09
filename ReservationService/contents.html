@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>预约服务</title>
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/mui.min.css">
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/mui.min.js"></script>
+		<style>
+			html, body{
+				margin: 0 auto;
+				background: #F0F1F4;
+			}
+			.mui-row{
+				margin-top: 0.20rem;
+				text-align: center;
+				padding-top: 0.40rem;
+				padding-bottom: 0.28rem;
+				background: #fff;
+			}
+			.mui-row div.second{
+				margin-top: 0.36rem;
+			}
+			.mui-content .mui-row:first-child{
+				margin-top: 0;
+			}
+			.pic{
+				width: 2rem;
+				height: 1.28rem;
+				display: block;
+				margin: 0 auto;
+			}
+			.text{
+				margin-top: 0.20rem;
+				margin-bottom: 0;
+				font-size: 0.28rem;
+				color: #000;
+				letter-spacing: 0;
+				line-height: 0.28rem;
+				text-overflow: ellipsis;
+    			overflow: hidden;
+    			white-space: nowrap;
+			}
+			.title p{
+				color: #000;
+				font-size: 0.32rem;
+				line-height: 0.32rem;
+				margin-bottom: 0.48rem;
+			}
+			.title-icon{
+				display: inline-block;
+				width: 0.28rem;
+				height: 0.28rem;
+				position: relative;
+				margin-right: 0.16rem;
+			}
+			.title-icon:before{
+				content: '';
+				display: block;
+				width: 0.28rem;
+				height: 0.28rem;
+				left: 0;
+				top: 0.04rem;
+				position: absolute;
+				background-size: 100% 100%;
+				background-repeat: no-repeat;
+			}
+			.professional:before{
+				background-image: url('images/service_icon_professional@2x.png');
+			}
+			.honorable:before{
+				background-image: url('images/service_icon_honorable@2x.png');
+			}
+			.search:before{
+				background-image: url('images/service_icon_search@2x.png');
+			}
+			.prevent:before{
+				background-image: url('images/service_icon_prevent@2x.png');
+			}
+		</style>
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/calRem.js"></script>
+		<script src="https://cdn.bootcss.com/zepto/1.1.5/zepto.min.js"></script>
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-row">
+				<div class="title">
+					<p><i class="title-icon professional"></i>专业服务</p>
+				</div>
+				<div class="mui-col-sm-4 mui-col-xs-4 telConsultation">
+					<img class="pic" src="images/service_pic1@2x.png"/>
+					<p class="text">电话咨询</p>
+				</div>
+				<div class="mui-col-sm-4 mui-col-xs-4 applyReferral">
+					<img class="pic" src="images/service_pic2@2x.png"/>
+					<p class="text">转诊复诊</p>
+				</div>
+				<div class="mui-col-sm-4 mui-col-xs-4 medicalService">
+					<img class="pic" src="images/service_pic3@2x.png"/>
+					<p class="text">就医服务</p>
+				</div>
+			</div>
+			<div class="mui-row">
+				<div class="title">
+					<p><i class="title-icon honorable"></i>尊贵服务</p>
+				</div>
+				<div class="mui-col-sm-4 mui-col-xs-4 expertConsultation">
+					<img class="pic" src="images/service_pic4@2x.png"/>
+					<p class="text">专家会诊</p>
+				</div>
+				<div class="mui-col-sm-4 mui-col-xs-4 mydd">
+					<img class="pic" src="images/service_pic5@2x.png"/>
+					<p class="text">名医点刀</p>
+				</div>
+				<div class="mui-col-sm-4 mui-col-xs-4 overseasMedical">
+					<img class="pic" src="images/service_pic6@2x.png"/>
+					<p class="text">海外医疗</p>
+				</div>
+			</div>
+			<div class="mui-row">
+				<div class="title">
+					<p><i class="title-icon search"></i>资源搜索</p>
+				</div>
+				<div class="mui-col-sm-4 mui-col-xs-4 drugSearch">
+					<img class="pic" src="images/service_pic7@2x.png"/>
+					<p class="text">药物搜寻</p>
+				</div>
+				<div class="mui-col-sm-4 mui-col-xs-4 clinicalResearch">
+					<img class="pic" src="images/service_pic8@2x.png"/>
+					<p class="text">临床研究</p>
+				</div>
+			</div>
+			<div class="mui-row">
+				<div class="title">
+					<p><i class="title-icon prevent"></i>防患未然</p>
+				</div>
+				<div class="mui-col-sm-4 mui-col-xs-4 riskEvaluation">
+					<img class="pic" src="images/service_pic9@2x.png"/>
+					<p class="text">肿瘤风险评估</p>
+				</div>
+				<div class="mui-col-sm-4 mui-col-xs-4 experience">
+					<img class="pic" src="images/service_pic11@2x.png"/>
+					<p class="text">3650体检</p>
+				</div>
+				<div class="mui-col-sm-4 mui-col-xs-4 geneticTest">
+					<img class="pic" src="images/service_pic12@2x.png"/>
+					<p class="text">BRCA1/2基因检测</p>
+				</div>
+				<div class="second mui-col-sm-4 mui-col-xs-4 cwq">
+					<img class="pic" src="images/service_pic13@2x.png"/>
+					<p class="text">常卫清</p>
+				</div>
+				<div class="second mui-col-sm-4 mui-col-xs-4 ppg">
+					<img class="pic" src="images/service_pic14@2x.png"/>
+					<p class="text">噗噗管</p>
+				</div>
+				<div class="second mui-col-sm-4 mui-col-xs-4 cwn">
+					<img class="pic" src="images/service_pic16@2x.png"/>
+					<p class="text">常卫宁</p>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		function getRequest(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+			var r = encodeURI(window.location.search).substr(1).match(reg);
+			if(r != null) return decodeURI(unescape(r[2]));
+			return null;
+		}
+		
+		require(['https://review-formal.iplusmed.com/Common/javaScript/shareCommon.js?sharingType=reservationService']);
+		
+		var main = {
+			wechatId: getRequest('wechatId'),
+//			wechatId: 'oq2H2s0246UeuB5VIFTszsM7l0E4',
+			init: function(){
+				var context = main.wechatId, 
+					appUserData = {};
+				appUserData.wechatId = context;
+				localStorage.appUserData = JSON.stringify(appUserData);
+			},
+			bind: function(){
+				//电话咨询
+				$('.telConsultation').click(function(){
+					window.location.href = 'https://review-formal.iplusmed.com/wxPayPrd/TelConsultation/telMain.html?v=1.0.0&wechatId=' + main.wechatId;
+				});
+				//转诊复诊
+				$('.applyReferral').click(function(){
+					window.location.href = 'http://192.168.8.165:8020/2017.10.09/V2-wechat/ApplyReferral/consult.html?v=1.0.0&wechatId=' + main.wechatId;
+//					window.location.href = 'https://review-formal.iplusmed.com/wxPayPrd/ApplyReferral/consult.html?v=1.0.0&wechatId=' + main.wechatId;
+				});
+				//就医服务
+				$('.medicalService').click(function(){
+					window.location.href = 'https://review-formal.iplusmed.com/wxPayPrd/MedicalService/medicalService.html?v=1.0.0&wechatId=' + main.wechatId;
+				});
+				//专家会诊
+				$('.expertConsultation').click(function(){
+					window.location.href = 'https://review-formal.iplusmed.com/wxPayPrd/ConsultationOption/expertConsultation.html?v=1.0.0&wechatId=' + main.wechatId;
+				});
+				//名医点刀
+				$('.mydd').click(function(){
+					window.location.href = 'https://review-formal.iplusmed.com/wxPayPrd/ConsultationOption/mydd.html?v=1.0.0&wechatId=' + main.wechatId;
+				});
+				//海外医疗
+				$('.overseasMedical').click(function(){
+					window.location.href = 'https://review-formal.iplusmed.com/wxPayPrd/OverseasMedical/overseasMedical.html?v=1.0.0&wechatId=' + main.wechatId;
+				});
+				//药物搜寻
+				$('.drugSearch').click(function(){
+					window.location.href = 'https://review-formal.iplusmed.com/wxPayPrd/DrugSearch/drugSearch.html?v=1.0.0&wechatId=' + main.wechatId;
+				});
+				//临床研究
+				$('.clinicalResearch').click(function(){
+					window.location.href = 'https://review-formal.iplusmed.com/wxPayPrd/ClinicalResearch/clinicalResearch.html?v=1.0.0&wechatId=' + main.wechatId;
+				});
+				//肿瘤风险评估
+				$('.riskEvaluation').click(function(){
+					window.location.href = 'https://review-formal.iplusmed.com/wxPayPrd/RiskEvaluation/riskEvaluationDetail.html?v=1.0.0&wechatId=' + main.wechatId;
+				});
+				//3650体检
+				$('.experience').click(function(){
+					window.location.href = 'https://cdn.iplusmed.com/web/FF499211739FD801USER/anticancerShopV2/productDetails.html?v=1.0.0&goodsId=8&wechatId=' + main.wechatId;
+				});
+				//基因检测
+				$('.geneticTest').click(function(){
+					window.location.href = 'https://cdn.iplusmed.com/web/FF499211739FD801USER/anticancerShopV2/productDetails.html?v=1.0.0&goodsId=33&wechatId=' + main.wechatId;
+				});
+				//常卫清
+				$('.cwq').click(function(){
+					window.location.href = 'https://cdn.iplusmed.com/web/FF499211739FD801USER/anticancerShopV2/productDetails.html?v=1.0.0&goodsId=26&wechatId=' + main.wechatId;
+				});
+				//噗噗管
+				$('.ppg').click(function(){
+					window.location.href = 'https://cdn.iplusmed.com/web/FF499211739FD801USER/anticancerShopV2/productDetails.html?v=1.0.0&goodsId=29&wechatId=' + main.wechatId;
+				});
+				//常卫宁
+				$('.cwn').click(function(){
+					window.location.href = 'https://cdn.iplusmed.com/web/FF499211739FD801USER/anticancerShopV2/productDetails.html?v=1.0.0&goodsId=27&wechatId=' + main.wechatId;
+				});
+			}
+		};
+		
+		main.init();
+		main.bind();
+	</script>
+</html>

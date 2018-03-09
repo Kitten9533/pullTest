@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>我的医生</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/mui.picker.min.css" />
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/calRem.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.level{
+			    margin-left: 0.3rem;
+    			font-size: 0.28rem;
+			}
+			.profile{
+				border-radius:50%;
+				width: 1rem;
+			}
+			li .chosebg{
+				position: absolute;
+				width:1rem;
+				height: 1rem;
+				top:0;
+				right: 0;
+			}
+			li .chosebg .chose {
+				width: 0.44rem;
+				height: 0.44rem;
+				margin: 0 auto;
+				margin-top: 0.28rem;
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAYAAAAehFoBAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkFGQzExM0ZEQTRCODExRTZBMjZGOUZBMUJCNUU2M0QyIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkFGQzExM0ZFQTRCODExRTZBMjZGOUZBMUJCNUU2M0QyIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QUZDMTEzRkJBNEI4MTFFNkEyNkY5RkExQkI1RTYzRDIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QUZDMTEzRkNBNEI4MTFFNkEyNkY5RkExQkI1RTYzRDIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6YGtS1AAADv0lEQVR42sxZTUhUURR+byzRoKZMCtMmM1oUhVCCtKjFRGGBVrMJbZW2SXIRUWYlGWj/0KKgTRO0MN30g0HQQpfBgNX0Q5DZYiYsymzSiQwl7Vz8Hpxu7817M3PnzRz4mPtz7jnfu++9c859o+97GtYyIH78Dqg2PE/LjJzH7xbCrErDngyQrSNUA7WqjXsyYK+L9btU+1BNuJ6wgfVFuyFXCc8nnDMZ78BczhFuIqxBe4zwDW0xdijXCBcSzrD+JcJl1j8NnZwhfIRQivYI4QYwgrFS6OQE4UWEVtbvJEwCnWz8JHSzTvgYYSnaHwhBNhfEmJAi6GaVcDHhKOufJUyz/jTGDBG6y7JJuI2wEO03hB4TnR7MadBtzRbhjYRmKRLMmOjNYM6QZqzNaPGzkrAZqAKK2XyI0Jdg/SPoiPqigPAKcXoQeAZ8TIXwComYaC+3sXPKZn4WOv3S818DGPIFxPmFfJIJ1+DKDZIlDnf9Bwz2O6x7B0B6O3wtNtERG7MbMOQzIx/SqYBvpMYtgp7A2QThOVs4iHCVaq2rI2VXsY3aZBOnha+DYodvI9RckAgGGcEhxYW4sDUM9LIAsJZdQJN0AeLu3DGe4YsEH+Ewy17vCXc190REk3eAVyJ7Exz/CWst0pt+HacHt6UOvg3pA7f/4vAfFOAh9PMQ9KtdJFsNn3ksXNaDm2ni+IVz2DD6CwiP0wn0SSaiJ/CpgUMtOCXMdKOEXfg1ihZBuiyDZMvgw2vBwTY1i6vbQRi3MKhSvNKGCJ872V12XEu8JAQIU+yW3SfkKySbD5vGIzcFn+FUix+RnRpZDPYjbusKyOqw5WexudEuazqp1rqlWuEAdiFdCcAWTwzdqspLEbRfSJkwXeE2wkZiUFkP82IlqoBwVHrxlBbwHimsRRQTLmPJQgnhEvb15ivhtwLCk7BlfDUqUUl4leLHwcyWTyVhX5KPg+4w9EXcIBy1IbqHHXH22hCPWtxFpY9ExMJOAKHvIU4PAg8wFrDw5foOi/X7EUfvESpN1lZiLgxdj9s7HMU68aH6NY44vPz8SbhKuII2Lx978VGlATZc2eGthLdIo+vZeBznwgrCccIJwmqMxZneOqwVNrYlS1h38LeXF0d6KxnHkeYa4buFThG+q7XYZLUlNr4c7bDVsxXT5v4OELvYnoCshrl26HZgrd2dTJmwz8J5uTb3n0YsiUQRw5py2BhzuDkpER5FCSicdaZZsU3AhtjxNnYUUrLDhXiJKkxeoHQljrLSeFEL7Bb8FWAAjzbdV0sEcc8AAAAASUVORK5CYII=);
+			}
+			.mui-collapse-content{
+				padding: 0!important;
+			}
+			.mui-collapse-content a{
+				padding-left: 0!important;
+			}	
+		</style>
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: "./",
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+					"medtap": "https://review-formal.iplusmed.com/Common/javaScript/medtap-core-1.0.2",
+					"md5": "https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min"
+				},
+				shim: {
+					"zepto": {
+						exports: "$"
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div id="content">
+			<ul class="mui-table-view">
+				<!--<li class="mui-table-view-cell mui-collapse mui-active">
+					<a class="mui-navigate-right">私人医生</a>
+					<ul class="mui-collapse-content mui-table-view myProviderDoctor"></ul>
+				</li>-->
+				<li class="mui-table-view-cell mui-collapse mui-active">
+					<a class="mui-navigate-right">我的医生</a>
+					<ul id="followList" class="mui-collapse-content mui-table-view myAttentionDoctor"></ul>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		require(['../javaScript/myDoctor.js?v=1.0.0']);
+	</script>
+</html>

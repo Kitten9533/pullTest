@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/newDrug.css" />
+		<title>港澳新药治疗</title>
+		<script type="text/javascript">
+			! function(a) {
+				function e() {
+					var b, a = c.getBoundingClientRect().width;
+					a >= 750 && (a = 750), 320 >= a && (a = 320), b = a / 7.5, c.style.fontSize = b + "px"
+				}
+				var d, b = a.document,
+					c = b.documentElement;
+				a.addEventListener("resize", function() { clearTimeout(d), d = setTimeout(e, 300) }, !1), e()
+			}(window);
+		</script>
+	</head>
+
+	<body>
+		<div id="serveList">
+			<div class="pic gaxyzl">
+				<div class="resttimes" style="display: none;">
+					<p class="rest">剩余<span>0</span>次</p>
+				</div>
+			</div>
+			<div class="introduce"><p>当会员需要用到国内未上市新药，可以对接到香港、澳门、台湾的高端肿瘤中心进行治疗。医生均为正规执业的资深肿瘤专科医生。</p><p>服务包括：病历收集整理、初步沟通、视频会议、赴港澳安排、协助家属取药等等。</p></div>
+			<!--<div class="butt">详情请咨询客服</div><--></-->
+			<div class="checkBtn">
+				<a class="use btn" href="submit.html?title=港澳新药治疗">立即预约</a>
+				<a class="buy btn" zx="yes" href="tel:4000059900">咨询客服</a>
+			</div>
+			<div class="notice" style="display: none;">
+				* <span>购买成功后，服务将在10分钟内充值进您的账户中。</span>
+			</div>
+		</div>
+	</body>
+	
+	<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+	<script>
+		require(['https://review-formal.iplusmed.com/Common/javaScript/shareCommon.js?sharingType=toNewDrug']);
+	</script>
+	
+</html>

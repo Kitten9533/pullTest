@@ -1,0 +1,58 @@
+body, html{
+	background: #f0f1f4;
+}
+
+#list li:first-child{
+	margin-top: 0;
+}
+
+.gifts{
+	background: #fff;	
+	padding: 0.20rem 0 0.20rem 0.20rem;
+	margin-top: 0.20rem;
+	min-height: 1.9rem;
+}
+
+.header{
+	padding: 0.10rem 0.20rem;
+	color: #808080;
+	display: none;
+	font-size: 0.28rem;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.li-content{
+	position: relative;
+	padding: 0 0.20rem 0 0;
+}
+
+.li-content .giftPic{
+	width: 1.40rem;
+	height: 1.40rem;
+	position: absolute;
+	top: 0.08rem;
+	left: 0;
+}
+
+.li-content p{
+	width: 100%;
+	padding-left: 1.60rem;
+	margin-bottom: 0;
+	line-height: 1.4;
+	font-size: 0.30rem;
+}
+
+.desc, .giftName{
+	color: #000;
+}
+
+.doctorName{
+	color: #000;
+}
+
+.none-gift{
+	text-align: center;
+	background: #fff;
+	padding-top: 0.20rem;
+	padding-bottom: 0.20rem;
+}

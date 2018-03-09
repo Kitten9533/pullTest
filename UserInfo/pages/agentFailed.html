@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/reset.css" />
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/calRem.js" type="text/javascript" charset="utf-8"></script>
+		<title>审核失败</title>
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: "./",
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+					"medtapCore": "https://review-formal.iplusmed.com/Common/javaScript/medtap-core-1.0.2",
+					"md5": "https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min"
+				},
+				shim: {
+					"zepto": {
+						exports: "$"
+					}
+				}
+			});
+		</script>
+		<style type="text/css">
+			html,
+			body {
+				height: 100%;
+				background: #f2f2f2;
+				overflow: hidden;
+			}
+			
+			.pic {
+				display: block;
+				width: 4rem;
+				height: 4rem;
+				margin: 1.50rem auto 1rem auto;
+			}
+			
+			p {
+				font-size: 0.24rem;
+				padding-left: 0.50rem;
+				padding-right: 0.50rem;
+				line-height: 1.4;
+				text-align: center;
+			}
+			
+			h5{
+				font-size: 0.32rem;
+				font-weight: 800;
+				text-align: center;
+				padding-bottom: 0.80rem;
+			}
+			
+			a{
+				color: #51C6D0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div><img class="pic" src="../images/agentFailed.png" /></div>
+		<h5>审核失败</h5>
+		<p>尊敬的用户，您的申请审核失败</p>
+		<p>如有疑问，请联系客服咨询: <a href="tel:4000059900">400-005-9900</a></p>
+	</body>
+
+</html>

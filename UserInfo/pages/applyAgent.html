@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>申请代理商</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/mui.picker.min.css">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/weui.min.css"/>
+		<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/mui.picker.min.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			.text-red {
+				color: red;
+			}
+			
+			.mui-input-row label {
+				font-size: 14px;
+			}
+			
+			.width-50 label,
+			div.width-50 input {
+				width: 50%;
+			}
+			
+			.width-40 label {
+				width: 40%;
+			}
+			
+			div.width-40 input {
+				width: 60%;
+			}
+			
+			input::-webkit-input-placeholder,
+			textarea::-webkit-input-placeholder {
+				font-size: 12px;
+			}
+			
+			.mui-content .mui-input-group {
+				margin-top: 10px;
+			}
+			
+			.mui-content .mui-input-group:first-child {
+				margin-top: 0;
+			}
+			
+			h5 {
+				color: #000;
+				padding-top: 5px;
+				padding-left: 15px;
+			}
+			
+			textarea {
+				border-radius: 0;
+			}
+			
+			.mui-input-group,
+			textarea {
+				border: none;
+			}
+			
+			textarea {
+				margin-bottom: 0;
+			}
+			
+			.mui-input-group:before,
+			.mui-input-group:after {
+				display: none;
+			}
+			
+			.mui-input-group .mui-input-row:last-child:after {
+				display: none;
+			}
+			
+			.mui-input-row input{
+				text-align: right;
+			}
+			
+			.submit {
+				width: 80%;
+			    display: block;
+			    margin: 30px auto;
+			    line-height: 1.5rem;
+			    border-radius: 0.3rem;
+			    border: none;
+			    background-color:#51c6d0;
+			    color: #fff;
+			}
+			.marTop-0{
+				margin-top: 0;
+			}
+			.mui-content{
+				padding-top:0.5rem
+			}
+			.footerTip{
+				text-align: center;
+			}
+			.jzzbg  .jzz{
+				width: 0.60rem;
+				height: 0.60rem;
+			}
+			.mui-content{
+				opacity: 0;
+			}
+			.weui-uploader{
+				background: #fff;
+			}
+			.weui-uploader__input-box{
+				width: 50px;
+				height: 50px;
+				margin: 15px;
+			}
+			.weui-uploader__bd{
+				margin: 0;
+			}
+			.marTop-0{
+				margin-top: 0;
+			}
+			input {
+				font-size:14px;
+			}
+			#ImgUp .weui-uploader__file img{
+				width:100%;
+				height:100%;
+			}
+			.img-p{
+				margin: 0;
+				font-size: 12px;
+				padding: 0 15px;
+				color: #CCCCCC;
+			}
+		</style> 
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: "./",
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+					"medtapCore": "https://review-formal.iplusmed.com/Common/javaScript/medtap-core-1.0.2",
+					"md5": "https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min",
+					"mui": "https://review-formal.iplusmed.com/Common/javaScript/mui.min",
+					"mui.picker": "https://review-formal.iplusmed.com/Common/javaScript/mui.picker.min"
+				},
+				shim: {
+					"zepto": {
+						exports: "$"
+					},
+					'mui.picker': ['mui']
+				}
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-content-padded" style="margin: 0px;">
+				<div class="mui-input-group">
+					<div class="mui-input-row">
+						<label>申请人姓名：<span class="text-red">*</span></label>
+						<input id="userName" type="text" class="mui-input required" placeholder="请输入">
+					</div>
+					<div id="formBox" class="mui-input-row width-40">
+						<label>申请人手机号：<span class="text-red">*</span></label>
+						<input id="mobile" type="text" class="mui-input required" placeholder="请输入">
+					</div>
+					<div class="mui-input-row" id="sexBox">
+						<label>申请人性别：<span class="text-red">*</span></label>
+						<input type="text" id="sex" readonly="true" class="mui-input required" placeholder="请选择">
+					</div>
+					<div class="mui-input-row" id="userTypeBox">
+						<label>申请人身份：<span class="text-red">*</span></label>
+						<input id="userType" type="text" readonly="true" class="mui-input required" placeholder="请选择">
+					</div>
+					<div class="mui-input-row">
+						<label>推荐人码：</label>
+						<input id="inviteCode" type="text" class="mui-input" placeholder="请输入">
+					</div>
+					<h5 class="marTop-0">资料上传</h5>
+					<p class="img-p">请上传正确真实的资料图像，如:名片，身份证或胸牌等。</p>
+					<div class="weui-uploader">
+						<div class="weui-uploader__bd" id="upLoaderWrap">
+							<div class="weui-uploader__input-box upLoad">
+							</div>
+							<ul class="weui-uploader__files" id="ImgUp">
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button class="mui-btn submit">提交</button>
+		</div>
+	</body>
+	<script>
+		require(['../javaScript/applyAgent.js']);
+	</script>
+</html>

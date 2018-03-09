@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+		<script src="./js/calRem.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="./css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="./css/hzDetail.css?20170509" />
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: "./",
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+					"vue": "https://cdn.bootcss.com/vue/1.0.26/vue.min",
+					"yjyInit": "./js/yjyInit"
+				},
+				shim: {
+					"zepto": {
+						exports: "$"
+					},
+					"vue": {
+						exports: "Vue"
+					}
+				}
+			});
+			require(['yjyInit']);
+		</script>
+		<script type="text/javascript">
+			function getRequest(strParame) { //用于取url中参数的值方法
+				var args = new Object();
+				var query = window.location.search.substring(1);
+				var pairs = query.split("&");
+				for(var i = 0; i < pairs.length; i++) {
+					var pos = pairs[i].indexOf('=');
+					if(pos == -1) continue;
+					var argname = pairs[i].substring(0, pos);
+					var value = pairs[i].substring(pos + 1);
+					value = decodeURIComponent(value);
+					args[argname] = value;
+				}
+				args[strParame] = args[strParame] || "";
+				return args[strParame];
+			}
+			document.title=getRequest("title");
+		</script>
+		<title></title>
+	</head>
+	<body id="app" style="opacity: 0;transition: opacity 0.6s;-webkit-transition: opacity .6s;">
+
+		<ul class="firstList">
+			<li>
+				<span class="zuo">状态</span>
+				<span class="you">{{status.statusName}}</span>
+			</li>
+			<li class="timeList">
+				<span class="zuo">时间</span>
+				<span class="you">{{formatRealTime}}</span>
+			</li>
+			<li v-show="isDD">
+				<span class="zuo">地址</span>
+				<span class="you">{{ddaddress}}</span>
+			</li>
+		</ul>
+		<div class="cf2"></div>
+		<ul class="secondList">
+			<li v-for="list in doctorList" doctorId="{{list.doctorId}}">
+				<div class="zuo">
+					<div class="zuoShang">
+						<span class="xingming">{{list.doctorName}}</span>
+						<span class="gongzuo">{{list.skillTitle}}</span>
+						<span class="zhicheng">{{list.academicTitle}}</span>
+						<span class="jibie" v-show="list.isMyDoctor">二诊专家</span>
+						
+					</div>
+					<div class="zuoXia">
+						<span class="yiyuan">
+							{{list.hospitalName}}
+						</span>
+						
+					</div>
+					<div class="keshi">
+						<span class="room">{{list.departmentName}}</span>
+						
+					</div>
+				</div>
+				<div class="rightArrow"></div>
+			</li>
+
+		</ul>
+
+		<div class="cf2"></div>
+		<div class="choseDetail">
+			<span class="zuo">疾病</span>
+			<span class="you">{{diseaseName}}</span>
+		</div>
+		<div class="cf2"></div>
+		<div class="choseDetail">
+			<span class="zuo">期望时间</span>
+			<span class="you">{{formatExpectedTime}}</span>
+		</div>
+
+		<div class="cf2"></div>
+		<ul class="thirdList">
+			<li>
+				<p class="miaoshu">病情描述：</p>
+				<p class="supplement" id="illnessSup" v-show="btn.isFirst">继续编辑</p>
+				<p class="neirong" id="illness" v-show="btn.isBianjiFirst">{{diseaseDescription}}</p>
+				<textarea class="bianjiarea" maxlength="300" v-show="!btn.isBianjiFirst" v-model="diseaseDescriptionforbianji"></textarea>
+				<div class="bianjiBtn bj_first" v-show="!btn.isBianjiFirst">
+					<span class="bj_quxiao">取消</span>
+					<span class="bj_baocun">保存</span>
+				</div>
+			</li>
+
+		</ul>
+		<div class="cf2"></div>
+		<div class="description">
+			<p class="miaoshu">需要的帮助和其它要求：</p>
+			<p class="supplement" id="requireSup" v-show="btn.isSecond">继续编辑</p>
+			<p class="neirong" id="require" v-show="btn.isBianjiSecond">{{helpRequirement}}</p>
+			<textarea class="bianjiarea" maxlength="300" v-show="!btn.isBianjiSecond" v-model="helpRequirementforbianji"></textarea>
+			<div class="bianjiBtn bj_second" v-show="!btn.isBianjiSecond">
+				<span class="bj_quxiao">取消</span>
+				<span class="bj_baocun">保存</span>
+			</div>
+		</div>
+		<div class="cf2"></div>
+		<div class="uploadPic" v-show="hasImg">
+			<p>给专家提供的参考图片</p>
+
+			<div class="picture" style="position: relative;">
+
+				<img src="{{imgList}}" />
+			</div>
+		</div>
+		<div class="time">
+			<p>提交时间：<span class="time">{{formatCreateTime}}</span></p>
+		</div>
+		<div class="foot" id="btnAll">
+			<div class="btn qxOrder" id="qxOrder" v-show="btn.isCacelBtnShow">取消预约</div>
+			<div class="btn delete" id="deleteOrder" v-show="btn.isDelBtnShow">删除预约</div>
+			<div class="btn kefu" id="kefu" v-show="btn.isKefuBtnShow">联系客服</div>
+			<div class="btn tuijian" v-show="btn.isTjBtnShow">帮我推荐</div>
+		</div>
+		<div class="theAlter call">
+			<div class="callContent">
+				<p>拨打客服电话</p>
+				<p>400-005-9900</p>
+			</div>
+			<div class="forChoose">
+				<div class="no" id="qxCall">取消</div>
+				<div class="forCall" id="forCall">拨打</div>
+			</div>
+		</div>
+		<div class="theAlter order">
+			<div class="content">
+				<p>确定取消？</p>
+			</div>
+			<div class="forChoose">
+				<div class="no" id="orderNo">暂不取消</div>
+				<div class="yes" id="orderSure">确定取消</div>
+			</div>
+		</div>
+		<div class="theAlter toDelete">
+			<div class="content">
+				<p>确定删除？</p>
+			</div>
+			<div class="forChoose">
+				<div class="no" id="deleteNo">暂不删除</div>
+				<div class="yes" id="deleteSure">确定删除</div>
+			</div>
+		</div>
+		<div class="mod"></div>
+	</body>
+	<script type="text/javascript">
+		require(['./js/hzddDetail.js?v=1.0.0']);
+	</script>
+
+</html>

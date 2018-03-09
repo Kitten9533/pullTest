@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我的订单</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="../css/myOrder.css" />
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/mui.min.css" />
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/calRem.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: "./",
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+					"medtapCore": "https://review-formal.iplusmed.com/Common/javaScript/medtap-core-1.0.2",
+					"md5": "https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min",
+					"mui": "https://review-formal.iplusmed.com/Common/javaScript/mui.min"
+				},
+				shim: {
+					"zepto": {
+						exports: "$"
+					}
+				}
+			});
+		</script>
+	</head>
+
+	<body>
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<ul id="list" class="applyCard">
+					<!--<li class="none-order">没有更多订单数据</li>-->
+					<!--<li class="apply" ordersn="">
+						<div class="li-header"><span class="li-title kacs">抗癌超市</span><span class="li-status clearfix">待付款</span></div>
+						<div class="li-content no-border-bottom">
+							<p class="ellipsis-1"><span>商品名称：</span><span class="price">￥ 1.00 </span><span class="payStatus">未支付</span></p>
+							<ul class="products-ul">
+								<li class="products-li" productid=""><p class="product">PD-L1检测-免疫治疗从这里开始11111111111</p><span class="product-num">x 1</span></li>
+								<li class="products-li" productid=""><p class="product">BRCA基因检测</p><span class="product-num">x 10</span></li>
+							</ul>
+							<p class="ellipsis-1"><span class="time">创建时间：</span><span>2017-07-10</span></p>
+						</div>
+					</li>
+					<li class="apply" ordersn="DHZX20171120512533">
+						<div class="li-header"><span class="li-title dhzx">电话咨询</span><span class="li-status clearfix">申请中</span></div>
+						<div class="li-content no-border-bottom">
+							<p class="ellipsis-1"><span>医生姓名：</span><span class="doctorName">黄新</span><span class="price">￥ 1.00 </span></p>
+							<p class="ellipsis-2"><span>简要病情：</span><span>555656561619191</span></p>
+							<p class="ellipsis-1"><span class="content">留言内容：</span><span>818166161161611</span></p>
+							<p class="ellipsis-1"><span class="time">服务时间：</span><span></span></p>
+						</div>
+						<div class="li-footer clearfix"><span class="pay">付款</span><span class="cancel">取消订单</span></div>
+					</li>
+					<li class="apply" ordersn="">
+						<div class="li-header"><span class="li-title zzfz">精准就医</span><span class="li-status clearfix">已完成</span></div>
+						<div class="li-content no-border-bottom">
+							<p class="ellipsis-1"><span>订单类型：</span><span class="doctorName">精准就医</span><span class="price">￥ 300.00</span><span class="payStatus">已支付</span></p>
+							<p class="ellipsis-2"><span>创建时间：</span><span>2017-12-10 12:10</span></p>
+						</div>
+					</li>
+					<li class="apply" ordersn="">
+						<div class="li-header"><span class="li-title zzfz">尊贵就医</span><span class="li-status clearfix">已完成</span></div>
+						<div class="li-content no-border-bottom">
+							<p class="ellipsis-1"><span>订单类型：</span><span class="doctorName">尊贵就医</span><span class="price">￥ 800.00</span><span class="payStatus">已支付</span></p>
+							<p class="ellipsis-2"><span>创建时间：</span><span>2017-12-10 12:10</span></p>
+						</div>
+					</li>
+					<li class="apply" ordersn="">
+						<div class="li-header"><span class="li-title zzfz">顶级就医</span><span class="li-status clearfix">已完成</span></div>
+						<div class="li-content no-border-bottom">
+							<p class="ellipsis-1"><span>订单类型：</span><span class="doctorName">顶级就医</span><span class="price">￥ 2500.00</span><span class="payStatus">已支付</span></p>
+							<p class="ellipsis-2"><span>创建时间：</span><span>2017-12-10 12:10</span></p>
+						</div>
+					</li>-->
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script>
+		require(['../javaScript/myOrder.js?v=1.0.0']);
+	</script>
+
+</html>

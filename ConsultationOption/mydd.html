@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>名医点刀</title>
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/calRem.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://cdn.bootcss.com/zepto/1.1.5/zepto.min.js"></script>
+		<style type="text/css">
+			::-webkit-scrollbar {
+				display: none;
+			}
+			
+			.section {
+				margin-top: 0.40rem;
+				padding: 0 0.20rem;
+			}
+			
+			body .section:first-child {
+				margin-top: 0.30rem;
+			}
+			
+			body .section:last-child {
+				margin-bottom: 0.75rem;
+			}
+			
+			.section.last-section {
+				margin-bottom: 1.36rem;
+			}
+			
+			p {
+				letter-spacing: 0.01rem;
+				line-height: 1.4;
+			}
+			
+			.summary {
+				font-size: 0.28rem;
+				color: #333;
+				letter-spacing: 0.01rem;
+				text-indent: 0.56rem;
+			}
+			
+			.icon {
+				display: inline-block;
+				width: 0.14rem;
+				height: 0.30rem;
+				margin-right: 0.20rem;
+			}
+			
+			.icon-title {
+				background: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBUODAsLDBkSEw8VHhsgHx4bHR0hJTApISMtJB0dKjkqLTEzNjY2ICg7Pzo0PjA1NjP/2wBDAQkJCQwLDBgODhgzIh0iMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzP/wgARCAAeAA4DAREAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAABf/EABUBAQEAAAAAAAAAAAAAAAAAAAUH/9oADAMBAAIQAxAAAABqf0BlA8Y9BlA8Y9BlA8Y9BlA//8QAGRAAAgMBAAAAAAAAAAAAAAAABTYQg7IA/9oACAEBAAE/AOJLQS/cEloJfuCS0Ev3BJaCX77/xAAaEQABBQEAAAAAAAAAAAAAAAADBBA0grEA/9oACAECAQE/AOUxAW1lMQFtZTEBbWUxAW3v/8QAGhEAAQUBAAAAAAAAAAAAAAAAAwQQNIKxAP/aAAgBAwEBPwDk0s9cZNLPXGTSz1xk0s9c7//Z');
+				background-size: contain;
+			}
+			
+			.title {
+				font-size: 0.32rem;
+				color: #000;
+			}
+			
+			.detail {
+				font-size: 0.28rem;
+				color: #666;
+			}
+			
+			.detail.detail-first {
+				margin-top: 0.30rem;
+			}
+			
+			.step {
+				width: 6.00rem;
+				border: 1px dotted #ff801a;
+				border-radius: 0.20rem;
+				padding-bottom: 0.30rem;
+				margin: 0.30rem auto 0 auto;
+			}
+			
+			.step-title {
+				padding: 0.30rem;
+				font-size: 0.32rem;
+				color: #ff801a;
+				font-weight: 600;
+			}
+			
+			.step-detail {
+				font-size: 0.30rem;
+				color: #000;
+				padding-left: 0.60rem;
+				padding-right: 0.30rem;
+			}
+			
+			.arrow {
+				width: 0.40rem;
+				height: 0.70rem;
+				background: url('data:image/jpeg;base64,/9j/4QlQaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzEzOCA3OS4xNTk4MjQsIDIwMTYvMDkvMTQtMDE6MDk6MDEgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiLz4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8P3hwYWNrZXQgZW5kPSJ3Ij8+/+0ALFBob3Rvc2hvcCAzLjAAOEJJTQQlAAAAAAAQ1B2M2Y8AsgTpgAmY7PhCfv/bAIQAAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQICAgICAgICAgICAwMDAwMDAwMDAwEBAQEBAQECAQECAgIBAgIDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMD/90ABAAF/+4ADkFkb2JlAGTAAAAAAf/AABEIAEQAJAMAEQABEQECEQH/xACpAAADAQEBAQAAAAAAAAAAAAAACQoIBwMEAQADAAIDAQAAAAAAAAAAAAAACAkDBwECBgoQAAAFAgQDBAYJBQAAAAAAAAECAwQFBgcACBESExQhCRhX1RUW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');
+				background-repeat: no-repeat;
+				background-size: contain;
+				margin: 0.20rem auto 0 auto;
+			}
+			
+			.btn-box {
+				position: fixed;
+				z-index: 1000;
+				width: 100%;
+				height: 1.36rem;
+				bottom: 0;
+				left: 0;
+			}
+			
+			.btn {
+				margin: 0.24rem auto;
+				height: 0.88rem;
+				width: 6.86rem;
+				border-radius: 0.1rem;
+				text-align: center;
+				font-size: 0.36rem;
+				color: #FFFFFF;
+				line-height: 0.88rem;
+				background-color: #51C6D0;
+				display: block;
+			}
+		</style>
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+	</head>
+
+	<body>
+		<div class="section">
+			<p class="title"><span class="icon icon-title"></span>名医点刀服务说明</p>
+			<p class="detail detail-first">当患者希望寻求某位专家手术治疗时，易加医可以帮助患者提前预约该专家，并且协助患者就医。在治疗全程中协调各种关系、尽可能为患者提供便利，让患者及家属操最少的心，获得顺畅专业的服务。</p>
+		</div>
+		<div class="section">
+			<p class="title"><span class="icon icon-title"></span>点刀服务流程</p>
+			<p class="detail detail-first">患者向易加医提出需求；</p>
+			<p class="detail">1.易加医医学部与患者充分沟通需求，确定手术专家；</p>
+			<p class="detail">2.易加医预约手术专家，将结果反馈患者（如指定专家没有空，可改约其他同级别）；</p>
+			<p class="detail">3.主刀专家助手与患者预沟通（可选）；</p>
+			<p class="detail">4.协调床位；</p>
+			<p class="detail">5.陪同患者就医并入院；</p>
+			<p class="detail">6.与医护人员沟通协调、尽可能提供便利；</p>
+			<p class="detail">7.离院后提供主刀专家或助手三个月电话随访</p>
+		</div>
+		<div class="section last-section">
+			<p class="title"><span class="icon icon-title"></span>点刀收费标准</p>
+			<p class="detail detail-first">国内顶级专家（全国主委、副主委、常委）： 15000 - 30000元 人民币</p>
+			<p class="detail">国内一流专家（大三甲医院主任医师）：10000 - 20000元 人民币</p>
+			<p class="detail">国内热门专家（大三甲医院副主任医师）：5000 - 15000元 人民币</p>
+			<p class="detail">（以上价格包含除医院收费以外的所有费用）</p>
+		</div>
+
+		<div class="btn-box">
+			<a class="btn other" id="consult" href="javaScript:;">我要预约</a>
+		</div>
+	</body>
+	<script>
+		function getRequest(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+			var r = encodeURI(window.location.search).substr(1).match(reg);
+			if(r != null) return decodeURI(unescape(r[2]));
+			return null;
+		}
+		$('#consult').click(function(){
+			window.location.href = 'huizhen.html?v=1.0.0&access=名医点刀&orderType=MYDD&wechatId=' + getRequest('wechatId');
+		});
+	</script>
+	<script>
+		require(['https://review-formal.iplusmed.com/Common/javaScript/shareCommon.js?sharingType=mydd']);
+	</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>转诊复诊</title>
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/consult.css"/>
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/calRem.js"></script>
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: "./",
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+					"medtap": "https://review-formal.iplusmed.com/Common/javaScript/medtap-core-1.0.2",
+					"md5": "https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min"
+				},
+				shim: {
+					"zepto": {
+						exports: "$"
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="content">
+				<img class="banner" src="images/referral_img_banner@2x.png" />
+				<div class="cell recommend">
+					<img class="pic" src="images/select_doctors@2x.png" alt="pic"/>
+					<p class="title">自己找医生</p>
+					<span class="desc">自主查找选择医生，使用转诊/复诊服务</span>
+				</div>
+				<div class="cell follow">
+					<img class="pic" src="images/care_doctor@2x.png" alt="pic"/>
+					<p class="title">我关注的医生</p>
+					<span class="desc">在我的关注里面选择已关注的医生使用转诊/复诊服务</span>
+				</div>
+				<span class="clearfix"></span>
+			</div>		
+		</div>
+	</body>
+	<script type="text/javascript">
+		require(['javaScript/consult.js?v=1.0.0']);
+		require(['https://review-formal.iplusmed.com/Common/javaScript/shareCommon.js?sharingType=consult']);
+	</script>
+</html>

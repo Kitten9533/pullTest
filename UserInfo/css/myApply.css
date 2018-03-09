@@ -1,0 +1,44 @@
+body{
+	background-color:#F0F1F4;
+}
+.content{
+	font-size:0.3rem;
+}
+
+.applyCard li{
+	margin-top: 0.2rem;
+	background-color:#FFFFFF;
+}
+.applyCard li:first-child{
+	margin-top: 0;
+}
+.apply{
+	padding:0.2rem 0;
+}
+.applyType{
+	padding-top:0.2rem;
+	padding-left:0.28rem;
+}
+.applyType img{
+	width:5%
+}
+.applyName{
+	margin-left:0.2rem;
+}
+.applyTime{
+	float:right;
+	font-size:0.26rem;
+	margin-top:0.06rem;
+	margin-right:0.3rem;
+	color:#999999;
+	letter-spacing:0.02rem;
+}
+.applyInfo{
+	border-top:0.01rem solid #F0F1F4;
+	padding:0.28rem 0;
+	padding-left:0.28rem;
+}
+.applyInfo p{
+	margin-bottom:0.15rem;
+}
+

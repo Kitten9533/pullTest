@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>临床研究</title>
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/reset.css" />
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/calRem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/clinicalResearch.css" />
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: './',
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+					"medtapCore": "https://review-formal.iplusmed.com/Common/javaScript/medtap-core-1.0.2",
+					"md5": "https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min"
+				},
+				shim: {
+					"zepto": {
+						exports: '$'
+					}
+				}
+			});
+		</script>
+	</head>
+
+	<body>
+
+		<div class="section">
+			<div class=" box pic-box hot-search-durg newDrugFree">
+				<a class="hotSearch-btn" href="#">
+					<div class="desc-text">
+						<p class="desc-title">新药免费送</p>
+						<p class="desc-detail">热门肿瘤药物免费用</p>
+						<span class="btn">点击抢先报名</span>
+					</div>
+				</a>
+			</div>
+		</div>
+		<div class="section">
+			<div class="box grid-box clearfix">
+				<div class="sub-box">
+					<div class="grid-box-cell global-drug aboutClincalResearch">
+						<!--<img src="" />-->
+						<div class="cell-text">
+							<p class="desc-title">临床研究招募</p>
+							<span class="desc-detail color-fff">点击查看全部在招临床研究项目</span>
+						</div>
+					</div>
+					<div class="grid-box-cell cell-2 cooperative-agency">
+						<!--<img src="" />-->
+						<div class="cell-text">
+							<p class="desc-title">帮我匹配</p>
+							<span class="desc-detail color-fff">根据疾病和治疗情况匹配在招临床研究项目</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="box pic-box free-drug clincalResearchMore">
+				<div class="desc-text">
+					<p class="desc-title">临床研究知识</p>
+					<span class="desc-detail">为您全面解读临床研究相关知识</span>
+					<!--<span class="btn">点击抢先报名</span>-->
+				</div>
+			</div>
+		</div>
+	</body>
+	<!--<script src="js/global.js?v=2017041802"></script>-->
+	<!--<script src="../js/mui.min.js"></script>-->
+	<script type="text/javascript">
+		require(['javaScript/clinicalResearch.js?v=1.0.0']);
+		require(['https://review-formal.iplusmed.com/Common/javaScript/shareCommon.js?sharingType=clinicalResearch']);
+	</script>
+
+</html>

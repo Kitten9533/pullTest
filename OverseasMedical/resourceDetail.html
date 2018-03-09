@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/calRem.js"> </script>
+		<script src="javaScript/jquery.min.js"></script>
+		<script src="javaScript/amazeui.min.js"></script>
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<style>
+			.mui-content{
+				padding-bottom: 1.36rem;
+			}
+			.mui-btn-block {
+				-ms-flex-align: center;
+				align-items: center;
+				background-color: #51c6d0;
+				border: 1px solid #51c6d0;
+				position: relative;
+				overflow: hidden;
+				z-index: 2;
+				font-weight: bold;
+				font-size: 18px;
+				color: #fff;
+				-webkit-border-radius: 0.3em;
+				-moz-border-radius: 0.3em;
+				-ms-border-radius: 0.3em;
+				-o-border-radius: 0.3em;
+				border-radius: 0.3em;
+			}
+			input[type="submit"] {
+				color: #fff;
+				background-color: #51c6d0;
+				border: 1px solid #51c6d0;
+			}
+			.first{
+				font-size: 16px;
+			}
+			.sec{
+				color: #777;
+				font-size: 12px;
+			}
+			.opacity{
+				display: none;
+				width: 100%;
+				height: 100%;
+				opacity: 0.5;
+				background: #999999;
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 99;
+			}
+			#order{
+				float:left;
+				width: 31%;
+				margin-left: 10px;
+				display: none;
+				text-align: center;
+				padding: 17px 0;
+			}
+
+			/*弹窗*/
+			.greyBg{
+				display: none;
+				position: fixed;
+				top: 0;
+				height: 100%;
+				width: 100%;
+				z-index: 5;
+				opacity: 0.3;
+				background-color:#000000;
+			}
+
+			.reminder{
+				display: none;
+				height: 2.5rem;
+				width: 5.4rem;
+				position: fixed;
+				top: 4.5rem;
+				left: 1.05rem;
+				background-color: white;
+				border-radius: 15px;
+				z-index: 11;
+			}
+
+			.reminder1 .tip1{
+				font-size: 0.3rem;
+				height: 1.6rem;
+				line-height: 0.5rem;
+				color: #333333;
+				text-align: center;
+				padding: 0.32rem 0rem 0.24rem;
+				border-bottom: 1px solid #E0E0E0;
+			}
+			.reminder .options{
+				font-size: 0.36rem;
+			}
+
+			.reminder1 .options .noNeed{
+				width: 2.6rem;
+				text-align: center;
+				color: #777777;
+				line-height: 0.88rem;
+				border-right: 1px solid #E0E0E0;
+				vertical-align:top;
+				float:left;
+			}
+
+			.reminder1 .options .yesNeed{
+				width: 2.7rem;
+				text-align: center;
+				color: #007AFF;
+				line-height: 0.88rem;
+				vertical-align:top;
+				float:left;
+			}
+
+
+			.reminder2{
+				height: 2.3rem;
+			}
+			.reminder2 .tip2{
+				font-size: 0.3rem;
+				height: 1.4rem;
+				line-height: 0.8rem;
+				color: #333333;
+				text-align: center;
+				padding: 0.24rem 0rem;
+				border-bottom: 1px solid #E0E0E0;
+			}
+			.reminder2 .options .no{
+				width: 2.6rem;
+				text-align: center;
+				color: #777777;
+				line-height: 0.88rem;
+				border-right: 1px solid #E0E0E0;
+				vertical-align:top;
+				float:left;
+			}
+
+			.reminder2 .options .yes{
+				width: 2.7rem;
+				text-align: center;
+				color: #007AFF;
+				line-height: 0.88rem;
+				vertical-align:top;
+				float:left;
+			}
+			
+			.btn-box {
+				position: fixed;
+				z-index: 1000;
+				width: 100%;
+				height: 1.36rem;
+				bottom: 0;
+				left: 0;
+			}
+			.btn {
+				margin: 0.24rem auto;
+				height: 0.88rem;
+				width: 6.86rem;
+				border-radius: 0.1rem;
+				text-align: center;
+				font-size: 0.36rem;
+				color: #FFFFFF;
+				line-height: 0.88rem;
+				background-color: #51C6D0;
+				display: block;
+			}
+
+		</style>
+	</head>
+
+	<body>
+
+		<div class="mui-content mui-scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);padding-bottom: 1.36rem;height: 100%;">
+			<h3 style="padding:10px;" id="title"></h3>
+			<h4 style="padding-left:10px;;color:#999999;" id="date"></h4>
+
+			<div class="mui-content-padded" id="detail">
+			</div>
+
+			<div class="mui-content" id="submitButton" style="display: none;">
+				<div class="mui-content-padded">
+					<!--<button type="submit" class="am-btn btn-loading-example am-btn-default mui-btn-block" onclick="clickSubmit()" data-am-loading="{spinner: 'circle-o-notch', loadingText: '正在提交...', resetText: '我要进一步了解'}">我要进一步了解</button>-->
+					<!--<button type="button" class="mui-btn mui-btn-primary mui-btn-block" onclick="tap_submit()">我要进一步了解</button>-->
+					<!--<button type="button" id="consult" class="am-btn btn-loading-example am-btn-default mui-btn-block" onclick="consult()">我要咨询</button>-->
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="btn-box">
+			<a class="btn other" id="consult" href="javaScript:;">我要咨询</a>
+		</div>
+		
+		<div class="mui-content" id="submitBuy" style="display: none;position: fixed;bottom: 0px;z-index: 98;width: 100%;">
+			<div class="mui-content-padded">
+				<button type="submit" class="am-btn btn-loading-example am-btn-default mui-btn-block" id="consulate" onclick="tap_Consultation()" style="float:left;width: 48%; margin-right: 10px;" >咨询客服</button>
+				<button type="submit" class="am-btn btn-loading-example am-btn-default mui-btn-block" id="buy" onclick="tap_buy()" style="float:left;width: 48%;">我要筛查</button>
+				<button type="submit" class="am-btn btn-loading-example am-btn-default mui-btn-block" id="gene" onclick="tap_gene()" style="float:left;width: 48%;">我要检测</button>
+				<a  class="am-btn btn-loading-example am-btn-default mui-btn-block" id="order" onclick="orderPay()">下单支付</a>
+				<!--<button type="button" class="mui-btn mui-btn-primary mui-btn-block" onclick="tap_submit()">我要进一步了解</button>-->
+			</div>
+		</div>
+		<!--<div class="am-modal am-modal-alert" tabindex="-1" id="modal-success">
+			<div class="am-modal-dialog">
+				<div class="am-modal-hd">提交成功</div>
+				<div class="am-modal-bd">
+					感谢您对易加医的支持,客服会及时和您取得联系！
+				</div>
+				<div class="am-modal-footer">
+					<span class="am-modal-btn" onclick="tapClose()">确定</span>
+				</div>
+			</div>
+		</div>-->
+		
+		<!--<div class="am-modal am-modal-alert" tabindex="-1" id="modal-faile">
+			<div class="am-modal-dialog">
+				<div class="am-modal-bd">
+					提交失败，请重试！
+				</div>
+				<div class="am-modal-footer">
+					<span class="am-modal-btn">确定</span>
+				</div>
+			</div>
+		</div>-->
+
+		<div class="greyBg">
+
+		</div>
+		<div class="reminder reminder1">
+			<div class="tip1">
+				<p>易加医医学专员会尽快给您去电，</p>
+				<p>为您介绍详细信息。</p>
+			</div>
+			<div class="options">
+				<span class="noNeed">暂不需要</span>
+				<span class="yesNeed">好的</span>
+			</div>
+		</div>
+		<div class="reminder reminder2">
+			<div class="tip2 ">
+				<p>请您先注册/登录易加医</p>
+			</div>
+			<div class="options">
+				<span class="no">取消</span>
+				<span class="yes">确定</span>
+			</div>
+		</div>
+
+		<div class="opacity">
+
+		</div>
+		<div class="alertwindow">
+			<div class="alt">
+				<p class="first" style="margin-bottom: 5px;"></p>
+				<p class="sec" style="display: none;"></p>
+			</div>
+			<div class="alert-btn">
+				<button type="button" class="alert-yes-single" onclick='getNone("no")' style="width: 49%;">取消</button>
+				<button type="button" class="alert-yes-single dis" onclick='login("")' style="width: 49%;">确定</button>
+			</div>
+		</div>
+		
+	</body>
+
+	<script src="javaScript/global.js"></script>
+    <script>
+//        initGlobalData({accountId:"2",token:"",globalDeviceRom:"", globalAppVersion:"", globalAppType:"1", globalDeviceModel:"",globalDeviceType:""});
+        function initGlobalData(data) {
+//            accountId = "";
+            accountId = data.accountId;
+            token = data.token;
+            globalDeviceRom = data.globalDeviceRom;
+            globalAppVersion = data.globalAppVersion;
+            globalAppType = data.globalAppType;
+            globalDeviceModel = data.globalDeviceModel;
+            globalDeviceType = data.globalDeviceType;
+        }
+    </script>
+	<script>
+		var isLogin = false;
+		var isTel = false;
+		
+		document.title = getRequest('title');
+		
+		if(!!getRequest('btnName')){
+			$('#consult').text(getRequest('btnName'));
+		}
+		
+		//新加的   点击我要咨询按钮跳转到提交表单页面
+		$('#consult').on('click', function(){
+			window.location.href = "submit.html?title=" + (!!getRequest('title') ? getRequest('title') : '') + '&preTitle=' + (!!getRequest('preTitle') ? getRequest('preTitle') : '');
+		});
+		
+		window.onload = function() {
+			
+			$.ajax({
+				url: getInterfaceBaseUrl() + '/resource/fetchResource',
+			    data: {
+			    		resourceId: getRequest('resourceId'),
+			    		accountId: accountId,
+						token: token,
+						globalDeviceRom: globalDeviceRom ,
+						globalAppVersion: globalAppVersion,
+						globalAppType: globalAppType,
+						globalDeviceModel: globalDeviceModel,
+						globalDeviceType: globalDeviceType
+				},
+			    type:'post',
+			    dataType:'json',
+			    success:function(data){
+			       if(data.code == 0){
+                       jsonpCallback(data);
+                   }else{
+			           alert(data.message);
+                   }
+			     },
+			     error : function() {
+			     }
+			});
+		}
+
+		function jsonpCallback(data) {
+			
+			var objTitle = document.getElementById('title');
+			objTitle.innerHTML = data.resource.title;
+			
+			var objDtae = document.getElementById('date');
+			objDtae.innerHTML = "易加医    " + data.resource.makeTime;
+			
+			//服务器返回响应，根据响应结果，分析是否登录成功；
+			var objDeatil = document.getElementById('detail');
+			objDeatil.innerHTML = data.resource.comment;
+			var submitButton = document.getElementById('submitButton');
+			var submitBuy = document.getElementById('submitBuy');
+			var order = document.getElementById('order');
+			var buy = document.getElementById('buy');
+			var gene = document.getElementById('gene');
+			var con = document.getElementById('consulate');
+			if(submitBuy){
+				if(getRequest('categoryId')==5){
+					submitBuy.style.display = 'block';
+					gene.style.display = 'none';
+					if (isIPhone() || (isAndroid() && globalAppVersion > 205)) {
+						order.style.display = 'block';
+						buy.style.width = '31%';
+						con.style.width = '31%';
+					}
+				} else if(getRequest('categoryId')==14){
+					submitBuy.style.display = 'block';
+					buy.style.display = 'none';
+				} else{
+					submitBuy.style.display = 'none';
+				}
+			}
+			if (submitButton) {
+				if (data.resource.isHaveSubmit == '1') {
+					submitButton.style.display = 'block';
+				} else {
+					submitButton.style.display = 'none';
+				}
+			}
+		}
+		
+		function isAndroid() {
+			return navigator.userAgent.match(/(Android|android)/i);
+		}
+		
+		
+		 function tap_buy(){
+		 	if(accountId !=''){
+		 		window.location.href = getBaseUrl()+'resource3650form.html';
+		 	}else{
+		 		
+		 		isLogin = true;
+				isTel = false;
+		
+		 		$('.opacity').show();
+		 		$('.alertwindow').show();
+				$('.alertwindow .alt p').html(unloginMessage);
+				$('.sec').hide();
+		 	}
+		 }
+		 
+		 function tap_gene(){
+		 	if(accountId !=''){
+		 		window.location.href = getBaseUrl()+'resourceGeneForm.html?resourceId='+ getRequest('resourceId');
+		 	}else{
+		 		
+		 		isLogin = true;
+				isTel = false;
+				
+		 		$('.opacity').show();
+		 		$('.alertwindow').show();
+				$('.alertwindow .alt p').html(unloginMessage);
+				$('.sec').hide();
+		 	}
+		 }
+		 
+		 
+		 function tap_Consultation(){
+		 	isLogin = false;
+			isTel = true;
+				
+		 	$('.opacity').show();
+		 	$('.alertwindow').show();
+			$('.first').html('联系客服 400-005-9900');
+			$('.sec').show().html('工作时间：每天9:30-19:30');
+		 }
+		function isIPhone(){
+			return navigator.userAgent.match(/(iPhone|iPod|ios)/i);
+		}
+		function orderPay(){
+			window.location.href = 'taobao://item.taobao.com/item.htm?id=527009655461';
+		}
+
+		/*点击我要进一步了解*/
+		function clickSubmit() {
+            if(!accountId){
+                LoginOrNot();
+            }else{
+                TelOrNot();
+            }
+        }
+        /*弹出登录或注册窗口*/
+        function LoginOrNot() {
+            $('.greyBg').show();
+            $('.reminder2').show();
+        }
+        /*弹出是否联系客服窗口*/
+        function TelOrNot() {
+            $('.greyBg').show();
+            $('.reminder1').show();
+        }
+        /*选择是否登录*/
+        chooseLogin();
+        function chooseLogin() {
+            $('.no').click(function(){
+                $('.greyBg').hide();
+                $('.reminder2').hide();
+            });
+            $('.yes').click(function(){
+                $('.greyBg').hide();
+                $('.reminder2').hide();
+                window.location.href = " FF499211739FD801USER://kRouteWebLogin";
+            });
+        }
+        /*选择是否联系客服*/
+        chooseTel();
+        function chooseTel() {
+            $('.noNeed').click(function(){
+                $('.greyBg').hide();
+                $('.reminder1').hide();
+            });
+
+            $('.yesNeed').click(function(){
+                $('.greyBg').hide();
+                $('.reminder1').hide();
+
+                goSubmit();
+            });
+        }
+        /*提交*/
+        function goSubmit() {
+            if(accoutId){
+                var $btn = $('.btn-loading-example');
+                $btn.button('loading');
+                // 提交进一步了解
+                $.ajax({
+                    url: getInterfaceBaseUrl() + '/yjy/submitResource',
+                    data: {
+                        resourceId: getRequest('resourceId'),
+                        categoryId: getRequest('categoryId'),
+                        subCategoryId: getRequest('subCategoryId'),
+                        accountId: accountId,
+                        token: token,
+                        globalDeviceRom: globalDeviceRom ,
+                        globalAppVersion: globalAppVersion,
+                        globalAppType: globalAppType,
+                        globalDeviceModel: globalDeviceModel,
+                        globalDeviceType: globalDeviceType
+                    },
+                    type:'post',
+                    dataType:'json',
+                    success:function(data){
+                        sumbitCallback(data);
+                    },
+                    error : function() {
+                    }
+                });
+            } else {
+                isLogin = true;
+                isTel = false;
+
+                $('.opacity').show();
+                $('.alertwindow').show();
+                $('.alertwindow .alt p.first').html(unloginMessage);
+                //$('#modal-faile').modal('toggle');
+            }
+        }
+		
+		function sumbitCallback(result) {
+			
+			isLogin = false;
+			isTel = false;
+				
+			$('.btn-loading-example').button('reset');
+			if (result.code == '0') {
+				$('.opacity').show();
+				$('.alertwindow').show();
+				$('.alertwindow .alt p').html('感谢您对易加医的支持,客服会及时和您取得联系！');
+				$('.dis').hide();
+				$('.alert-yes-single').html('确定').css('width','100%');
+				//$('#modal-success').modal('toggle');
+			} else {
+				$('.opacity').show();
+				$('.alertwindow').show();
+				$('.alertwindow .alt p').html('提交失败，请重试！');
+				//$('#modal-faile').modal('toggle');
+			}
+		}
+		function getNone(choose){
+			$('.opacity').hide();
+			if(choose=='yes'){
+				window.location.href = "tel:4000059900";
+			}
+			$('.alertwindow').hide();
+			isHidden(false);
+		}
+		function tapClose() {
+			window.location.href = "FF499211739FD801USER://kRouteCloseWebView";
+		}
+		
+		function login() {
+			
+			if(globalAppVersion && globalAppVersion >=200){
+				if(isLogin){
+					window.location.href = " FF499211739FD801USER://kRouteWebLogin";
+				} else if(isTel){
+					getNone("yes");
+				} else {
+					getNone("no");
+				}
+				
+			} else {
+				if(isTel){
+					getNone("yes");
+				} else {
+					getNone("no");
+				}
+				
+			}
+		}
+		
+
+		
+	</script>
+
+</html>

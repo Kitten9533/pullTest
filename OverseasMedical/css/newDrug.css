@@ -1,0 +1,207 @@
+.pic {
+	height: 6.95rem;
+	width: 7.5rem;
+	background-repeat: no-repeat;
+	background-size: 7.5rem 6.95rem;
+	margin: 0 auto;
+}
+
+.pic.ychz {
+	background-image: url(../images/vip_remote_more.png);
+}
+
+.pic.dxkhz {
+	background-image: url(../images/vip_joint_consultation_more.png);
+}
+
+.pic.mydd {
+	background-image: url(../images/vip_dc_work_more.png);
+}
+
+.pic.gndeyj {
+	background-image: url(../images/vip_china_more.png);
+}
+
+.pic.mgdeyj {
+	background-image: url(../images/vip_united_states_more.png);
+}
+
+.pic.gaxyzl {
+	background-image: url(../images/vip_new_drugs_more.png);
+}
+
+.pic.srys {
+	background-image: url(../images/vip_private_doctor_more.png);
+}
+
+.pic.jzjy {
+	background-image: url(../images/vip_accurate.png);
+}
+
+.pic.kjzx {
+	background-image: url(../images/vip_quick.png);
+}
+
+.pic.yjzx {
+	background-image: url(../images/vip_a_key.png);
+}
+
+.pic.zlfxpg {
+	background-image: url(../images/vip_assessment.png);
+}
+
+.pic.djjy {
+	background-image: url(../images/vip_top_more.png);
+}
+
+.pic.zgjy {
+	background-image: url(../images/vip_honorable.png);
+}
+
+.pic.dhzx {
+	background-image: url(../images/vip_tel_more.png);
+}
+
+.pic.fzyy {
+	background-image: url(../images/vip_review_more.png);
+}
+
+.pic.srysdyq{
+	background-image: url(../images/vip_voucher_more.png);
+}
+
+.introduce {
+	margin: 0.3rem 0.6rem 0.6rem;
+	color: #777777;
+	font-size: 0.3rem;
+	line-height: 0.42rem;
+	text-align: justify;
+}
+
+.butt {
+	font-size: 0.32rem;
+	color: #f5bd5f;
+	margin-left: 0.6rem;
+	margin-bottom: 0.6rem;
+	font-weight: bold;
+}
+
+.notice {
+	margin-bottom: 0.3rem;
+	font-size: 0.26rem;
+	color: #777777;
+	text-align: center;
+}
+
+.pic .resttimes {
+	position: absolute;
+	top: 7%;
+	left: 75%;
+	height: 0.5rem;
+	width: 1.54rem;
+	background-color: rgba(0, 0, 0, 0.3);
+	border-bottom-left-radius: 50px;
+	border-top-left-radius: 50px;
+}
+
+.pic .resttimes p {
+	font-size: 0.3rem;
+	color: #FFFFFF;
+	line-height: 0.5rem;
+	float: right;
+	margin-right: 0.16rem;
+}
+
+.checkBtn:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.checkBtn {
+	margin-bottom: 0.4rem;
+}
+
+.checkBtn .btn {
+	float: left;
+	font-size: 0.36rem;
+	height: 0.8rem;
+	width: 3rem;
+	background-color: #fe9d05;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 0.8rem;
+	margin-left: 0.6rem;
+	border-radius: 0.35rem;
+}
+
+.checkBtn .btn:nth-child(2) {
+	margin-left: 0.3rem;
+}
+
+.checkBtn .buy.on,
+.checkBtn .use.on {
+	margin: 0 auto;
+	float: none;
+	height: 0.88rem;
+	width: 4.55rem;
+	line-height: 0.88rem;
+	font-size: 0.4rem;
+	border-radius: 0.44rem;
+}
+
+.phone {
+	display: none;
+	background: rgba(0, 0, 0, 0.6);
+	z-index: 2;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+}
+
+.phone .phone_alert {
+	/*font-size: 0.35rem;*/
+	font-size: 0.30rem;
+	width: 5rem;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	background-color: #FFFFFF;
+	border-radius: 0.2rem;
+	transform: translate(-50%, -70%);
+	-webkit-transform: translate(-50%, -70%);
+}
+
+.phone .phone_alert .txt {
+	text-align: center;
+	line-height: 0.7rem;
+	padding: 0.2rem 0;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.phone .check div {
+	text-align: center;
+	width: 50%;
+	line-height: 1rem;
+	color: #006DF5;
+}
+
+.phone .check .quxiao {
+	float: left;
+	border-right: 1px solid #DDDDDD;
+}
+
+.phone .check .call {
+	float: left;
+}
+
+.phone .check:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+[v-cloak] {
+	display: none;
+}

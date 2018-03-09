@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/mui.picker.min.css" />
+		<style>
+			html,
+			body {
+				height: 100%;
+				position: relative;
+			}
+			
+			::-webkit-scrollbar{
+				display: none;
+				width: 0;
+			}
+			
+			ul.list {
+				background: #fff;
+				height: 1rem;
+			}
+			
+			.mui-scroll {
+				height: 100%;
+				overflow: scroll;
+			}
+			
+			.list li {
+				padding-top: 0.10rem;
+				padding-left: 0.30rem;
+				height: 1rem;
+			}
+			
+			p {
+				margin-bottom: 0;
+				line-height: 0.40rem;
+			}
+			
+			.summary {
+				color: #000;
+				font-size: 0.30rem;
+			}
+			
+			.summary-data span.desc {
+				padding-left: 0.30rem;
+			}
+			
+			.summary-data span.desc:first-child {
+				padding-left: 0;
+			}
+			
+			.searchBox {
+				background: #f0f1f4;
+				height: 1rem;
+				width: 7.5rem;
+				margin: 0 auto;
+				padding: 0.20rem;
+			}
+			
+			.clearSearch {
+				position: absolute;
+				display: block;
+				width: 0.30rem;
+				height: 0.30rem;
+				top: 0.15rem;
+				border-radius: 0.20rem;
+				right: 0.20rem;
+				background-image: url('../images/close.png');
+				background-size: 100% 100%;
+				background-repeat: no-repeat;
+				background-color: #E0E0E0;
+			}
+			
+			.searchContent {
+				position: relative;
+				display: inline-block;
+				float: left;
+				width: 6rem;
+				height: 0.6rem;
+				background: #fff;
+				border-radius: 0.10rem;
+				line-height: 0.60rem;
+				text-indent: 0.20rem;
+				color: #808080;
+				position: relative;
+			}
+			.searchContent:before{
+				position: absolute;
+				content: '';
+				display: block;
+				width: 0.32rem;
+				height: 0.32rem;
+				top: 0.12rem;
+				left: 0.24rem;
+				background-size: 100% 100%;
+				background-repeat: no-repeat;
+				background-image: url('../images/search.png');
+			}
+			
+			.searchValue {
+				display: block;
+				width: 100%;
+				height: 100%;
+				border: none;
+				border-radius: 0.10rem;
+				font-size: 0.28rem;
+				text-indent: 0.10rem;
+				padding-left: 0.60rem;
+			}
+			
+			.search {
+				display: inline-block;
+				float: right;
+				line-height: 0.5rem;
+				font-size: 0.25rem;
+				padding: 0;
+				width: 1rem;
+				height: 0.5rem;
+				border: none;
+				margin-top: 0.05rem;
+				color: #54C6D0;
+				background: #f0f1f4;
+			}
+			
+			.monthList {
+				background: #fff;
+			}
+			
+			.monthList li {
+				margin-top: 1px;
+				padding: 0.10rem 0.30rem;
+			}
+			
+			.headers {
+				position: fixed;
+				top: 0;
+				z-index: 100;
+			}
+			.detail{
+				height: 100%;
+				overflow: scroll;
+			}
+			.detail li {
+				height: 1rem;
+			}
+			
+			.detialBox .mui-scroll-wrapper{
+				padding-top: 3rem;
+			}
+			
+			.detialBox .summary.summary-desc-2{
+				height: 0.50rem;
+			}
+			
+			#pullrefresh .summary{
+				line-height: 0.40rem;
+				padding: 0.10rem 0.30rem;
+			}
+			
+			#forDetal{
+				padding-left: 0.30rem;
+				background: #fff;
+			}
+			
+			#forDetal li{
+				padding: 0.10rem 0.30rem 0.10rem 0;
+			}
+			
+			.section{
+				background: #fff;
+				/*margin-top: 0.10rem;*/
+			}
+			
+			#forDetal{
+				margin-top: 0.10rem;
+				margin-bottom: 0.80rem;
+			}
+			
+			#forDetal li{
+				border-bottom: 1px solid #E0E0E0;
+			}
+			
+			#forDetal li:last-child{
+				border:none;
+			}
+			
+			.goodsInfo{
+				position: relative;
+				width: 100%;
+				line-height: 0.40rem;
+				height: 0.40rem;
+			}
+			
+			.goodsName{
+				display: inline-block;
+				width: 80%;
+				height: 0.40rem;
+				position: absolute;
+				left: 0;
+				overflow: hidden;
+    			text-overflow: ellipsis;
+    			white-space: nowrap;
+    			color: #000;
+			}
+			
+			.goodsAmount{
+				display: inline-block;
+				width: 20%;
+				height: 0.40rem;
+				text-align: right;
+				position: absolute;
+				right: 0;
+				color: #000;
+			}
+			
+			.value{
+				color: #000;
+			}
+			
+			.filterBox{
+				width: 100%;
+				height: 1rem;
+				margin: 0 auto;
+				background: #fff;
+				border-bottom: 1px solid #e0e0e0;
+			}
+			
+			.filter{
+				width: 7.5rem;
+				height: 1rem;
+			}
+			.filter li{
+				display: inline-block;
+				width: 2.5rem;
+				height: 100%;
+				float: left;
+				font-size: 0.28rem;
+				line-height: 1rem;
+				text-align: center;
+				box-sizing: border-box;
+				border-left: 1px solid #F0F1F4;
+				border-right: 1px solid #F0F1F4;
+				background: #fff;
+				color: 000;
+			}
+			.filter li.on{
+				background: #51C6D0;
+				border-color: #51C6D0;
+				color: #fff;
+				border: none;
+			}
+			.filter li:last-child, .filter li:first-child{
+				border-left: none;
+				border-right: none;
+			}
+			
+			.scrollBox{
+				height: 100%;
+				overflow: scroll;
+			}
+
+		</style>
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/calRem.js" type="text/javascript" charset="utf-8"></script>
+		<title>订单明细</title>
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: "./",
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+					"medtapCore": "https://review-formal.iplusmed.com/Common/javaScript/medtap-core-1.0.2",
+					"md5": "https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min",
+					"mui": "https://review-formal.iplusmed.com/Common/javaScript/mui.min",
+					"mui.picker": "https://review-formal.iplusmed.com/Common/javaScript/mui.picker.min"
+				},
+				shim: {
+					"zepto": {
+						exports: "$"
+					},
+					"mui.picker": ["mui"]
+				}
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="headers">
+			<div class="searchBox">
+				<div class="searchContent">
+					<input class="searchValue" readonly="true" placeholder="请选择时间"><i class="clearSearch"></i>
+				</div>
+				<button class="search">查询</button>
+			</div>
+			<div class="filterBox">
+				<ul class="filter">
+					<li key="me" class="on">本人直接销量</li>
+					<li key="others">我的用户销量</li>
+					<li key="tier">下级代理商销量</li>
+				</ul>
+			</div>
+			<ul id="" class="monthList">
+				<li>
+					<p class="summary summary-desc-1">订单总览</p>
+					<p class="summary-data">
+						<span class="desc">数量:</span>
+						<span class="shopOrder"></span>
+						<span class="desc">金额:</span>
+						<span class="allFee"></span>
+					</p>
+				</li>
+			</ul>
+		</div>
+		<div class="detialBox">
+			<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+				<p class="summary summary-desc-2">订单明细</p>
+				<div class="scrollBox">
+					<ul id="forDetal" class="">
+						<!--<li>
+							<div>
+								<p><span>手机号码: </span>1222222222</p>
+								<p><span>注册时间: </span>1222222222</p>
+								<p><span>购物金额: </span>1222222222</p>
+							</div>
+						</li>-->
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		require(['../javaScript/achievementTabTwo.js?v=1.0.1&a=2']);
+	</script>
+
+</html>

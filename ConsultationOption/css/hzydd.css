@@ -1,0 +1,88 @@
+html,
+body {
+	max-width: 750px;
+	margin: 0 auto;
+}
+.head {
+	height: 3.8rem;
+	width: 7.5rem;
+	background-image: url(../img/banner.jpg);
+	background-size: 7.5rem 3.8rem;
+	background-repeat: no-repeat;
+}
+.foot li{
+	height: 1.6rem;
+	border-bottom: 1px solid #E0E0E0;
+}
+.foot li  .tupian img{
+	height: 1.6rem;
+	width: 1.65rem;
+	float: left;
+}
+.foot li  .wenzi{
+	height: 0.76rem;
+	margin-left: 0.28rem;
+	margin-top: 0.46rem;
+	margin-bottom: 0.38rem;
+	float: left;
+}
+.foot li  .wenzi .biaoti #bt{
+	font-size: 0.36rem;
+	color: #000000;
+	line-height: 0.36rem;
+	float: left;
+	
+}
+.foot li  .wenzi .jieshao #js{
+	font-size: 0.26rem;
+	color: #999999;
+	line-height: 0.26rem;
+	margin-top: 0.2rem;
+	float: left;
+}
+.foot li  .jiantou img{
+	height: 0.38rem;
+	width: 0.32rem;
+	float: right;
+	margin-top: 0.66rem;
+	margin-right: 0.42rem;
+}
+.explain{
+	height: 1.2rem;
+	border-bottom: 1px solid #E0E0E0;
+	line-height: 1.2rem;
+}
+.explain:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+.explain .header{
+	height:1.18rem;
+	width: 1.65rem;
+	margin-right: 0.28rem;
+	float: left;
+}
+.explain h6{
+	font-size: 0.34rem;
+	color: #141414;
+	float: left;
+	margin-right: 0.14rem;
+}
+.explain .pop{
+	height: 0.32rem;
+	width: 0.32rem;
+	margin-top: -0.2rem;
+}
+.explain .jt{
+	height: 0.38rem;
+	width: 0.32rem;
+	float: right;
+	margin-top: 0.4rem;
+	margin-right: 0.42rem;
+}
+.kongxi{
+	height: 0.2rem;
+	background-color: #F0F0F0;
+	border-bottom: 1px solid #E0E0E0;
+}

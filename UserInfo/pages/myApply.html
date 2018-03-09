@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+		<link rel="stylesheet" type="text/css" href="../css/myApply.css" />
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/mui.min.css" />
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/calRem.js" type="text/javascript" charset="utf-8"></script>
+		<title>我的申请</title>
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: "./",
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+					"medtapCore": "https://review-formal.iplusmed.com/Common/javaScript/medtap-core-1.0.2",
+					"md5": "https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min",
+					"mui": "https://review-formal.iplusmed.com/Common/javaScript/mui.min"
+				},
+				shim: {
+					"zepto": {
+						exports: "$"
+					}
+				}
+			});
+		</script>
+	</head>
+
+	<body>
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<ul id="list" class="applyCard">
+					<!--<li>
+						<div class="apply">
+							<span class="applyType"><img src="../images/my apply_icon_plane@2x.png"/></span>
+							<span class="applyName">全球找药</span>
+							<span class="applyTime">2017-10-09</span>
+						</div>
+						<div class="applyInfo">
+							<p>药品名:<span class="drugName">Opdivo</span></p>
+							<p>剂型:<span class="drugType">注射剂</span></p>
+						</div>
+					</li>-->
+					<!--<li>
+						<div class="apply">
+							<span class="applyType"><img src="../images/my apply_icon_global@2x.png"/></span>
+							<span class="applyName">全球第二意见</span>
+							<span class="applyTime">2017-10-08</span>
+						</div>
+						<div class="applyInfo">
+							<p>联系人:<span class="contactName">李空</span></p>
+							<p>联系电话:<span class="contactTel">15123569598</span></p>
+						</div>
+					</li>-->
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script>
+		require(['../javaScript/myApply.js?v=1.0.0']);
+	</script>
+</html>

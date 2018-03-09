@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+		<script src="./js/calRem.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="./css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="./css/hzydd.css" />
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: "./",
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+					"vue": "https://cdn.bootcss.com/vue/1.0.26/vue.min",
+					"yjyInit": "./js/yjyInit"
+				},
+				shim: {
+					"zepto": {
+						exports: "$"
+					},
+					"vue": {
+						exports: "Vue"
+					}
+				}
+			});
+			require(['yjyInit']);
+		</script>
+		<title>二诊点刀</title>
+	</head>
+
+	<body>
+		
+		<div class="head"></div>
+		<div class="explain">
+			<img class="header" src="img/consultation_list_pic0.png"/>
+			<h6 >会诊点刀服务说明</h6>
+			<img class="pop" src="img/pop_prompt.png"/>
+			<img class="jt" src="img/icon_gray_right.png" />
+		</div>
+		<div class="kongxi"></div>
+		<ul class="foot">
+			<li class="hzhen" lb="hzhen">
+				<div class="tupian"><img src="img/consultation_list_pic1.png" /></div>
+				<div class="wenzi">
+					<div class="biaoti">
+						<p id="bt">第二意见</p>
+					</div>
+					<div class="jieshao">
+						<p id="js">专家远程给您看病，不因地域耽误病情</p>
+					</div>
+				</div>
+				<div class="jiantou"><img src="img/icon_gray_right.png" /></div>
+			</li>
+			<li class="ddao" lb="ddao">
+				<div class="tupian"><img src="img/consultation_list_pic2.png" /></div>
+				<div class="wenzi">
+					<div class="biaoti">
+						<p id="bt">名医点刀</p>
+					</div>
+					<div class="jieshao">
+						<p id="js">选择您需要的专家给您进行手术</p>
+					</div>
+				</div>
+				<div class="jiantou"><img src="img/icon_gray_right.png" /></div>
+			</li>
+			<li class="wdyyue" lb="wdyyue">
+				<div class="tupian"><img src="img/consultation_list_pic3.png" /></div>
+				<div class="wenzi">
+					<div class="biaoti">
+						<p id="bt">我的预约</p>
+					</div>
+					<div class="jieshao">
+						<p id="js">您提交的二诊或点刀都可以在这里查看</p>
+					</div>
+				</div>
+				<div class="jiantou"><img src="img/icon_gray_right.png" /></div>
+			</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		require(['zepto', 'yjyInit'], function($) {
+			
+			
+			$('.explain').click(function(){
+				$.next({
+					url: "explain.html?p=1"
+				})
+			});
+			
+			$('.foot').on("click","li",function(){
+				var lb = $(this).attr("lb");
+				if (lb == "wdyyue") {
+					$.next({
+						url:"myBooking.html?v=0602"
+					});
+				} else {
+					$.next({
+						url:"huizhen.html",
+						keys: {
+							access: lb,
+							v:"0613"
+						}
+					});
+				}
+			});
+			
+			$("body").css("opacity","1");
+
+		});
+	</script>
+
+</html>

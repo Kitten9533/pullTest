@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>申请转诊复诊</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/mui.min.css">
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/calRem.js"></script>
+		<style type="text/css">
+			span{
+				color:#999;
+			}
+			.right{
+				float:right;
+				margin-right:0.4rem;
+				color:#000000;
+			}
+			.headTip{
+				padding:0 0.14rem;
+				text-align: center;
+			}
+			.headTip p{
+				text-align: left;
+			}
+			h4{
+				color:#000000;
+				text-align: left;
+				font-weight:normal;
+			}
+			.txt-red{
+				color:red;
+			}
+			.content input{
+				font-size: 0.30rem;
+			    width: 50%;
+			    border: none;
+			    margin:0;
+			}
+			.content textarea{
+				border:none;
+			}
+			.submit{
+				text-align: center;
+			    margin: 0.15rem auto;
+			    line-height: 0.60rem;
+			    color: #fff;
+			    width: 75%;
+			    font-size: 0.30rem;
+			    background-color:#0FAEBD;
+			    border-radius: 0.10rem;
+			}
+			.linces{
+			    font-size: 0.24rem;
+    			padding: 0.05rem 0.10rem;
+			}
+			.lincesDetail{
+				color: #51c6d0;
+			}
+		</style>
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/mui.min.js"></script>
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: "./",
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+					"medtap": "https://review-formal.iplusmed.com/Common/javaScript/medtap-core-1.0.2",
+					"md5": "https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min"
+				},
+				shim: {
+					"zepto": {
+						exports: "$"
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div class="headTip">
+			<h4>提示</h4>
+			<p>在线提供预约转诊是免费的，我们会提前一天通知您就诊，到医院出示凭证给医生领取转诊单</p>
+		</div>
+		<div class="content">
+			<ul class="mui-table-view">
+			    <li class="mui-table-view-cell">
+			        <a class="mui-navigate">
+			        	<span>服务类型</span>
+			        	<span class="applyType right">预约转诊</span>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell">
+			        <a class="mui-navigate">
+			        	<span>医生</span>
+			        	<span class="doctor right"></span>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell">
+			        <a class="mui-navigate">
+			        	<span>时间</span>
+			        	<span class="time right"></span>
+			        </a>
+			    </li>
+			     <li class="mui-table-view-cell">
+			        <a class="mui-navigate">
+			        	<span>门诊医院</span>
+			        	<span class="hospital right"></span>
+			        </a>
+			    </li>
+			     <li class="mui-table-view-cell">
+			        <a class="mui-navigate">
+			        	<span>门诊价格</span>
+			        	<span class="price right"></span>
+			        </a>
+			    </li>
+			</ul>
+			<ul class="mui-table-view">
+				 <li class="mui-table-view-cell">
+			        <a class="mui-navigate">
+			        	<span>您的联系电话<span class="txt-red">*</span></span>
+			        	<input type="text" class="mobile" placeholder="请输入联系电话">
+			        </a>
+			    </li>
+			</ul>
+			<ul class="mui-table-view">
+				 <li class="mui-table-view-cell">
+			        <a class="mui-navigate">
+			        	<span>病情简要描述<span class="txt-red">*</span></span><br />
+			        	<textarea class="aboutDisease" id="textarea" rows="5" placeholder="不少于10个字"></textarea>
+			        </a>
+			    </li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate">
+						<span>对医生说两句<span class="txt-red">*</span></span><br />
+						<textarea class="toDoctor" id="textarea" rows="5" placeholder="不少于10个字"></textarea>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="linces">
+			<input type="checkbox" name="" id="" value="" checked="checked"/>我已阅读并同意<span class="lincesDetail">《易加医用户预约转诊协议》</span>
+		</div>
+		<div class="submit">提交</div>
+	</body>
+	<script type="text/javascript">
+		require(['../javaScript/applyReferral.js?v=1.0.0']);
+	</script>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+		<script src="./js/calRem.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="./css/reset.css" />
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: "./",
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+					"vue": "https://cdn.bootcss.com/vue/1.0.26/vue.min",
+					"yjyInit": "./js/yjyInit"
+				},
+				shim: {
+					"zepto": {
+						exports: "$"
+					},
+					"vue": {
+						exports: "Vue"
+					}
+				}
+			});
+			require(['yjyInit']);
+		</script>
+		<title>我的预约</title>
+		<style type="text/css">
+			.myBookingList {
+				padding-left: 0.32rem;
+			}
+			
+			.myBookingList li {
+				height: 0.88rem;
+				border-bottom: 1px solid #E0E0E0;
+			}
+			
+			.myBookingList li .huizhen {
+				font-size: 0.3rem;
+				color: #000000;
+				float: left;
+				line-height: 0.88rem;
+			}
+			
+			.myBookingList li .bookingDate {
+				display: inline-block;
+				line-height: 0.88rem;
+				font-size: 0.2rem;
+				color: #777777;
+				float: left;
+				margin-left: 0.18rem;
+			}
+			
+			.rightArrow {
+				display: inline-block;
+				margin-left: 0.2rem;
+				height: 0.22rem;
+				width: 0.22rem;
+				border-width: 2px;
+				border-style: solid;
+				border-color: rgb(193, 193, 198) rgb(193, 193, 198) transparent transparent;
+				transform: rotate(45deg);
+				-webkit-transform: rotate(45deg);
+				float: right;
+				margin-right: 0.32rem;
+				margin-top: 0.32rem;
+				margin-left: 0.3rem;
+			}
+			
+			.myBookingList li .agree {
+				font-size: 0.30rem;
+				color: #000000;
+				line-height: 0.88rem;
+				float: right;
+			}
+			
+			.zanwu {
+				height: 2rem;
+				font-size: 0.32rem;
+				line-height: 2rem;
+				text-align: center;
+			}
+			
+			.jzz {
+				display: block;
+				width: 1.2rem;
+				height: 1.2rem;
+				margin: 0 auto;
+				margin-top: 1rem;
+			}
+			
+			.more {
+				font-size: 0.28rem;
+				text-align: center;
+				height: 0.8rem;
+				line-height: 0.8rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app">
+			<img src="img/dengdai.gif" class="jzz" />
+
+		</div>
+
+		<!--<ul class="myBookingList">
+			<li v-for="list in lists">
+				<span class="huizhen">{{(list.consultation.type || list.operation.type)}}</span>
+				<div class="bookingDate">
+					{{list.operation.formatCreateTime}}
+				</div>
+				<div class="rightArrow">
+				</div>
+				<span class="agree">{{list.consultation.status.statusName}}</span>
+			</li>
+		</ul>-->
+
+	</body>
+	<script type="text/javascript">
+		require(['./js/myBooking.js?v=1.0.0']);
+
+		function viewDidAppear() {
+			require(['./js/myBooking.js?v=1.0.0'], function(book) {
+				book.hasMore=true;
+				book.max="LAST";
+				book.getListsData();
+			});
+		}
+	</script>
+	
+</html>

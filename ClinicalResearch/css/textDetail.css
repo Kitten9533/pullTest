@@ -1,0 +1,180 @@
+.container {
+	padding-left: 0.24rem;
+	padding-right: 0.24rem;
+	padding-bottom:1rem;
+}
+
+p img,h2 img, span img{
+	max-width: 100%!important;
+	margin: 0 auto!important;
+	display: block!important;
+}
+
+.title {
+	margin-top: 0.32rem;
+	font-size: 0.32rem;
+	color: #000000;
+	text-align: left;
+}
+
+.tag_1 {
+	margin-top: 0.28rem;
+	color: #B2B2B2;
+	font-size: 0.24rem;
+}
+
+.tag_1 .module {
+	float: left;
+}
+
+.tag_1 .icon {
+	height: 0.24rem;
+	width: 0.24rem;
+	float: left;
+	margin: 2px 0.08rem 0 0.08rem;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6M0RCRjA3OENBNkVEMTFFNUJERTBFRTVEQjEwNDAyQzkiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6M0RCRjA3OERBNkVEMTFFNUJERTBFRTVEQjEwNDAyQzkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDozREJGMDc4QUE2RUQxMUU1QkRFMEVFNURCMTA0MDJDOSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDozREJGMDc4QkE2RUQxMUU1QkRFMEVFNURCMTA0MDJDOSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Psdd/tsAAAGaSURBVHja1JY9SwNBEIYTsRALsbAULLSwSWMQW5PisMjV/gjRwsZYiCCoETvBH5H6UqVQsQuCgnZCCst0kkJs5HxHJrDGvb2ZOQi48DL7/WTnZjZbTtO0NMkyVZpwmbYsSpJkFqYNNQTTyYXXcRzvmk7IsI4QRqUM7ZhO6MBq3NWCeoElK9AlQ3VAD+wQbmrlrNk0BY0FZg4aCQxzyGWn0BqPPxWJUvoO1ZyTrdOY094y5yEAzzARtB9w4xv0zvVHtUvZjYsAvDK0F4pGjA+wZhXVJehBBXS+WQX1OjZ7kQQDQWEGqqttLEAWoBv0VQrcZPVMoCcaP4tAsaYJc8TNju+EbTf0IUraoQXKsHNu3kLbPuAolPvQFQdKpIV6YA3s9eEDnrFdJheQi7XQPNgvIAaOYS64WQtA79G/YYH9iVJMaAqg81DXhUphP/9VvicGNqAb5WB8A4Z0oTmGR/zDRLBMoAJKqTMjhQWBAuidFpYLzIJCexo3qoAeaJ9TRw0TAz1QE0z1auOUOYG+Rq82LUx1wn/78v4WYABLJvhi+6XZTQAAAABJRU5ErkJggg==);
+	background-repeat: no-repeat;
+	background-size: 0.24rem 0.24rem;
+}
+
+.tag_1 .disease {
+	float: left;
+}
+
+.tag_1 .time .clock {
+	float: right;
+	font-weight: bold;
+	margin-left: 0.1rem;
+}
+
+.tag_1 .time .day {
+	float: right;
+	font-weight: bold;
+}
+
+.tag_1:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.main .text {
+	font-size: 0.28rem;
+	text-indent: 2em;
+	text-align: left;
+	color: #333333;
+	margin-top: 0.32rem;
+	line-height: 0.46rem;
+}
+
+.main .pic {
+	margin-top: 0.32rem;
+	height: 3.0rem;
+	width: 7.02rem;
+}
+
+.main .pic img {
+	height: 3.0rem;
+	width: 7.02rem;
+}
+
+.learnAbout{
+	font-size: 0.36rem;
+    color: #FFFFFF;
+    height: 0.88rem;
+    line-height: 0.88rem;
+    text-align: center;
+    background-color: #50e3c2;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 0.2rem;
+    width: 3rem;
+    left: 28%;
+}
+
+.greyBg{
+	display: none;
+	position: fixed;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 5;
+	opacity: 0.3;
+	background-color:#000000;
+}
+
+.reminder{
+	display: none;
+	height: 2.5rem;
+	width: 5.4rem;
+	position: fixed;
+	top: 4.5rem;
+	left: 1.05rem;
+	background-color: white;
+	border-radius: 15px;
+	z-index: 11;
+}
+
+.reminder1 .tip1{
+	font-size: 0.3rem;
+	height: 1.6rem;
+	line-height: 0.5rem;
+	color: #333333;
+	text-align: center;
+	padding: 0.32rem 0rem 0.24rem;
+	border-bottom: 1px solid #E0E0E0;
+}
+.reminder .options{
+	font-size: 0.36rem;
+}
+
+.reminder1 .options .noNeed{
+	width: 2.6rem;
+	text-align: center;
+	color: #777777;
+	line-height: 0.88rem;
+	border-right: 1px solid #E0E0E0;
+	vertical-align:top;
+	float:left;
+}
+
+.reminder1 .options .yesNeed{
+	width: 2.7rem;
+	text-align: center;
+	color: #007AFF;
+	line-height: 0.88rem;
+	vertical-align:top;
+	float:left;
+}
+
+
+.reminder2{
+	height: 2.3rem;
+}
+.reminder2 .tip2{
+	font-size: 0.3rem;
+	height: 1.4rem;
+	line-height: 0.8rem;
+	color: #333333;
+	text-align: center;
+	padding: 0.24rem 0rem;
+	border-bottom: 1px solid #E0E0E0;
+}
+.reminder2 .options .no{
+	width: 2.6rem;
+	text-align: center;
+	color: #777777;
+	line-height: 0.88rem;
+	border-right: 1px solid #E0E0E0;
+	vertical-align:top;
+	float:left;
+}
+
+.reminder2 .options .yes{
+	width: 2.7rem;
+	text-align: center;
+	color: #007AFF;
+	line-height: 0.88rem;
+	vertical-align:top;
+	float:left;
+}

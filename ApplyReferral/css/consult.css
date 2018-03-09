@@ -1,0 +1,38 @@
+html, body{
+	background: #F0F1F4;
+}
+.container{
+	width: 100%;	
+}
+.content{
+	/*width: 7.5rem;*/
+	width: 100%;
+	margin: 0 auto;
+	background: #FFFFFF;
+}
+img.banner{
+	/*width: 7.5rem;*/
+	width: 100%;
+}
+.cell{
+	display: inline-block;
+	width: 50%;
+	font-size: 0.32rem;
+	float: left;
+	text-align: center;
+	padding: 0.10rem 0.30rem 0.40rem 0.30rem;
+	border-right: 0.02rem solid #e0e0e0;
+}
+.cell .pic{
+	width: 1.00rem;
+	height: 1.00rem;
+	margin: 0.20rem auto;
+}
+.title{
+	font-size: 0.30rem;
+	margin-bottom: 0.20rem;
+}
+.desc{
+	font-size: 0.25rem;
+	color: #808080;
+}

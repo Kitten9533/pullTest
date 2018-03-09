@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+		<script src="./js/calRem.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="./css/reset.css"/>
+	    <script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<title>选择城市</title>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: "./",
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+					"yjyInit": "./js/yjyInit"
+				},
+				shim: {
+					"zepto": {
+						exports: "$"
+					}
+				}
+			});
+			require(['yjyInit']);
+		</script>
+		<style type="text/css">
+		    .provincialList{
+		    	float: left;
+		    	font-size: 0.28rem;
+		    	color: #999999;
+		    	overflow: scroll;
+		    	width: 3rem;
+		    }
+			.provincialList li{
+				text-align: center;
+				line-height: 0.88rem;	
+			}
+			.provincialList li.on{
+				background-color: #F1F0F5;
+				color: #000000;
+			}
+			.cityList{
+				background-color: #F1F0F5;
+				width: 4.5rem;
+				font-size: 0.28rem;
+				color: #999999;
+				overflow: scroll;
+			}
+			.cityList li{
+				margin-left: 0.4rem;
+				text-align: left;
+				line-height: 0.88rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="city">
+			<ul class="provincialList" id="provincialList">
+				<!--<li provinceId="1">北京</li>
+				<li provinceId="21">上海</li>
+				<li provinceId="42">天津</li>
+				<li provinceId="62">重庆</li>
+				<li provinceId="104">安徽</li>
+				<li provinceId="227">福建</li>
+				<li provinceId="3133">浙江</li>
+				<li provinceId="423">广东</li>
+				<li provinceId="566">广西</li>
+				<li provinceId="690">贵州</li>
+				<li provinceId="788">海南</li>
+				<li provinceId="814">河北</li>
+				<li provinceId="998">河南</li>
+				<li provinceId="1176">黑龙江</li>
+				<li provinceId="1320">湖北</li>
+				<li provinceId="1436">湖南</li>
+				<li provinceId="1573">吉林</li>
+				<li provinceId="1643">江苏</li>
+				<li provinceId="1763">江西</li>
+				<li provinceId="1874">辽宁</li>
+				<li provinceId="322">甘肃</li>
+				<li provinceId="1989">内蒙古</li>
+				<li provinceId="2103">宁夏</li>
+				<li provinceId="2130">青海</li>
+				<li provinceId="2182">山东</li>
+				<li provinceId="2340">山西</li>
+				<li provinceId="2471">陕西</li>
+				<li provinceId="2589">四川</li>
+				<li provinceId="2792">西藏</li>
+				<li provinceId="2873">新疆</li>
+				<li provinceId="2987">云南</li>
+				<li provinceId="3235">香港</li>
+				<li provinceId="3239">澳门</li>
+				<li provinceId="3242">台湾</li>-->
+			</ul>
+			<ul class="cityList" id="cityList">
+				<!--<li parentid="1" cityid="2">北京</li>-->
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		require(['./js/city.js?v=1.0.0'])
+	</script>
+</html>

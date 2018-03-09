@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>申请详情</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/mui.picker.min.css">
+		<link rel="stylesheet" type="text/css" href="css/weui.min.css" />
+		<style>
+			.text-red {
+				color: red;
+			}
+			/*input, textarea{
+				font-size: 12px;
+			}*/
+			
+			.mui-input-row label {
+				font-size: 14px;
+			}
+			
+			.width-50 label,
+			div.width-50 input {
+				width: 50%;
+			}
+			
+			.width-40 label {
+				width: 40%;
+			}
+			
+			div.width-40 input {
+				width: 60%;
+			}
+			
+			input::-webkit-input-placeholder,
+			textarea::-webkit-input-placeholder {
+				font-size: 12px;
+			}
+			
+			.mui-content .mui-input-group {
+				margin-top: 10px;
+			}
+			
+			.mui-content .mui-input-group:first-child {
+				margin-top: 0;
+			}
+			
+			h5 {
+				color: #000;
+				padding-top: 5px;
+				padding-left: 15px;
+			}
+			
+			textarea {
+				border-radius: 0;
+			}
+			
+			.mui-input-group,
+			textarea {
+				border: none;
+			}
+			
+			textarea {
+				margin-bottom: 0;
+			}
+			
+			.mui-input-group:before,
+			.mui-input-group:after {
+				display: none;
+			}
+			
+			.mui-input-group .mui-input-row:last-child:after {
+				display: none;
+			}
+			
+			.submit {
+				width: 80%;
+				display: block;
+				margin: 30px auto;
+			}
+			
+			.weui-uploader {
+				background: #fff;
+			}
+			
+			.weui-uploader__input-box {
+				width: 50px;
+				height: 50px;
+				margin: 15px;
+			}
+			
+			.weui-uploader__bd {
+				margin: 0;
+			}
+			
+			.marTop-0 {
+				margin-top: 0;
+			}
+			.contact, .cancel {
+				width: 40%;
+			    display: inline-block;
+			    margin: 30px 2%;
+			    background-color: #0FAEBD;
+			    border-radius: 3px;
+			    border: none;
+			    color: #FFFFFF;
+			}
+			.btn-box{
+				width: 100%;
+				text-align: center;
+			}
+			.by-status{
+				display: none;
+			}
+			/*为该页面新加的*/
+		</style>
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: "./",
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+//					"medtapCore": "https://review-formal.iplusmed.com/Common/javaScript/medtap-core-1.0.2",
+					"medtapCore": "javaScript/medtap-core-1.0.2",
+					"md5": "https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min",
+					"mui": "https://review-formal.iplusmed.com/Common/javaScript/mui.min",
+					"mui.picker": "https://review-formal.iplusmed.com/Common/javaScript/mui.picker.min"
+				},
+				shim: {
+					"zepto": {
+						exports: "$"
+					},
+					'mui.picker': ['mui']
+				}
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div id="form" class="mui-content-padded" style="margin: 0px;">
+				<div class="mui-input-group">
+					<div class="mui-input-row">
+						<label>申请类型</label>
+						<input id="applyType" type="text" class="mui-input-clear required" value="" readonly="true" placeholder="">
+					</div>
+					<div class="mui-input-row">
+						<label>提交时间</label>
+						<input id="createTime" type="text" class="mui-input-clear required" value="" readonly="true" placeholder="">
+					</div>
+
+					<!--TODO-->
+					<!--提交状态
+					如拒绝  拒绝原因-->
+
+				</div>
+				<div class="mui-input-group">
+					<div class="mui-input-row">
+						<label>药品名<span class="text-red">*</span></label>
+						<input id="medicineName" type="text" class="mui-input-clear required" readonly="true" placeholder="">
+					</div>
+					<div id="formBox" class="mui-input-row">
+						<label>剂型<span class="text-red">*</span></label>
+						<input id="medicineForm" type="text" readonly="true" class="mui-input required" placeholder="">
+					</div>
+					<div class="mui-input-row">
+						<label>厂家</label>
+						<input id="manufacturer" type="text" class="mui-input-clear" readonly="true" placeholder="">
+					</div>
+				</div>
+
+				<div id="requirementBox" class="mui-input-group">
+					<div class="mui-input-row">
+						<label>需求<span class="text-red">*</span></label>
+						<input id="require" type="text" class="mui-input-clear required" readonly="true" placeholder="">
+					</div>
+				</div>
+
+				<div id="chargeWillFlgBox" class="mui-input-group">
+					<div class="mui-input-row width-50">
+						<label>是否愿意支付服务费</label>
+						<input id="chargeWillFlg" type="text" class="mui-input-clear" readonly="true" placeholder="">
+					</div>
+				</div>
+
+				<div class="mui-input-group">
+					<div class="mui-input-row">
+						<label class="">联系人姓名<span class="text-red">*</span></label>
+						<input id="contactName" type="text" class="mui-input-clear required" readonly="true" placeholder="">
+					</div>
+					<div class="mui-input-row">
+						<label class="">手机号码<span class="text-red">*</span></label>
+						<input id="contactMobile" type="text" class="mui-input-clear required" readonly="true" placeholder="">
+					</div>
+				</div>
+				<h5>备注</h5>
+				<div class="mui-input-row">
+					<textarea id="remark" rows="5" placeholder="" readonly="true"></textarea>
+				</div>
+				<div class="btn-box by-status" status="0">
+					<button class="mui-btn cancel">取消申请</button>
+					<button class="mui-btn contact">联系客服</button>
+				</div>
+				<div class="btn-box by-status" status="1">
+					<button class="mui-btn contact">联系客服</button>
+				</div>
+				<div class="btn-box by-status" status="2">
+					<button class="mui-btn contact">联系客服</button>
+				</div>
+				<div class="btn-box by-status" status="4">
+					<button class="mui-btn contact">联系客服</button>
+				</div>
+			</div>
+			<!--<button class="mui-btn submit">提交</button>-->
+		</div>
+	</body>
+	<script>
+		function getRequest(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+			var r = encodeURI(window.location.search).substr(1).match(reg);
+			if(r != null) return decodeURI(unescape(r[2]));
+			return null;
+		}
+		document.title = !!getRequest('title') ? getRequest('title') : '详情';
+		require(['javaScript/applicationDetails.js?v=1.0.0']);
+	</script>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>操作成功</title>
+		<link rel="stylesheet" href="../css/weui.min.css" />
+		<script src="https://cdn.bootcss.com/zepto/1.1.5/zepto.min.js"></script>
+	</head>
+
+	<body>
+
+		<div class="weui-msg">
+			<div class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></div>
+			<div class="weui-msg__text-area">
+				<h2 class="weui-msg__title">操作成功</h2>
+				<p class="weui-msg__desc">您的申请提交成功！</p>
+				<p class="weui-msg__desc">易加医客服将在24小时内联系您，请保持电话畅通！</p>
+			</div>
+			<div class="weui-msg__opr-area">
+				<p class="weui-btn-area">
+					<a href="javaScript:;" id="goDetail" class="weui-btn weui-btn_primary">查看申请</a>
+					<!--<a href="javascript:history.back();" class="weui-btn weui-btn_default">返回</a>-->
+					<a href="javascript:WeixinJSBridge.call('closeWindow');" class="weui-btn weui-btn_default">返回</a>
+				</p>
+			</div>
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		function getRequest(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+			var r = encodeURI(window.location.search).substr(1).match(reg);
+			if(r != null) return decodeURI(unescape(r[2]));
+			return null;
+		}
+//		require中设置title在微信端无效
+		document.title = getRequest('title');
+		if(!!getRequest('msgType') == false){
+			alert('无法获取到msgType,请重试');
+		}
+		$('#goDetail').click(function(){
+			if(getRequest('msgType') == 3){
+				window.location.href = 'applyNewDrugDetail.html?v=1.0.0&type=wx&id=' + getRequest('id') + '&title=' + getRequest('title') + '&wechatId=' + getRequest('wechatId'); 
+			}
+		});
+	</script>
+</html>

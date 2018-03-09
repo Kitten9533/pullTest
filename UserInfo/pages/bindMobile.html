@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>绑定手机</title>
+		<link rel="stylesheet" href="https://review-formal.iplusmed.com/Common/css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/bindMobile.css" /> 
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/calRem.js"></script>
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: "./",
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+					"medtapCore": "https://review-formal.iplusmed.com/Common/javaScript/medtap-core-1.0.2",
+					"md5": "https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min"
+				},
+				shim: {
+					"zepto": {
+						exports: "$"
+					}
+				}
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="header">
+			<img class="avatar" src="../images/login_img_logo@2x.png" />
+		</div>
+		<ul class="box">
+			<li class="box-cell icon-mobile">
+				<input type="text" class="mobile" placeholder="请输入手机号" id="mobile" name="mobile" />
+				<button class="getSms" type="button" id="getSms">获取验证码</button>
+			</li>
+			<li class="box-cell top-1 icon-smsCode"> 
+				<input class="smsCode" type="text" placeholder="验证码" id="smsCode" name="smsCode" maxlength="4" />
+			</li>
+			<button class="login" type="button" id="login">提交</button>
+		</ul>
+	</body>
+	<script>
+		function getRequest(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+			var r = window.location.search.substr(1).match(reg);
+			if(r != null) return unescape(r[2]);
+			return null;
+		}
+		
+		require(['../javaScript/bindMobile.js?v=1.0.0']);
+	</script>
+
+</html>

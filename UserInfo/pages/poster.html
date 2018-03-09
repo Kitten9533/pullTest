@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/mui.picker.min.css" />
+		<style>
+			html,
+			body {
+				position: relative;
+				margin: 0 auto;
+				background: rgb(242, 242, 242);
+			}
+			
+			.content {
+				width: 7.5rem;
+				margin: 0 auto;
+			}
+			
+			.poster {
+				width: 7.5rem;
+				display: block;
+			}
+			
+			.qCode {
+				width: 2rem;
+				height: 2rem;
+				display: block;
+				position: absolute;
+				left: 1rem;
+				top: 8.12rem;
+				border: none;
+				text-align: center;
+				line-height: 2rem;
+				font-size: 0.24rem;
+				opacity: 0;
+			}
+			
+			.qText {
+				display: block;
+				position: absolute;
+				width: 4rem;
+				font-size: 0.34rem;
+				color: rgb(45, 45, 45);
+				font-weight: bolder;
+				letter-spacing: 0.01rem;
+				top: 9.98rem;
+				left: 1rem;
+				text-align: center;
+				-webkit-transform-origin-x: 0;
+				-webkit-transform: scale(0.50);
+			}
+			
+			.notice {
+				width: 7.5rem;
+				/*text-align: center;*/
+				font-size: 0.24rem;
+				color: #000;
+				padding-top: 0.20rem;
+				padding-left: 0.80rem;
+				padding-right: 0.20rem;
+				position: relative;
+			}
+			
+			.icon-notice {
+				display: inline-block;
+				width: 0.30rem;
+				height: 0.30rem;
+				position: absolute;
+				left: 0.40rem;
+				top: 0.25rem;
+				background-image: url('../images/notice.png');
+				background-size: 100% 100%;
+				background-repeat: no-repeat;
+			}
+			
+			.submit {
+				display: block;
+				width: 6rem;
+				height: 0.70rem;
+				margin: 0.20rem auto 1rem auto;
+				border: none;
+				background: #51C6D0;
+				color: #fff;
+				border-radius: 0.10rem;
+			}
+		</style>
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/calRem.js" type="text/javascript" charset="utf-8"></script>
+		<title>申请海报</title>
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: "./",
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+					"medtapCore": "https://review-formal.iplusmed.com/Common/javaScript/medtap-core-1.0.2",
+					"md5": "https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min",
+				},
+				shim: {
+					"zepto": {
+						exports: "$"
+					},
+				}
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="content">
+			<img class="poster" src="../images/poster.png" />
+			<img class="qCode qr_code" src="" alt="loading...">
+			<p class="qText">代理商二维码</p>
+			<p class="notice"><i class="icon-notice"></i><span class="notice-text">打印的海报会将您的代理商二维码放置于左下角二维码处</span></p>
+			<button class="submit">提交申请</button>
+		</div>
+	</body>
+	<script>
+		require(['zepto', 'medtapCore'], function($, medtapCore) {
+			var info = {
+				wechatId: medtapCore.getRequest('wechatId'),
+				bind: function() {
+					$('.submit').on('click', function(){
+						info.applyPoster();
+					});
+				},
+				applyPoster: function() {
+					$.ajax({
+						url: 'https://gateway.medtap.cn/service/agency/savePosterApply',
+						type: 'post',
+						dataType: 'json',
+						headers: {
+							appType: 'wechat'
+						},
+						contentType: "application/json",
+						data: JSON.stringify(medtapCore.setToken({
+							wechatId: info.wechatId
+						})),
+						success: function(data) {
+							if(data.success == true) {
+								alert('代理商海报申请成功， 请耐心等待客服联系');
+							} else {
+								if(data.resultCode == 5013) {
+									alert('代理商海报申请已提交，请稍后再次尝试。');
+								} else {
+									alert(data.resultDesc);
+								}
+							}
+						},
+						error: function() {
+
+						}
+					});
+				}
+			};
+			info.bind();
+		});
+		require(['../javaScript/poster.js']);
+	</script>
+
+</html>

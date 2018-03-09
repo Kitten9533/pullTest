@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>关于全球找药</title>
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/calRem.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: './',
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+					"MedtapCore": "https://cdn.iplusmed.com/web/common/medtap-core-1.0.1"
+				},
+				shim: {
+					"zepto": {
+						exports: '$'
+					}
+				}
+			});
+		</script>
+		<style type="text/css">
+			::-webkit-scrollbar{
+       			display: none;
+			}
+			.section{
+				margin-top: 0.40rem;
+				padding: 0 0.20rem;
+			}
+			body .section:first-child{
+				margin-top: 0.30rem;
+			}
+			body .section:last-child{
+				margin-bottom: 0.75rem;
+			}
+			p{
+				letter-spacing: 0.01rem;
+				line-height: 1.4;
+			}
+			.summary{
+				font-size: 0.28rem;
+				color: #333;
+				letter-spacing: 0.01rem;
+				text-indent: 0.56rem;
+			}
+			.icon{
+				display: inline-block;
+				width: 0.14rem;
+				height: 0.30rem;
+				margin-right: 0.20rem;
+			}
+			.icon-title{
+				background: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBUODAsLDBkSEw8VHhsgHx4bHR0hJTApISMtJB0dKjkqLTEzNjY2ICg7Pzo0PjA1NjP/2wBDAQkJCQwLDBgODhgzIh0iMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzP/wgARCAAeAA4DAREAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAABf/EABUBAQEAAAAAAAAAAAAAAAAAAAUH/9oADAMBAAIQAxAAAABqf0BlA8Y9BlA8Y9BlA8Y9BlA//8QAGRAAAgMBAAAAAAAAAAAAAAAABTYQg7IA/9oACAEBAAE/AOJLQS/cEloJfuCS0Ev3BJaCX77/xAAaEQABBQEAAAAAAAAAAAAAAAADBBA0grEA/9oACAECAQE/AOUxAW1lMQFtZTEBbWUxAW3v/8QAGhEAAQUBAAAAAAAAAAAAAAAAAwQQNIKxAP/aAAgBAwEBPwDk0s9cZNLPXGTSz1xk0s9c7//Z');
+				background-size: contain;
+			}
+			.title{
+				font-size: 0.32rem;
+				color: #000;
+			}
+			.detail{
+				font-size: 0.28rem;
+				color: #666;
+			}
+			.detail.detail-first{
+				margin-top: 0.30rem;
+			}
+			.step{
+				width: 6.00rem;
+				border: 1px dotted #ff801a;
+				border-radius: 0.20rem;
+				padding-bottom: 0.30rem;
+				margin: 0.30rem auto 0 auto;
+			}
+			.step-title{
+				padding: 0.30rem;
+				font-size: 0.32rem;
+				color: #ff801a;
+				font-weight: 600;
+			}
+			.step-detail{
+				font-size: 0.30rem;
+				color: #000;
+				padding-left: 0.60rem;
+				padding-right: 0.30rem;
+			}
+			.arrow{
+				width: 0.40rem;
+				height: 0.70rem;
+				background: url('data:image/jpeg;base64,/9j/4QlQaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzEzOCA3OS4xNTk4MjQsIDIwMTYvMDkvMTQtMDE6MDk6MDEgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiLz4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8P3hwYWNrZXQgZW5kPSJ3Ij8+/+0ALFBob3Rvc2hvcCAzLjAAOEJJTQQlAAAAAAAQ1B2M2Y8AsgTpgAmY7PhCfv/bAIQAAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQICAgICAgICAgICAwMDAwMDAwMDAwEBAQEBAQECAQECAgIBAgIDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMD/90ABAAF/+4ADkFkb2JlAGTAAAAAAf/AABEIAEQAJAMAEQABEQECEQH/xACpAAADAQEBAQAAAAAAAAAAAAAACQoIBwMEAQADAAIDAQAAAAAAAAAAAAAACAkDBwECBgoQAAAFAgQDBAYJBQAAAAAAAAECAwQFBgcACBESExQhCRhX1RUW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');
+				background-repeat: no-repeat;
+				background-size: contain;
+				margin: 0.20rem auto 0 auto;
+			}
+			</style>
+	</head>
+	<body>
+		<div class="section">
+			<p class="summary">由于大陆与欧美在药品上市时存在时间差，不少肿瘤患者无法第一时间用上与国际同步的治疗方案，错过了最佳治疗时间而留下无尽的遗憾。然而，香港和澳门的药品上市时间与欧美几乎可以保持同步，为了让大陆患者早一步享受到与国际先进水平同步的治疗方案，易加医为患者提供专业、便捷的服务，精准对接港澳肿瘤专科医生，先一步得到治疗。</p>
+		</div>
+		<div class="section">
+			<p class="title"><span class="icon icon-title"></span>港澳就医的优势</p>
+			<p class="detail detail-first">1、香港、澳门使用与欧美同步的的肿瘤治疗方案，技术水平领先；</p>
+			<p class="detail">2、节约医疗费用、减少患者崩波，不需要长途跋涉即可享受与欧美同步的医疗成果；</p>
+			<p class="detail">3、赴港澳就医无语言障碍，医患沟通更加顺畅；</p>
+		</div>
+		<div class="section">
+			<p class="title"><span class="icon icon-title"></span>全球找药—选择易加医</p>
+			<p class="detail detail-first">医生：对接经政府认证的肿瘤科执业 医生，提供专业的医疗咨询服务；</p>
+			<p class="detail">药品：囊括全球已上市肿瘤药物，经执业医生处方用药，合法合规有保障；</p>
+			<p class="detail">价格：药品价格与港澳医院一致或更低，服务费低于业内平均水平；</p>
+		</div>
+		<div class="section">
+			<p class="title"><span class="icon icon-title"></span>全球找药流程</p>
+			<div class="step">
+				<p class="step-title">资料评估</p>
+				<p class="step-detail">1、患者/家属提交病情资料</p>
+				<p class="step-detail">2、易加医邀请港澳医生做初步用药沟通，并提供视频会诊</p>
+			</div>
+		</div>
+		<div class="arrow"></div>
+		<div class="section">
+			<div class="step">
+				<p class="step-title">签署服务协议</p>
+				<p class="step-detail">1、患者/家属与易加医签署服务协议</p>
+				<p class="step-detail">2、患者/家属支付服务费</p>
+			</div>
+		</div>
+		<div class="arrow"></div>
+		<div class="section">
+			<div class="step">
+				<p class="step-title">就诊取药</p>
+				<p class="step-detail">1、赴港澳获得治疗</p>
+				<p class="step-detail">2、或经由家属代为取药</p>
+			</div>
+		</div>
+		<div class="arrow"></div>
+		<div class="section">
+			<div class="step">
+				<p class="step-title">随访跟进</p>
+				<p class="step-detail">易加医协助港澳医生定期回访患者，评估用药效果</p>
+			</div>
+		</div>
+	</body>
+</html>

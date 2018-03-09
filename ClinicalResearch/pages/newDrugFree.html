@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/reset.css"/>
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/calRem.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://cdn.bootcss.com/zepto/1.1.5/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<title>新药免费用</title>
+		<style type="text/css">
+			.section{
+				width: 7.5rem;
+				margin: 0 auto;
+				padding: 0.30rem 0.20rem 0 0.20rem;
+			}
+			.section .pic{
+				width: 7.10rem;
+				height: 3.00rem;
+				margin: 0 auto;
+				display: block;
+			}
+			.text{
+				font-size: 0.28rem;
+				color: #333;
+				text-indent: 0.56rem;
+				letter-spacing: 0.01rem;
+				line-height: 1.4;
+			}
+			.btn{
+				display: block;
+				width: 3.1rem;
+				height: 0.88rem;
+				color: #FFF;
+				font-size: 0.36rem;
+				line-height: 0.88rem;
+				text-align: center;
+				letter-spacing: 0.01rem;
+				border-radius: 0.20rem;
+				position:fixed;
+				background: #50e3c2;
+				left:28%;
+				bottom:0.2rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="section">
+			<img class="pic" src="../images/overseas_pic9.jpg">
+		</div>
+		<div class="section">
+			<p class="text">新药在中国注册上市前，都必须经过临床试验，其目的是验证药物对目标适应症患者的治疗作用和安全性，评价利益与风险关系，最终为药物注册申请的审查提供充分的依据，且临床试验必须立足在对每位参加试验的患者能够获益的基础上。</p>
+			<p class="text">很多在国外已上市的新药，在中国进行临床试验，除了进一步验证药物在中国人群的安全性和有效性之外，最主要的目的是满足在中国注册上市的程序要求。由于新药的安全性、有效性已在国外上市前的临床研究中得到了验证，对于急切希望获得新药治疗的患者来说，参加国内的临床试验不失为一个经济且有效的途径。</p>
+		</div>
+		<div class="section">
+			<img class="pic" src="../images/overseas_pic10.jpg">
+		</div>
+		<div class="section" style="padding-bottom: 1.3rem;">
+			<p class="text">
+				易加医的海外热门药物列表里提及的药品中就有不少正在国内招募患者参加临床研究。
+			</p>
+			<p class="text">
+				例如近年来大热的PD-1/PD-L1抗体，包括百时美施贵宝的Opdivo（通用名：Nivolumab，纳武单抗）、默沙东的Keytruda（通用名：Pembrolizumab，派姆单抗）和罗氏旗下基因泰克的Tecentriq（通用名：Atezolizumab，阿特珠单抗）就有针对于肺癌、胃癌、食管癌、肝癌等疾病的多项临床试验在国内多家研究中心开展，进入研究的患者有很大的可能性用到新药。
+			</p>
+			<p class="text">在女性高发的乳腺癌治疗领域，对不同基因表达的乳腺癌患者，有例如Perjeta（通用名：Pertuzumab，帕托珠单抗）、Kadcyla（通用名：T-DM1）、Ibrance（通用名:Palbociclib，帕博西尼）和Lynparza（通用名：Olaparib，奥拉帕尼）等药物在开展国际多中心临床试验。而更多的海外新药如礼来的Cyramza（通用名：Ramucirumab，雷莫卢单抗）、百时美施贵宝的Yervoy（通用名：Ipilimumab，易普利姆玛）等也均有相应的试验正在进行中。</p>
+			<p class="text">
+				同时，更多国内外未上市的新药正在进行临床试验中，医学的进步离不开临床试验的推动，如您对新药物、新疗法及临床试验感兴趣，请点击下方按钮跳转至本平台临床研究板块进行进一步的了解。
+			</p>
+		</div>
+		<span class="btn other">我要咨询</span>
+	</body>
+	<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+	<script>
+		require(['https://review-formal.iplusmed.com/Common/javaScript/shareCommon.js?sharingType=newDrugFree']);
+	</script>
+	<script type="text/javascript">
+	function getRequest(strParame) {
+        var args = new Object();
+        var query = window.location.search.substring(1);
+        var pairs = query.split("&");
+        for (var i = 0; i < pairs.length; i++) {
+            var pos = pairs[i].indexOf('=');
+            if (pos == -1) continue;
+            var argname = pairs[i].substring(0, pos);
+            var value = pairs[i].substring(pos + 1);
+            value = decodeURIComponent(value);
+            args[argname] = value;
+        }
+        args[strParame] = args[strParame] || "";
+        return args[strParame];
+    };
+		$('.other').on('click',function(){
+			window.location.href = '../pages/applyNewDrug.html?v=1.0.0&type=wx&orderType=XYMFY&title=新药免费用&wechatId=' + getRequest('wechatId');
+		})
+	</script>
+</html>

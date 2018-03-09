@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+		<script src="./js/calRem.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="./css/reset.css"/>
+	    <script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<title>疾病</title>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: "./",
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+					"vue": "https://cdn.bootcss.com/vue/1.0.26/vue.min",
+					"yjyInit": "./js/yjyInit",
+				},
+				shim: {
+					"zepto": {
+						exports: "$"
+					}
+				}
+			});
+			require(['yjyInit']);
+		</script>
+		<style type="text/css">
+		    .diseaseList{
+		    	float: left;
+		    	font-size: 0.28rem;
+		    	color: #999999;
+		    }
+			.diseaseList li{
+				width: 3rem;
+				text-align: center;
+				line-height: 0.88rem;	
+			}
+			.diseaseList li.on{
+				background-color: #F1F0F5;
+				color: #000000;
+			}
+			.detailsList{
+				float: left;
+				background-color: #F1F0F5;
+				font-size: 0.28rem;
+				color: #999999;
+				width: 4.5rem;
+			}
+			.detailsList li{
+				margin-left: 0.4rem;
+				text-align: left;
+				line-height: 0.88rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="disease">
+			<ul class="diseaseList" id="diseaseList">
+				<!--<li diseaseId="zeroTrue:1001">脑部肿瘤</li>
+				<li diseaseId="zeroTrue:1004">头颈肿瘤</li>
+				<li diseaseId="zeroTrue:1008">胸部肿瘤</li>
+				<li diseaseId="zeroTrue:1011">乳腺肿瘤</li>
+				<li diseaseId="zeroTrue:1014">肠胃肿瘤</li>
+				<li diseaseId="zeroTrue:1019">肝胆胰肿瘤</li>
+				<li diseaseId="zeroTrue:1024">妇科肿瘤</li>
+				<li diseaseId="zeroTrue:1030">泌尿肿瘤</li>
+				<li diseaseId="zeroTrue:1035">骨科肿瘤</li>
+				<li diseaseId="zeroTrue:1040">血液淋巴肿瘤</li>
+				<li diseaseId="zeroTrue:1044">皮肤肿瘤</li>
+				<li diseaseId="zeroTrue:1097">小儿肿瘤</li>
+				<li diseaseId="zeroTrue:1091">以上都不是</li>-->
+			</ul>
+			<ul class="detailsList">
+			    <!--<li parentid="zeroTrue:1001" diseaseid="zeroFalse:1001:oneTrue:1002">胶质瘤</li>
+			    <li parentid="zeroTrue:1001" diseaseid="zeroFalse:1001:oneTrue:1003">垂体瘤</li>
+			    <li parentid="zeroTrue:1001" diseaseid="zeroFalse:1001:oneTrue:1080">其他脑部肿瘤</li>-->
+			</ul> 
+		</div>
+	</body>
+	<script type="text/javascript">
+		require(['./js/disease.js?v=1.0.0']);
+	</script>
+</html>

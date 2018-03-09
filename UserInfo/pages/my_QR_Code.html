@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/reset.css" />
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/calRem.js" type="text/javascript" charset="utf-8"></script>
+		<title>我的二维码</title>
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: "./",
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+					"medtapCore": "https://review-formal.iplusmed.com/Common/javaScript/medtap-core-1.0.2",
+					"md5": "https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min"
+				},
+				shim: {
+					"zepto": {
+						exports: "$"
+					}
+				}
+			});
+		</script>
+		<style type="text/css">
+			body{
+				font-size:0.4rem;
+				background-color:#eeeeee;
+			}
+			.header{
+				background-color:#51c6d0;
+				color:#FFFFFF;
+				line-height:0.88rem;
+				text-align: center;
+			}
+			.content{
+				padding:0 0.28rem;
+			}
+			.agentInfo{
+				padding-top:0.3rem;
+				font-size: 0.34rem;
+			}
+			.footer{
+				position:absolute;
+				bottom:0.3rem;
+				margin:0 1.3rem;
+				font-size:0.25rem;
+			}
+			.qr_code{
+			    display: block;
+			    width: 4rem;
+			    height: 4rem;
+			    margin: 1.2rem auto 0 auto;
+			}
+			.btns {
+				width: 6rem;
+				height: 0.70rem;
+			    display: block;
+			    margin: 1rem auto 0.30rem auto;
+			    background-color: #0FAEBD;
+			    border-radius: 0.20rem;
+			    border: none;
+			    color: #FFFFFF;
+			    font-size: 0.28rem;
+			    opacity: 0;
+			}
+			.poster{
+				margin-top: 0.60rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header"></div>
+		<div class="content">
+			<div class="agentInfo">
+				<span class="header-2"></span><span class="agentName"></span>
+			</div>
+			<div class="agent_QR_Code">
+				<img src="" class="qr_code"/>
+			</div>
+		</div>
+		<button class="btns my">我的业绩</button>
+		<button class="btns poster">申请代理商海报</button>
+		<div class="footer">
+			<p class="footerTip">此二维码不会透露您的个人信息和电话号码</p>
+		</div>
+	</body>
+	<script type="text/javascript">
+		require(['../javaScript/my_QR_Code.js?v=1.0.0']);
+	</script>
+</html>

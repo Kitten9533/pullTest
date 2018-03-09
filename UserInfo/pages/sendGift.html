@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>送出的礼物</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/sendGift.css"  />
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/calRem.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: "./",
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+					"medtapCore": "https://review-formal.iplusmed.com/Common/javaScript/medtap-core-1.0.2",
+					"md5": "https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min",
+					"mui": "https://review-formal.iplusmed.com/Common/javaScript/mui.min"
+				},
+				shim: {
+					"zepto": {
+						exports: "$"
+					}
+				}
+			});
+		</script>
+	</head>
+
+	<body>
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<div class="header">共送出<span class="giftNum">0</span>件心意礼物</div>
+				<ul id="list" class="applyCard">
+					<!--<li class="gifts">
+						<div class="li-content">
+							<img class="giftPic" src="../images/gift1.png"/>
+							<div class="detail">
+								<p>送给<span class="doctorName">黄新</span>医生<span class="giftName">一面锦旗</span></p>
+								<p><span>真情寄语：</span>医德高尚医术高超，无私帮助乐于奉献，关爱病人贴心服务，态度谦和平易近人！</p>
+							</div>
+						</div>
+					</li>-->
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script>
+		require(['../javaScript/sendGift.js?v=1.0.0']);
+	</script>
+
+</html>

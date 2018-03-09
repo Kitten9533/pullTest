@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>专家会诊</title>
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/mui.min.css">
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/mui.min.js"></script>
+		<style>
+			html, body{
+				margin: 0 auto;
+				background: #F0F1F4;
+			}
+			.banner{
+				display: block;
+				width: 7.50rem;
+				height: 3.56rem;
+				margin: 0 auto;
+			}
+			.mui-content .mui-table-view:first-child{
+				margin-top: 0;
+			}
+			.mui-table-view .mui-media-object{
+				max-width: 1.66rem;
+				width: 1.66rem;
+				height: 1.38rem;
+				margin-top: 0.14rem;
+			}
+			.mui-table-view .mui-media-object.mui-pull-left{
+				margin-right: 0.28rem;
+			}
+			.mui-table-view-cell>a:not(.mui-btn){
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+			.mui-table-view .mui-media-body{
+				font-size: 0.36rem;
+				color: #000;
+				letter-spacing: 0;
+				line-height: 0.36rem;
+				padding-top: 0.46rem;
+			}
+			.mui-table-view .mui-media-body .mui-ellipsis{
+				/*font-size: 0.28rem;*/
+				font-size: 0.24rem;
+				color: #999;
+				letter-spacing: 0;
+				line-height: 0.28rem;
+				padding-top: 0.18rem;
+				padding-bottom: 0.38rem;
+			}
+		</style>
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/calRem.js"></script>
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: './',
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+					"medtapCore": "https://review-formal.iplusmed.com/Common/javaScript/medtap-core-1.0.2",
+					"md5": "https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min"
+				},
+				shim: {
+					"zepto": {
+						exports: '$'
+					}
+				}
+			});
+		</script>
+	</head>
+
+	<body>
+		<img class="banner" src="images/expert_consultation_banner@2x.png" />
+		<div class="mui-content">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-media home">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="images/expert_consultation_pic1@2x.png">
+						<div class="mui-media-body">
+							国内第二意见
+							<p class="mui-ellipsis">足不出户，远程获得权威专家意见</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media whole">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="images/expert_consultation_pic2@2x.png">
+						<div class="mui-media-body">
+							全球第二意见
+							<p class="mui-ellipsis">海外专家给您专业建议，治疗方案与全球同步</p>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script>
+		require(['js/expertConsultation.js?v=1.0.0']);
+		require(['https://review-formal.iplusmed.com/Common/javaScript/shareCommon.js?sharingType=expertConsultation']);
+	</script>
+</html>

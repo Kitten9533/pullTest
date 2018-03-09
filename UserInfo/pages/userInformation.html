@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>个人信息</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/reset.css">
+		<!--<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/mui.min.css">-->
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/mui.picker.min.css" />
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/weui.min.css" />
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/calRem.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			.mui-table-view .mui-table-view-cell .text-gray {
+				color: #ACACB4;
+			}
+			
+			.baseInfo,
+			.interest,
+			.history,
+			.dangerInfo {
+				margin-bottom: 0.3rem;
+			}
+			
+			.text-right {
+				float: right;
+				margin-right: 0.8rem;
+				color: #000;
+				width: 3rem;
+				text-align: right;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			
+			.topTip {
+				font-size: 0.25rem;
+				padding: 0 0.28rem 0.5rem 0.28rem;
+				color: #666;
+			}
+			
+			.mui-input-group .mui-input-row label {
+				color: #ACACB4;
+			}
+			
+			.mui-input-group .mui-input-row input {
+				text-align: right;
+				padding-right: 0.80rem;
+			}
+			
+			.selectBg {
+				position: fixed;
+				/*opacity: 0;*/
+				/*z-index: 1000;*/
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 100;
+				background: rgba(0, 0, 0, 0.6);
+			}
+			.selectBg, .selectContainer{
+				display: none;
+			}
+			.selectBg .mui-scroll-wrapper {
+				/*width: 80%;
+				height: 90%;*/
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				z-index: 100;
+				/*top: 7%;
+				left: 10%;*/
+				background: #fff;
+				/*border-radius: 0.20rem;*/
+				padding-left: 0.20rem;
+				overflow: scroll;
+			}
+			.header{
+				position: relative;
+				margin-left: -0.20rem;
+				padding-top: 0.30rem;
+				padding-bottom: 0.20rem;
+				text-align: center;
+				height: 10%;
+			}
+			.header-btn{
+				position: absolute;
+				right: 0.70rem;
+				color: #007aff;
+			}
+			.mui-input-group .mui-input-row{
+				height: auto;
+			}
+			.selectBg .mui-input-group .mui-input-row{
+				font-size: 0.28rem;
+			}
+			.mui-input-row.width-50 label, .mui-input-row.width-50 input{
+				width: 50%;
+			}
+			#highRisk, #resource{
+				text-overflow: ellipsis;
+			}
+			.submit {
+				width: 80%;
+			    display: block;
+			    margin: 30px auto;
+			    background-color: #0FAEBD;
+			    border-radius: 3px;
+			    border: none;
+			    color: #FFFFFF;
+			}
+			.mui-checkbox{
+				position: relative;
+			}
+			.highRiskCh, .resourceCh{
+				display: block;
+				position: absolute;
+				width: 0.42rem;
+				height: 0.42rem;
+				border: 1px solid #e0e0e0;
+				border-radius: 0.21rem;
+				top: 0.22rem;
+				right: 0.40rem;
+			}
+			.highRiskCh.on, .resourceCh.on{
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				background-image: url('../images/select.png');
+				border: none;
+			}
+			.mui-input-row.profile{
+				position: relative;
+				height: 1.12rem;
+			}
+			.mui-input-row.profile label{
+				line-height: 1.12rem;
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+			.mui-input-row.profile #profile{
+				position: absolute;
+				left: 0;
+				right: 0;
+				width: 100%;
+				height: 100%;
+			}
+			.mui-input-row img{
+				position: absolute;
+				width: 0.80rem;
+				height: 0.80rem;
+				top: 0.16rem;
+				right: 0.80rem;
+				border-radius: 0.80rem;
+			}
+			.text-red{
+				color: red;
+				text-indent: 1px;
+			}
+			#profile{
+				opacity: 0;
+			}
+			#preview{
+				opacity: 0;
+			}
+		</style>
+		<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: "./",
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+					"medtapCore": "https://review-formal.iplusmed.com/Common/javaScript/medtap-core-1.0.2",
+					"md5": "https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min",
+					"mui": "https://review-formal.iplusmed.com/Common/javaScript/mui.min",
+					"mui.picker": "https://review-formal.iplusmed.com/Common/javaScript/mui.picker.min"
+				},
+				shim: {
+					"zepto": {
+						exports: "$"
+					},
+					"mui.picker": ["mui"]
+				}
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="topTip">易加医将对您的个人信息保密，仅根据您的设置对医生开放权限。请您务必填写真实资料，医生才能给您准确的服务。</div>
+		<div class="baseInfo">
+			<ul class="mui-input-group">
+				<li id="profileBox" class="mui-input-row profile">
+					<label>头像</label>
+					<!--<input id="profile" type="file" placeholder="">-->
+					<img id="preview" src= '' alt=''/>
+					<span class="mui-navigate-right"></span>
+				</li>
+				<li class="mui-input-row name">
+					<label>姓名<span class="text-red">*</span></label><input id="username" type="text" placeholder="">
+					<span class="mui-navigate-right"></span>
+				</li>
+				<li class="mui-input-row nick">
+					<label>昵称</label><input id="nickname" type="text" placeholder="">
+					<span class="mui-navigate-right"></span>
+				</li>
+				<li class="mui-input-row mobile">
+					<label>账号</label><input id="mobile" type="text" readonly="true" placeholder="">
+					<span class="mui-navigate-right"></span>
+				</li>
+				<li class="mui-input-row sex" id="sexBox">
+					<label>性别<span class="text-red">*</span></label><input id="sex" readonly="true" type="text" placeholder="">
+					<span class="mui-navigate-right"></span>
+				</li>
+				<li class="mui-input-row birth" id="birthBox">
+					<label>生日</label><input id="birthday" readonly="true" type="text" placeholder="">
+					<span class="mui-navigate-right"></span>
+				</li>
+				<li class="mui-input-row height width-50">
+					<label>身高（cm）</label><input id="height" type="text" placeholder="">
+					<span class="mui-navigate-right"></span>
+				</li>
+
+				<li class="mui-input-row weight width-50">
+					<label>体重（kg）</label><input id="weight" type="text" placeholder="">
+					<span class="mui-navigate-right"></span>
+				</li>
+			</ul>
+
+		</div>
+		<div class="interest">
+			<ul class="mui-input-group">
+				<li class="mui-input-row disease" id="diseaseBox">
+					<label>关注疾病</label><input id="disease" readonly="true" type="text" placeholder="">
+					<span class="mui-navigate-right"></span>
+				</li>
+				<li class="mui-input-row health" id="healthBox">
+					<label>健康类型<span class="text-red">*</span></label><input id="health" readonly="true" type="text" placeholder="">
+					<span class="mui-navigate-right"></span>
+				</li>
+				<li class="mui-input-row healthInsurance" id="healthInsuranceBox">
+					<label>医保类型</label><input id="healthInsurance" readonly="true" type="text" placeholder="">
+					<span class="mui-navigate-right"></span>
+				</li>
+				<li class="mui-input-row location" id="locationBox">
+					<label>所在地</label><input id="location" readonly="true" type="text" placeholder="">
+					<span class="mui-navigate-right"></span>
+				</li>
+			</ul>
+		</div>
+		<div class="dangerInfo">
+			<ul class="mui-input-group">
+				<li class="mui-input-row highRisk" id="highRiskBox">
+					<label>高危因素</label><input id="highRisk" readonly="true" type="text" placeholder="">
+					<span class="mui-navigate-right"></span>
+				</li>
+			</ul>
+		</div>
+		<div class="history">
+			<ul class="mui-input-group">
+				<li class="mui-input-row p-history">
+					<label>既往史</label><input id="p-history" type="text" placeholder="">
+					<span class="mui-navigate-right"></span>
+				</li>
+				<li class="mui-input-row o-history">
+					<label>手术史</label><input id="o-history" type="text" placeholder="">
+					<span class="mui-navigate-right"></span>
+				</li>
+				<li class="mui-input-row d-history width-50">
+					<label>长期服药史</label><input id="d-history" type="text" placeholder="">
+					<span class="mui-navigate-right"></span>
+				</li>
+				<li class="mui-input-row m-history width-50">
+					<label>药物依赖史</label><input id="m-history" type="text" placeholder="">
+					<span class="mui-navigate-right"></span>
+				</li>
+			</ul>
+		</div>
+		<div class="followInfo">
+			<ul class="mui-input-group">
+				<li class="mui-input-row resource" id="resourceBox">
+					<label>关注信息</label><input id="resource" readonly="true" type="text" placeholder="">
+					<span class="mui-navigate-right"></span>
+				</li>
+			</ul>
+		</div>
+		
+		
+		<div id="highRiskContainer" class="selectBg">
+			<div class="mui-scroll-wrapper selectContainer">
+				<!--<div class="mui-scroll">-->
+					<div class="header">高危因素<span class="header-btn highRisk-btn">保存</span></div>
+					<form id="highRiskContent" class="mui-input-group">
+						<div class="mui-input-row mui-checkbox">
+							<label>checked：false</label>
+							<input name="checkbox1" value="Item 3" type="checkbox">
+						</div>
+					</form>
+				<!--</div>-->
+			</div>
+		</div>
+		
+
+		<div id="resourceContainer" class="selectBg">
+			<div class="mui-scroll-wrapper selectContainer">
+<!--				<div class="mui-scroll">-->
+					<div class="header">关注信息<span class="header-btn resource-btn">保存</span></div>
+					<form id="resourceContent" class="mui-input-group">
+						<div class="mui-input-row mui-checkbox">
+							<label>checked：false</label>
+							<input name="checkbox1" value="Item 3" type="checkbox">
+						</div>
+					</form>
+				<!--</div>-->
+			</div>
+		</div>
+		
+		<button class="mui-btn submit">保存</button>
+
+	</body>
+	<script>
+		require(['../javaScript/userInformation.js?v=1.0.0']);
+	</script>
+
+</html>

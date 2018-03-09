@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<style>
+			.tel{
+				z-index: 10000;
+				width: 60px;
+				height: 60px;
+				position: fixed;
+				bottom: 50px;
+				right: 18px;
+				background-size: 100% 100%;
+				background-repeat: no-repeat;
+				background-image: url('images/tel_consulting@2x.png');
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="tel" id="consult"></div>
+		<div class="mui-collapse-content">
+			<div id="slider" class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop">
+					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+					
+				</div>
+				<div class="mui-slider-indicator">
+					
+				</div>
+			</div>
+		</div>
+		
+		<!--下拉刷新容器-->
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<!--数据列表-->
+				<ul class="mui-table-view mui-table-view-chevron">
+
+				</ul>
+			</div>
+		</div>
+	</body>
+
+	<script src="javaScript/global.js"></script>
+	<script src="javaScript/mui.min.js"></script>
+	<script type="text/javascript" src="javaScript/jquery.min.js" ></script>
+	<script>
+		mui.init({
+			swipeBack: false,
+			pullRefresh: {
+				container: '#pullrefresh',
+				up: {
+					contentrefresh: '正在加载...',
+					callback: pullupRefresh
+				}
+			}
+		});
+		var sequence = "LAST";
+		
+		document.title = getRequest('title');
+		
+		$('#consult').on('click', function(){
+			window.location.href = "submit.html?v=1.0.0&title=" + (!!getRequest('title') ? getRequest('title') : '') + '&preTitle=' + (!!getRequest('preTitle') ? getRequest('preTitle') : '');
+		});
+		
+		window.onload = function() {
+			
+			setTimeout(function() {
+				mui('#pullrefresh').pullRefresh().pullupLoading();
+			}, 200);
+			
+			$.ajax({
+				url: getInterfaceBaseUrl() + '/yjy/fetchResourceBanners',
+			    data: {
+			    		resourceId: getRequest('resourceId'),
+			    		categoryId: getRequest('categoryId'),
+			    		accountId: accountId,
+						token: token,
+						globalDeviceRom: globalDeviceRom ,
+						globalAppVersion: globalAppVersion,
+						globalAppType: globalAppType,
+						globalDeviceModel: globalDeviceModel,
+						globalDeviceType: globalDeviceType
+				},
+			    type:'post',
+			    dataType:'json',
+			    success:function(data){
+			        callBanner(data);
+			     },
+			     error : function() {
+			     }
+			});
+		}
+
+		function callBanner(data) {
+			
+			var slider = document.body.querySelector('.mui-slider-group');
+			var indicator = document.body.querySelector('.mui-slider-indicator');
+			if(data.resourceBanners != undefined){
+				
+				document.getElementById("pullrefresh").style.top = "175px";
+				
+				for (var i = 0, len = data.resourceBanners.length; i < len; i++) {
+					var div = document.createElement('div');
+					var divIndicator = document.createElement('div');
+					
+					divIndicator.className = 'mui-indicator';
+					
+					if(i==0){
+						// 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播)
+						var divLast = document.createElement('div');
+						divLast.className = 'mui-slider-item mui-slider-item-duplicate';
+						divLast.innerHTML = '<a onclick="tap_banner_detail(' + data.resourceBanners[data.resourceBanners.length-1].activityId + ',' + data.resourceBanners[data.resourceBanners.length-1].redirectType + ')">' +
+							'<img src="'+ data.resourceBanners[len-1].pictureUrl +'"/></a>';
+							
+						divIndicator.className = 'mui-indicator mui-active';
+						slider.appendChild(divLast);
+					}
+					
+					div.className = 'mui-slider-item';
+					div.innerHTML = '<a onclick="tap_banner_detail(' + data.resourceBanners[i].activityId + ',' + data.resourceBanners[i].redirectType + ')">' +
+						'<img src="'+ data.resourceBanners[i].pictureUrl +'"/></a>';
+					
+					slider.appendChild(div);
+					indicator.appendChild(divIndicator);
+					
+					if(i==len-1){
+						// 额外增加的一个节点(循环轮播：最后是第一张) 
+						var divFirst = document.createElement('div');
+						divFirst.className = 'mui-slider-item mui-slider-item-duplicate';
+						divFirst.innerHTML = '<a onclick="tap_banner_detail(' + data.resourceBanners[0].activityId + ',' + data.resourceBanners[0].redirectType + ')">' +
+							'<img src="'+ data.resourceBanners[0].pictureUrl +'"/></a>';
+						slider.appendChild(divFirst);
+					}
+				}
+				
+				//获得slider插件对象
+				var gallery = mui('.mui-slider');
+				gallery.slider({
+				  interval:3000//自动轮播周期，若为0则不自动播放，默认为0；
+				});
+			}
+		}
+		
+		function jsonpCallback(data) {
+			//alert(result);  
+			//服务器返回响应，临床研究列表；
+			var table = document.body.querySelector('.mui-table-view');
+			var cells = document.body.querySelectorAll('.mui-table-view-cell');
+			if(data.resources != undefined){
+				for (var i = 0, len = data.resources.length; i < len; i++) {
+					var li = document.createElement('li');
+					li.className = 'mui-table-view-cell';
+					var strHtml = '<a onclick="tap_detail(' + data.resources[i].isLeafNote + ','+data.resources[i].formType+ ',' + data.resources[i].resourceId + ',' + data.resources[i].resourceParentId + ',\'' + data.resources[i].title + '\')">' +
+						'<div class="mui-table">';
+					if ((data.resources[i].pictureUrlS)&&(data.resources[i].pictureSPosition=='L')) {
+						strHtml = strHtml + '    <div class="mui-table-cell mui-col-xs-2 mui-text-left">' +
+							'        <img class="mui-media-object" src=' + data.resources[i].pictureUrlS + ' />' +
+							'    </div>';
+					}
+					if((data.resources[i].categoryId==5)&&(data.resources[i].resourceId==594)){
+						strHtml = strHtml + '    <div class="mui-table-cell" style="float: left;height: 40px;">' +
+						'        <h4 class="mui-ellipsis-2" style="line-height: 20px;vertical-align:middle;float:left"><span style="vertical-align:middle">' + data.resources[i].title + '</span><img src="images/hot3.png" height=25px "/></h4>' +
+						'    </div>';
+					}else{
+						strHtml = strHtml + '    <div class="mui-table-cell" style="float: left;height: 40px;">' +
+						'        <h4 class="mui-ellipsis-2" style="line-height: 20px;vertical-align:middle;">' + data.resources[i].title + '</h4>' +
+						'    </div>';
+					}
+						
+					if ((data.resources[i].pictureUrlS)&&(data.resources[i].pictureSPosition=='R')) {
+						strHtml = strHtml + '    <div class="mui-table-cell mui-col-xs-2 mui-text-right">' +
+							'        <img class="mui-media-object" src=' + data.resources[i].pictureUrlS + ' />' +
+							'    </div>';
+					}
+					li.innerHTML = strHtml + '</div></a>';
+					table.appendChild(li);
+				}
+				sequence = data.resources[data.resources.length-1].sequence;
+			}
+			mui('#pullrefresh').pullRefresh().endPullupToRefresh(!data.hasMore);
+		}
+		
+		/**
+		 * 上拉加载具体业务实现
+		 */
+		function pullupRefresh() {
+			
+			$.ajax({
+				url: getInterfaceBaseUrl() + '/resource/fetchResources',
+			    data: {
+			    		resourceId: getRequest('resourceId'),
+			    		categoryId: getRequest('categoryId'),
+			    		max:sequence,
+			    		accountId: accountId,
+						token: token,
+						globalDeviceRom: globalDeviceRom ,
+						globalAppVersion: globalAppVersion,
+						globalAppType: globalAppType,
+						globalDeviceModel: globalDeviceModel,
+						globalDeviceType: globalDeviceType
+				},
+			    type:'post',
+			    dataType:'json',
+			    success:function(data){
+			        jsonpCallback(data);
+			     },
+			     error : function() {
+			     }
+			});
+		}
+		
+		
+		
+		function initGlobalData(data) {
+			accountId = data.accountId;
+			token = data.token;
+			globalDeviceRom = data.globalDeviceRom;
+			globalAppVersion = data.globalAppVersion;
+			globalAppType = data.globalAppType;
+			globalDeviceModel = data.globalDeviceModel;
+			globalDeviceType = data.globalDeviceType;
+		}
+		
+		/**
+		 * 访问详细页面
+		 */
+		function tap_detail(isLeafNote, formType,resourceId, subCategoryId, title) {
+//			MWebView.toast(window.location.href);
+			if(isLeafNote){
+				// 跳转列表页面
+				if(formType =='2'){
+					window.location.href = getBaseUrl() + "resourceform.html?v=1.0.0&resourceId="+ resourceId +"&categoryId=" + getRequest('categoryId') + '&formType=' + formType +"&subCategoryId=" + subCategoryId + '&title=' + title ;
+				}else{
+					window.location.href = getBaseUrl() + "resourceDetail.html?v=1.0.0&p=1&resourceId="+ resourceId +"&categoryId=" + getRequest('categoryId') + '&formType=' + formType +"&subCategoryId=" + subCategoryId + '&title=' + title + '&preTitle=' + getRequest('title') ;
+				}
+				
+			} else {
+				if(resourceId==6){
+					window.location.href = getBaseUrl() + "resourceKnowMore.html?v=1.0.0";
+				} else {
+					// 跳转列表页面
+					window.location.href = getBaseUrl() + "resourceList.html?v=1.0.0&resourceId="+ resourceId +"&categoryId=" + getRequest('categoryId') + '&title=' + title;
+				}
+			}
+		}
+		
+		function tap_banner_detail(activityId, type) {
+			if(type!=0){
+				
+				$.ajax({
+					url: getInterfaceBaseUrl() + '/yjy/fetchActivityForPatient',
+				    data: {
+				    		activityId: activityId,
+				    		accountId: accountId,
+							token: token,
+							globalDeviceRom: globalDeviceRom ,
+							globalAppVersion: globalAppVersion,
+							globalAppType: globalAppType,
+							globalDeviceModel: globalDeviceModel,
+							globalDeviceType: globalDeviceType
+					},
+				    type:'post',
+				    dataType:'json',
+				    success:function(data){
+				        callActivity(data);
+				     },
+				     error : function() {
+				     }
+				});
+			}
+		}
+		
+		function callActivity(data) {
+			if(data.code==0){
+				// 跳转列表页面
+				window.location.href = data.activity.activityUrl;
+			}
+		}
+	</script>
+
+</html>

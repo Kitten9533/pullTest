@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/aboutClincalStudy.css"/>
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/calRem.js" type="text/javascript" charset="utf-8"></script>
+		<title>临床研究知识</title>
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: './',
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+					"MedtapCore": "https://cdn.iplusmed.com/web/common/medtap-core-1.0.1"
+				},
+				shim: {
+					"zepto": {
+						exports: '$'
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<div class="container">
+				<ul class="list" id="list" style="display: none;">
+					
+				</ul>
+				<div class="reminder" style="display: none;">
+					<p>抱歉</p>
+					<p>未找到该类型临床研究</p>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		require(['../javaScript/clincalResearchMore.js?v=1.0.0']);
+		require(['https://review-formal.iplusmed.com/Common/javaScript/shareCommon.js?sharingType=clincalResearchMore']);
+	</script>
+</html>

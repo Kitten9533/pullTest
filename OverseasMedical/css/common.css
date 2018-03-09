@@ -1,0 +1,232 @@
+/*公用部分*/
+body,
+div,
+ul,
+li,
+p,
+input{
+	margin:0;
+	padding:0;
+}
+html,
+body{
+	width:100%;
+	height:100%;
+}
+a{
+	text-decoration:none;
+	color: #000;
+}
+li{
+	list-style-type:none;
+}
+.clear{
+	clear:both;
+}
+.FL{
+	float:left;
+}
+.FR{
+	float:right;
+}
+.clearfix:after {
+	visibility:hidden;
+	display:block;
+	font-size:0;
+	content:" ";
+	clear:both;
+	height:0;
+}
+.clearfix {
+	zoom:1; /* for IE6 IE7 */
+}
+.content{
+	width:1200px;
+	height:100%;
+	margin:0px auto;
+}
+button:focus{
+	outline:none;
+}
+input:focus{
+	outline: none;
+}
+.banner{
+	width: 100%;
+}
+.banner .banner-con{
+	width: 100%;
+	margin: auto;
+	border: 1px solid #FFFFFF;
+	position: relative;
+	overflow: hidden;
+}
+.banner .banner-con img{
+	position: absolute;
+	left: 100%;
+	top: 0;
+}
+.banner .banner-con img:nth-child(1){
+	left: 0;
+}
+.banner .banner-btn{
+	position: relative;
+}
+.banner .banner-btn ul{
+	position: absolute;
+	left: 50%;
+	bottom: 20px;
+	margin-left: -10%;
+}
+.banner .banner-btn ul li{
+	width: 10px;
+	height: 10px;
+	background: #000000;
+	float: left;
+	margin: 0 10px;
+	list-style: none;
+	border-radius: 25px;
+}
+.banner .banner-btn ul li.hover{
+	background: #FFFFFF;
+}
+/*上拉刷新start*/
+#mui-table-view{padding: 0 15px;}
+#pullrefresh li{
+	border-bottom: 1px solid #ddd;
+	padding: 8px;
+	cursor: pointer;
+}
+#pullrefresh li img.L{
+	float: left;
+	    max-width: 42px;				
+}
+#pullrefresh li span.L{
+	vertical-align: calc(15px);
+	line-height: 40px;
+	margin-top: 10px;
+	margin-left: 20px;
+}
+#pullrefresh li img.R{
+	float: right;
+}
+#pullrefresh li span.R{
+	vertical-align: calc(15px);
+	line-height: 40px;
+	margin-top: 10px;
+}
+/*上拉刷新end*/
+/*弹窗按钮start*/
+.alertwindow{
+	position: fixed;
+	width: 80%;
+	border: 1px solid #ccc;
+	left: 10%;
+	top:20%;
+	right: 20%;
+	border-radius: 5px;
+	display: none;
+	background:#FFFFFF;
+	z-index: 99999;
+}
+.alertwindow .alt{
+	width: 100%;
+	border-radius: 5px 5px 0 0;
+	padding: 20px;
+	word-wrap:break-word;
+	margin: auto;
+}
+.alertwindow .alt p{
+	text-align: center;
+	margin: auto;
+}
+.alertwindow .alert-btn{
+	width: 100%;
+	height: 30%;
+	border-top: 1px solid #eee;
+	border-radius: 0 0 5px 5px;
+	text-align: center;
+	
+}
+/*两个按钮开始*/
+.alertwindow .alert-btn button.double{
+	padding:12px 30px;
+	border: none;
+	color: #007AFF;
+	font-size: 16px;
+	font-weight: bold;
+	outline: none;
+	background: #FFFFFF;
+}
+.alertwindow .alert-btn button.alert-cancel{
+	width: 50%;
+	float: right;
+	border-radius: 0px 0 5px 0px ;
+}
+.alertwindow .alert-btn button.alert-yes{
+	width: 50%;
+	float: left;
+	border-left:2px solid #eee;
+	border-radius: 0px 0px 0px 5px ;
+	margin-left: -0.5px;
+}
+/*两个按钮结束*/
+/*单个按钮开始*/
+.alertwindow .alert-btn button.alert-yes-single{
+	border: none;
+	width: 100%;
+	color: #007AFF;
+	font-size: 16px;
+	font-weight: bold;
+	outline: none;
+	line-height: 220%;
+	border-radius: 0 0 5px 5px;
+	background: #FFFFFF;
+}
+/*弹窗结束*/
+/*新弹窗*/
+.head-alert{
+	display: none;
+	position: fixed;
+	left: 10%;
+	top: 25%;
+	z-index: 555555;
+	width: 80%;
+	height: 140px;
+	/*border: 1px solid #ccc;*/
+	border-radius: 5px;
+	text-align: center;
+}
+.head-alert .head-alert-content{
+	height: 70%;
+	background: #FFFFFF;
+	border-radius: 5px 5px 0 0;
+	font-weight: bold;
+	line-height: 80px;
+}
+.head-alert .head-btn{
+	height: 29%;
+	background: #eee;
+	border-top: 1px solid #ccc;
+	border-radius: 0 0 5px 5px;
+}
+.head-alert .head-btn .head-btn-yes{
+	width: 49.5%;
+	height: 100%;
+	float: left;
+	line-height: 40px;
+	background: #FFFFFF;
+	color: #007AFF;
+	font-weight: bold;
+	border-radius: 0 0 5px 5px;
+}
+.head-alert .head-btn .head-btn-no{
+	width: 49.5%;
+	height: 100%;
+	float: right;
+	line-height: 40px;
+	background: #FFFFFF;
+	color: #007AFF;
+	font-weight: bold;
+	border-radius: 0 0 5px 0;
+}

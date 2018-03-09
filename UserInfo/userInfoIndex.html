@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/userInfoIndex.css" />
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/calRem.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<title>个人中心</title>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: "./",
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+					"medtapCore": "https://review-formal.iplusmed.com/Common/javaScript/medtap-core-1.0.2",
+					"md5": "https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min"
+				},
+				shim: {
+					"zepto": {
+						exports: "$"
+					}
+				}
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="content">
+			<div class="userInfo">
+				<div class="userAvatar">
+					<div class="userPic">
+						<img class="profile" src="" alt="" />
+						<span class="toDetial">个人信息</span>
+						<div class="QR_Wrap">
+							<img src="images/QR_Code.png" class="myQR_Card"/>
+							<span class="QRTip"></span>
+						</div>
+						<span class="beAgency">申请代理商</span>
+					</div>
+					<div class="gender">
+						<img class="sex" src="" alt="" />
+					</div>
+				</div>
+				<div class="information clearfix">
+					<div>
+						<span class="userName"></span>
+						<span class="userAge">
+							<span class="age"></span>
+						<img src="images/personal_icon_age@2x.png" />
+						</span>
+					</div>
+					<div class="userTel">
+						<img class="tel-icon" src="images/personal_icon_phone@2x.png" alt="" />
+						<span class="phoneNum"></span>
+					</div>
+					<div class="inviteBox">
+						<span>邀请码: </span><span class="inviteCode"></span>
+					</div>
+				</div>
+			</div>
+			<div class="tools clearfix">
+				<div class="myOrder block">
+					<img src="images/personal_list_order@2x.png" alt="" />
+					<span class="tip">我的订单</span>
+				</div>
+				<div class="myApply block">
+					<img src="images/personal_list_apply for@2x.png" alt="" />
+					<span class="tip">我的申请</span>
+				</div>
+				<div class="myDoctor block">
+					<img src="images/personal_list_my doctor@2x.png" alt="" />
+					<span class="tip">我的医生</span>
+				</div>
+				<div class="sendGift block">
+					<img src="images/personal_list_gift@2x.png" alt="" />
+					<span class="tip">送出礼物</span>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<p>客服电话: <a href="tel:4000059900">400-005-9900</a></p>
+			<p>工作时间9:30-19:30</p>
+		</div>
+		<!--<div class="btn-box">
+			<span class="bindMobile">绑定手机</span>
+		</div>-->
+	</body>
+	<script type="text/javascript">
+		require(['javaScript/userInfoIndex.js?v=1.0.1'])
+	</script>
+
+</html>

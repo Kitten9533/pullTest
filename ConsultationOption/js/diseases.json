@@ -1,0 +1,382 @@
+{
+	"code": "0",
+	"diseases": [
+		{
+			"describeTitle": "脑部肿瘤",
+			"diseaseClassifyId": "zeroTrue:1001",
+			"diseaseClassifyName": "脑部肿瘤",
+			"diseases": [
+				{
+					"describeTitle": "胶质瘤",
+					"diseaseId": "zeroFalse:1001:oneTrue:1002",
+					"diseaseName": "胶质瘤",
+					"isAll": false
+				}, {
+					"describeTitle": "垂体瘤",
+					"diseaseId": "zeroFalse:1001:oneTrue:1003",
+					"diseaseName": "垂体瘤",
+					"isAll": false
+				}, {
+					"describeTitle": "其他脑部肿瘤",
+					"diseaseId": "zeroFalse:1001:oneTrue:1080",
+					"diseaseName": "其他脑部肿瘤",
+					"isAll": false
+				}
+			]
+		}, {
+			"describeTitle": "头颈肿瘤",
+			"diseaseClassifyId": "zeroTrue:1004",
+			"diseaseClassifyName": "头颈肿瘤",
+			"diseases": [
+				{
+					"describeTitle": "鼻咽癌",
+					"diseaseId": "zeroFalse:1004:oneTrue:1005",
+					"diseaseName": "鼻咽癌",
+					"isAll": false
+				}, {
+					"describeTitle": "甲状腺肿瘤",
+					"diseaseId": "zeroFalse:1004:oneTrue:1006",
+					"diseaseName": "甲状腺肿瘤",
+					"isAll": false
+				}, {
+					"describeTitle": "眼部肿瘤",
+					"diseaseId": "zeroFalse:1004:oneTrue:1096",
+					"diseaseName": "眼部肿瘤",
+					"isAll": false
+				}, {
+					"describeTitle": "口腔癌",
+					"diseaseId": "zeroFalse:1004:oneTrue:1095",
+					"diseaseName": "口腔癌",
+					"isAll": false
+				}, {
+					"describeTitle": "喉癌",
+					"diseaseId": "zeroFalse:1004:oneTrue:1007",
+					"diseaseName": "喉癌",
+					"isAll": false
+				}, {
+					"describeTitle": "其他头颈肿瘤",
+					"diseaseId": "zeroFalse:1004:oneTrue:1081",
+					"diseaseName": "其他头颈肿瘤",
+					"isAll": false
+				}
+			]
+		}, {
+			"describeTitle": "胸部肿瘤",
+			"diseaseClassifyId": "zeroTrue:1008",
+			"diseaseClassifyName": "胸部肿瘤",
+			"diseases": [
+				{
+					"describeTitle": "肺癌",
+					"diseaseId": "zeroFalse:1008:oneTrue:1009",
+					"diseaseName": "肺癌",
+					"isAll": false
+				}, {
+					"describeTitle": "食管癌",
+					"diseaseId": "zeroFalse:1008:oneTrue:1010",
+					"diseaseName": "食管癌",
+					"isAll": false
+				}, {
+					"describeTitle": "其他胸部肿瘤",
+					"diseaseId": "zeroFalse:1008:oneTrue:1082",
+					"diseaseName": "其他胸部肿瘤",
+					"isAll": false
+				}
+			]
+		}, {
+			"describeTitle": "乳腺肿瘤",
+			"diseaseClassifyId": "zeroTrue:1011",
+			"diseaseClassifyName": "乳腺肿瘤",
+			"diseases": [
+				{
+					"describeTitle": "乳腺癌",
+					"diseaseId": "zeroFalse:1011:oneTrue:1012",
+					"diseaseName": "乳腺癌",
+					"isAll": false
+				}, {
+					"describeTitle": "乳腺纤维瘤",
+					"diseaseId": "zeroFalse:1011:oneTrue:1013",
+					"diseaseName": "乳腺纤维瘤",
+					"isAll": false
+				}, {
+					"describeTitle": "其他乳腺肿瘤",
+					"diseaseId": "zeroFalse:1011:oneTrue:1083",
+					"diseaseName": "其他乳腺肿瘤",
+					"isAll": false
+				}
+			]
+		}, {
+			"describeTitle": "胃肠肿瘤",
+			"diseaseClassifyId": "zeroTrue:1014",
+			"diseaseClassifyName": "胃肠肿瘤",
+			"diseases": [
+				{
+					"describeTitle": "胃癌",
+					"diseaseId": "zeroFalse:1014:oneTrue:1015",
+					"diseaseName": "胃癌",
+					"isAll": false
+				}, {
+					"describeTitle": "结直肠癌",
+					"diseaseId": "zeroFalse:1014:oneTrue:1016",
+					"diseaseName": "结直肠癌",
+					"isAll": false
+				}, {
+					"describeTitle": "小肠肿瘤",
+					"diseaseId": "zeroFalse:1014:oneTrue:1017",
+					"diseaseName": "小肠肿瘤",
+					"isAll": false
+				}, {
+					"describeTitle": "胃肠间质瘤",
+					"diseaseId": "zeroFalse:1014:oneTrue:1018",
+					"diseaseName": "胃肠间质瘤",
+					"isAll": false
+				}, {
+					"describeTitle": "其他胃肠肿瘤",
+					"diseaseId": "zeroFalse:1014:oneTrue:1084",
+					"diseaseName": "其他胃肠肿瘤",
+					"isAll": false
+				}
+			]
+		}, {
+			"describeTitle": "肝胆胰肿瘤",
+			"diseaseClassifyId": "zeroTrue:1019",
+			"diseaseClassifyName": "肝胆胰肿瘤",
+			"diseases": [
+				{
+					"describeTitle": "肝癌",
+					"diseaseId": "zeroFalse:1019:oneTrue:1020",
+					"diseaseName": "肝癌",
+					"isAll": false
+				}, {
+					"describeTitle": "胰腺癌",
+					"diseaseId": "zeroFalse:1019:oneTrue:1021",
+					"diseaseName": "胰腺癌",
+					"isAll": false
+				}, {
+					"describeTitle": "肝血管瘤",
+					"diseaseId": "zeroFalse:1019:oneTrue:1022",
+					"diseaseName": "肝血管瘤",
+					"isAll": false
+				}, {
+					"describeTitle": "胆道肿瘤",
+					"diseaseId": "zeroFalse:1019:oneTrue:1023",
+					"diseaseName": "胆道肿瘤",
+					"isAll": false
+				}, {
+					"describeTitle": "其他肝胆胰肿瘤",
+					"diseaseId": "zeroFalse:1019:oneTrue:1085",
+					"diseaseName": "其他肝胆胰肿瘤",
+					"isAll": false
+				}
+			]
+		}, {
+			"describeTitle": "妇科肿瘤",
+			"diseaseClassifyId": "zeroTrue:1024",
+			"diseaseClassifyName": "妇科肿瘤",
+			"diseases": [
+				{
+					"describeTitle": "宫颈癌",
+					"diseaseId": "zeroFalse:1024:oneTrue:1025",
+					"diseaseName": "宫颈癌",
+					"isAll": false
+				}, {
+					"describeTitle": "宫颈癌前病变",
+					"diseaseId": "zeroFalse:1024:oneTrue:1026",
+					"diseaseName": "宫颈癌前病变",
+					"isAll": false
+				}, {
+					"describeTitle": "子宫内膜癌",
+					"diseaseId": "zeroFalse:1024:oneTrue:1027",
+					"diseaseName": "子宫内膜癌",
+					"isAll": false
+				}, {
+					"describeTitle": "子宫肌瘤",
+					"diseaseId": "zeroFalse:1024:oneTrue:1028",
+					"diseaseName": "子宫肌瘤",
+					"isAll": false
+				}, {
+					"describeTitle": "卵巢癌",
+					"diseaseId": "zeroFalse:1024:oneTrue:1029",
+					"diseaseName": "卵巢癌",
+					"isAll": false
+				}, {
+					"describeTitle": "其他妇科肿瘤",
+					"diseaseId": "zeroFalse:1024:oneTrue:1086",
+					"diseaseName": "其他妇科肿瘤",
+					"isAll": false
+				}
+			]
+		}, {
+			"describeTitle": "泌尿肿瘤",
+			"diseaseClassifyId": "zeroTrue:1030",
+			"diseaseClassifyName": "泌尿肿瘤",
+			"diseases": [
+				{
+					"describeTitle": "前列腺癌",
+					"diseaseId": "zeroFalse:1030:oneTrue:1031",
+					"diseaseName": "前列腺癌",
+					"isAll": false
+				}, {
+					"describeTitle": "肾肿瘤",
+					"diseaseId": "zeroFalse:1030:oneTrue:1032",
+					"diseaseName": "肾肿瘤",
+					"isAll": false
+				}, {
+					"describeTitle": "膀胱肿瘤",
+					"diseaseId": "zeroFalse:1030:oneTrue:1033",
+					"diseaseName": "膀胱肿瘤",
+					"isAll": false
+				}, {
+					"describeTitle": "肾上腺肿瘤",
+					"diseaseId": "zeroFalse:1030:oneTrue:1034",
+					"diseaseName": "肾上腺肿瘤",
+					"isAll": false
+				}, {
+					"describeTitle": "其他泌尿肿瘤",
+					"diseaseId": "zeroFalse:1030:oneTrue:1087",
+					"diseaseName": "其他泌尿肿瘤",
+					"isAll": false
+				}
+			]
+		}, {
+			"describeTitle": "骨科肿瘤",
+			"diseaseClassifyId": "zeroTrue:1035",
+			"diseaseClassifyName": "骨科肿瘤",
+			"diseases": [
+				{
+					"describeTitle": "骨肿瘤",
+					"diseaseId": "zeroFalse:1035:oneTrue:1036",
+					"diseaseName": "骨肿瘤",
+					"isAll": false
+				}, {
+					"describeTitle": "骨转移癌",
+					"diseaseId": "zeroFalse:1035:oneTrue:1037",
+					"diseaseName": "骨转移癌",
+					"isAll": false
+				}, {
+					"describeTitle": "骨肉瘤",
+					"diseaseId": "zeroFalse:1035:oneTrue:1038",
+					"diseaseName": "骨肉瘤",
+					"isAll": false
+				}, {
+					"describeTitle": "软组织肿瘤",
+					"diseaseId": "zeroFalse:1035:oneTrue:1039",
+					"diseaseName": "软组织肿瘤",
+					"isAll": false
+				}, {
+					"describeTitle": "其他骨科肿瘤",
+					"diseaseId": "zeroFalse:1035:oneTrue:1088",
+					"diseaseName": "其他骨科肿瘤",
+					"isAll": false
+				}
+			]
+		}, {
+			"describeTitle": "血液淋巴肿瘤",
+			"diseaseClassifyId": "zeroTrue:1040",
+			"diseaseClassifyName": "血液淋巴肿瘤",
+			"diseases": [
+				{
+					"describeTitle": "白血病",
+					"diseaseId": "zeroFalse:1040:oneTrue:1041",
+					"diseaseName": "白血病",
+					"isAll": false
+				}, {
+					"describeTitle": "淋巴瘤",
+					"diseaseId": "zeroFalse:1040:oneTrue:1042",
+					"diseaseName": "淋巴瘤",
+					"isAll": false
+				}, {
+					"describeTitle": "多发性骨髓瘤",
+					"diseaseId": "zeroFalse:1040:oneTrue:1043",
+					"diseaseName": "多发性骨髓瘤",
+					"isAll": false
+				}, {
+					"describeTitle": "其他血液淋巴肿瘤",
+					"diseaseId": "zeroFalse:1040:oneTrue:1089",
+					"diseaseName": "其他血液淋巴肿瘤",
+					"isAll": false
+				}
+			]
+		}, {
+			"describeTitle": "皮肤肿瘤",
+			"diseaseClassifyId": "zeroTrue:1044",
+			"diseaseClassifyName": "皮肤肿瘤",
+			"diseases": [
+				{
+					"describeTitle": "恶性黑色素瘤",
+					"diseaseId": "zeroFalse:1044:oneTrue:1045",
+					"diseaseName": "恶性黑色素瘤",
+					"isAll": false
+				}, {
+					"describeTitle": "皮肤肿瘤",
+					"diseaseId": "zeroFalse:1044:oneTrue:1046",
+					"diseaseName": "皮肤肿瘤",
+					"isAll": false
+				}, {
+					"describeTitle": "其他皮肤肿瘤",
+					"diseaseId": "zeroFalse:1044:oneTrue:1090",
+					"diseaseName": "其他皮肤肿瘤",
+					"isAll": false
+				}
+			]
+		}, {
+			"describeTitle": "小儿肿瘤",
+			"diseaseClassifyId": "zeroTrue:1097",
+			"diseaseClassifyName": "小儿肿瘤",
+			"diseases": [
+				{
+					"describeTitle": "肝母细胞瘤",
+					"diseaseId": "zeroFalse:1097:oneTrue:1098",
+					"diseaseName": "肝母细胞瘤",
+					"isAll": false
+				}, {
+					"describeTitle": "肾母细胞瘤",
+					"diseaseId": "zeroFalse:1097:oneTrue:1099",
+					"diseaseName": "肾母细胞瘤",
+					"isAll": false
+				}, {
+					"describeTitle": "神经母细胞瘤",
+					"diseaseId": "zeroFalse:1097:oneTrue:1100",
+					"diseaseName": "神经母细胞瘤",
+					"isAll": false
+				}, {
+					"describeTitle": "畸胎瘤",
+					"diseaseId": "zeroFalse:1097:oneTrue:1101",
+					"diseaseName": "畸胎瘤",
+					"isAll": false
+				}, {
+					"describeTitle": "小儿甲状腺肿瘤",
+					"diseaseId": "zeroFalse:1097:oneTrue:1102",
+					"diseaseName": "小儿甲状腺肿瘤",
+					"isAll": false
+				}, {
+					"describeTitle": "颈部腋窝淋巴管瘤",
+					"diseaseId": "zeroFalse:1097:oneTrue:1103",
+					"diseaseName": "颈部腋窝淋巴管瘤",
+					"isAll": false
+				}
+			]
+		}, {
+			"describeTitle": "以上都不是",
+			"diseaseClassifyId": "zeroTrue:1091",
+			"diseaseClassifyName": "以上都不是",
+			"diseases": [
+				{
+					"describeTitle": "罕见疾病肿瘤",
+					"diseaseId": "zeroFalse:1091:oneTrue:1092",
+					"diseaseName": "罕见疾病肿瘤",
+					"isAll": false
+				}, {
+					"describeTitle": "不明分类",
+					"diseaseId": "zeroFalse:1091:oneTrue:1093",
+					"diseaseName": "不明分类",
+					"isAll": false
+				}, {
+					"describeTitle": "无特定关注",
+					"diseaseId": "zeroFalse:1091:oneTrue:1094",
+					"diseaseName": "无特定关注",
+					"isAll": false
+				}
+			]
+		}
+	]
+}

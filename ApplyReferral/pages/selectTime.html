@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>选择时间</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/mui.min.css">
+		<style type="text/css">
+			.applyType{
+				float:right;
+				color:#E0E0E0;
+				margin-right:1.2rem;
+			}
+			.header img{
+				width:100%;
+			}
+			.showTime{
+				margin-top:-0.25rem;
+			}
+			.price{
+				visibility:hidden;
+			}
+		</style>
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/mui.min.js"></script>
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: "./",
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+					"medtap": "https://review-formal.iplusmed.com/Common/javaScript/medtap-core-1.0.2",
+					"md5": "https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min"
+				},
+				shim: {
+					"zepto": {
+						exports: "$"
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div class="header">
+			<img src="../images/answer_process375.png"/>
+		</div>
+		<div class="showTime">
+			<ul class="mui-table-view timerWrap">
+			   
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		require(['../javaScript/selectTime.js?v=1.0.1']);
+		require(['https://review-formal.iplusmed.com/Common/javaScript/shareCommon.js?sharingType=consult']);
+	</script>
+</html>

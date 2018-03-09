@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>操作失败</title>
+		<link rel="stylesheet" href="../css/weui.min.css" />
+	</head>
+
+	<body>
+
+		<div class="weui-msg">
+			<div class="weui-msg__icon-area"><i class="weui-icon-warn weui-icon_msg"></i></div>
+			<div class="weui-msg__text-area">
+				<h2 class="weui-msg__title">操作失败</h2>
+				<p class="weui-msg__desc">您的申请提交失败，请重试！</p>
+			</div>
+			<div class="weui-msg__opr-area">
+				<p class="weui-btn-area">
+<!--					<a href="javascript:;" class="weui-btn weui-btn_primary">查看资料</a>-->
+					<a href="javascript:history.back();" class="weui-btn weui-btn_default">返回</a>
+				</p>
+			</div>
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		function getRequest(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+			var r = encodeURI(window.location.search).substr(1).match(reg);
+			if(r != null) return decodeURI(unescape(r[2]));
+			return null;
+		}
+//		require中设置title在微信端无效
+		document.title = getRequest('title');
+	</script>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+		<link rel="stylesheet" type="text/css" href="https://review-formal.iplusmed.com/Common/css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/textDetail.css"/>
+		<script src="https://review-formal.iplusmed.com/Common/javaScript/calRem.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<script type="text/javascript">
+			require.config({
+				baseUrl: "./",
+				paths: {
+					"zepto": "https://cdn.bootcss.com/zepto/1.1.5/zepto.min",
+					"medtapCore": "https://cdn.iplusmed.com/web/common/medtap-core-1.0.1"
+				},
+				shim: {
+					"zepto": {
+						exports: "$"
+					}
+				}
+			});
+		</script>
+		<script type="text/javascript">
+		    function getRequest(strParame) { //用于取url中参数的值方法
+				var args = new Object();
+				var query = window.location.search.substring(1);
+				var pairs = query.split("&");
+				for(var i = 0; i < pairs.length; i++) {
+					var pos = pairs[i].indexOf('=');
+					if(pos == -1) continue;
+					var argname = pairs[i].substring(0, pos);
+					var value = pairs[i].substring(pos + 1);
+					value = decodeURIComponent(value);
+					args[argname] = value;
+				}
+				args[strParame] = args[strParame] || "";
+				return args[strParame];
+			};
+			
+			var title = getRequest("title");
+			document.title = decodeURIComponent(title);
+		</script>
+		<title></title>
+	</head>
+	
+	<body>
+		<div class="container">
+			
+		</div>
+		
+		<div class="learnAbout" style="display: none;">
+			我要咨询
+		</div>
+		
+		<div class="greyBg">
+			
+		</div>
+		<div class="reminder reminder1">
+			<div class="tip1">
+				<p>易加医医学专员会尽快给您去电，</p>
+				<p>为您介绍详细信息。</p>
+			</div>
+			<div class="options clearfix">
+				<div class="noNeed">暂不需要</div>
+				<div class="yesNeed">好的</div>
+			</div>
+		</div>
+		<div class="reminder reminder2">
+			<div class="tip2 ">
+				<p>请您先注册/登录易加医</p>
+			</div>
+			<div class="options clearfix">
+				<div class="no">取消</div>
+				<div class="yes">确定</div>
+			</div>
+		</div>
+			
+	</body>
+	<script type="text/javascript">
+		require(['../javaScript/textDetail.js?v=1.0.0']);
+	</script>
+</html>
+
