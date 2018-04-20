@@ -200,7 +200,7 @@ define(['zepto', 'medtapCore', 'mui'], function($, medtapCore, mui) {
 		},
 		getTemplateByOrderType: function(item) {
 			var orderType = item.orderType;
-			var desc = JSON.parse(item.orderDesc);
+			var desc = !!item.hasOwnProperty('orderDesc') ? JSON.parse(item.orderDesc) : '';
 			var str = '';
 			switch(orderType) {
 				case 'ZZFZ':
